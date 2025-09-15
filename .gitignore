@@ -1,0 +1,10 @@
+# WordPress core files
+wp-admin/
+wp-includes/
+
+# Ignore uploads
+wp-content/uploads/
+
+# Ignore cache and logs
+*.log
+cache/
