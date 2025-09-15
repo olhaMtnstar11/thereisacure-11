@@ -1,0 +1,2969 @@
+@charset "UTF-8";
+/*
+Version: 1.0.51
+Editor: Olha Shcheniavska
+*/
+
+@import url('assets/css/normalize.css');
+@import url('assets/css/grid.css');
+@import url('assets/css/effects.css');
+
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+/*---Reset styles---*/
+/*---Fonts---*/
+
+
+/*
+
+
+@font-face {
+    font-family: 'SilkaMono';
+    src: url('assets/fonts/silkamono-medium.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Silka';
+    src: url('assets/fonts/silka-regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+}
+
+
+@font-face {
+    font-family: 'Silkaextra_light';
+    src: url('assets/fonts/silka-extralight-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/silka-extralight-webfont.woff2') format('woff2'),
+    url('assets/fonts/silka-extralight-webfont.woff') format('woff'),
+    url('assets/fonts/silka-extralight-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Silkaextra_light_Italic';
+    src: url('assets/fonts/silka-extralightitalic-webfont.eot');
+    src: url('assets/fonts/silka-extralightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/silka-extralightitalic-webfont.woff2') format('woff2'),
+    url('assets/fonts/silka-extralightitalic-webfont.woff') format('woff'),
+    url('assets/fonts/silka-extralightitalic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Silkalight';
+    src: url('assets/fonts/silka-light-webfont.eot');
+    src: url('assets/fonts/silka-light-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/silka-light-webfont.woff2') format('woff2'),
+    url('assets/fonts/silka-light-webfont.woff') format('woff'),
+    url('assets/fonts/silka-light-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Silkalight_Italic';
+    src: url('assets/fonts/silka-lightitalic-webfont.eot');
+    src: url('assets/fonts/silka-lightitalic-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/silka-lightitalic-webfont.woff2') format('woff2'),
+    url('assets/fonts/silka-lightitalic-webfont.woff') format('woff'),
+    url('assets/fonts/silka-lightitalic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+
+
+
+
+@font-face {
+    font-family: 'Silkathin';
+    src: url('assets/fonts/silka-thin-webfont.eot');
+    src: url('assets/fonts/silka-thin-webfont.eot?#iefix') format('embedded-opentype'),
+    url('assets/fonts/silka-thin-webfont.woff2') format('woff2'),
+    url('assets/fonts/silka-thin-webfont.woff') format('woff'),
+    url('assets/fonts/silka-thin-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+@font-face {
+    font-family: 'CPMono_v07 Light';
+    font-style: normal;
+    font-weight: normal;
+    src: local('CPMono_v07 Light'), url('assets/fonts/CPMono_v07_Light.woff') format('woff');
+}
+
+
+
+
+
+
+
+
+
+
+@font-face {
+    font-family: 'BodoniBook_6';
+    src: url('assets/fonts/bodoniMaster/BodoniModa-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'BodoniItalic_6';
+    src: url('assets/fonts/bodoni/Bodoni-06-Book-Italic.otf') format('opentype');
+    font-weight: normal;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'BodoniBook_11';
+    src: url('assets/fonts/bodoni/Bodoni-36-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BodoniBook_24';
+    src: url('assets/fonts/bodoni/Bodoni-24-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BodoniBook_36';
+    src: url('assets/fonts/bodoni/Bodoni-36-Book.otf') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'BodoniBook_48';
+    src: url('assets/fonts/bodoni/Bodoni-48-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BodoniBook_72';
+    src: url('assets/fonts/bodoni/Bodoni-72-Book.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+*/
+@font-face {
+    font-family: 'JetBrainsMono';
+url('assets/fonts/jetBrainsMono/ttf/JetBrainsMono-Medium.woff2') format('woff2'),
+url('assets/fonts/jetBrainsMono/ttf/JetBrainsMono-Medium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'iA Writer Duo';
+    src: url('assets/fonts/iA Writer Duo/Variable/iAWriterDuoV.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*---/.Fonts---*/
+/*---general styles---*/
+
+
+body {
+    background: #ffffff;
+    font-size: 24px;
+    font-family: 'Bodoni 6', serif;
+    font-weight: 300;
+    color: #000000;
+    font-variant-numeric: oldstyle-nums;
+}
+
+body.light-mode {
+    background: white;
+    font-size: 24px;
+    font-family: 'Bodoni 6', serif;
+    font-feature-settings: "onum"; /* Old Style numerals */
+    font-weight: 300;
+    color: black;
+}
+
+#theme-toggle {
+    cursor: pointer;
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    position: fixed;
+    top: 42px;
+    right: 10px;
+    /*
+        top: 42px;
+        right: 280px;
+    */
+
+}
+
+
+* {
+    outline: none;
+    background-repeat: no-repeat;
+}
+
+img {
+
+    height: auto;
+    width: auto;
+}
+
+i {
+    font-style: italic;
+}
+
+ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0;
+}
+
+p, li {
+    line-height: 1.5;
+    /* line-height: 1.875; */
+}
+
+.half ul, .half ol {
+    margin-top: 0;
+    padding-bottom: 1em;
+}
+
+a {
+    text-decoration: none;
+    color: #000000;
+    color: #000000
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+.email-link.light-mode {
+    color: black;
+}
+
+
+.header-nav a:hover {
+    /*  text-decoration: underline; */
+    color: #0867E8;
+    /*  text-underline-offset: 5px;*/
+    /*   text-decoration-color: #0867E8; /* Change underline color */
+}
+
+p {
+    display: block;
+    line-height: 1.5;
+    margin-bottom: 2.1em;
+    margin-top: 0;
+}
+
+img.aligncenter {
+    position: relative;
+    margin: 0 auto;
+}
+
+p b, p strong, b, strong {
+    font-weight: 700;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+.mobile {
+    display: none;
+}
+
+.capitalize {
+    text-transform: uppercase;
+}
+
+.uncapitalize {
+    text-transform: unset;
+}
+
+.center {
+    position: relative;
+    margin: 0 auto;
+}
+
+.center-text {
+    text-align: center;
+}
+
+#all-content-wrapper {
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+    min-height: 2px;
+}
+
+.flex.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex.flex-space-around {
+    -webkit-justify-content: space-around;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+}
+
+.flex.flex-space-between {
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+}
+
+.flex-align-center {
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.flex-align-bottom {
+    -webkit-align-items: flex-end;
+    align-items: flex-end;
+}
+
+.flex-align-top {
+    -webkit-align-items: flex-start;
+    align-items: flex-start;
+}
+
+.flex.flex-top {
+    -webkit-justify-content: flex-start;
+    justify-content: flex-start;
+}
+
+.flex.flex-end {
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.no-link {
+    pointer-events: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 42px;
+}
+
+
+h2 {
+    font-family: "Bodoni 11", serif;
+    font-weight: 500;
+    font-size: 72px;
+    display: block;
+}
+
+h1 {
+    font-family: "Bodoni 48", serif;
+    font-weight: 700;
+}
+
+
+h4 {
+    font-family: iA Writer Duo, sans-serif;
+    text-transform: lowercase;
+    letter-spacing: 2px;
+    font-size: 24px;
+    margin-bottom: 74px;
+    font-variant: small-caps;
+    font-variant-caps: small-caps;
+    font-weight: 300;
+    line-height: 1.0;
+}
+
+section {
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: top center;
+    -webkit-background-size: cover;
+    background-size: cover;
+}
+
+.half {
+    width: 50%;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+/* -------------------------------------- Buttons -------------------------------------- */
+input[type="submit"], .btn a {
+    margin-left: auto; /* Push it to the right */
+    margin-right: 0;
+    cursor: pointer;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-stretch: condensed;
+    display: block;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid #0867E8;
+    background-color: #ffffff;
+    color: #0867E8;
+    text-decoration: none;
+    min-width: 240px;
+    line-height: 1;
+    font-size: 21px;
+    /* border-radius: 35px; */
+}
+
+input[type="submit"].light-mode {
+    background-color: white;
+}
+
+form input[type="submit"]:disabled {
+    border: 2px solid rgba(77, 126, 231, 0.5);
+    color: rgba(77, 126, 231, 0.5);
+
+}
+
+a.btn {
+    font-size: 20px;
+    font-weight: 700;
+    color: #000000;
+}
+
+.box-item-button .btn-section {
+    display: flex; /* Enables flexbox */
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    width: 100%; /* Ensures full width inside max-width */
+    max-width: 400px;
+    height: 80px; /* Ensures consistent height */
+    font-family: 'Bodoni 6', serif;
+    padding: 12px 24px;
+    font-size: 27px;
+    border: 2px solid #0867E8; /* Button border color */
+    color: #0867E8; /* Button text color */
+    text-decoration: none;
+    border-radius: 50px; /* Make the button rounded */
+    transition: all 0.3s ease;
+    text-align: center; /* Ensures text remains centered */
+}
+
+.box-item-button .btn-donate-paypal {
+    display: flex; /* Enables flexbox */
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
+    width: 100%; /* Ensures full width inside max-width */
+    max-width: 400px;
+    height: 80px; /* Ensures consistent height */
+    font-family: 'Bodoni 6', serif;
+    padding: 12px 24px;
+    font-size: 27px;
+    border: 2px solid #0867E8; /* Button border color */
+    color: #0867E8; /* Button text color */
+    text-decoration: none;
+    border-radius: 50px; /* Make the button rounded */
+    transition: all 0.3s ease;
+    text-align: center; /* Ensures text remains centered */
+}
+
+
+.btn-download, .btn-amount {
+    line-height: 23px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black; /* Button border */
+    color: #0867E8; /* Text color */
+    text-decoration: none;
+    background: #222353; /* Button background color */
+    transition: all 0.3s ease;
+    font-family: 'Bodoni 6', serif;
+    padding: 0 24px;
+    font-size: 24px;
+    height: 64px; /* Ensures consistent height */
+    max-width: 400px;
+    position: relative;
+    cursor: pointer;
+}
+
+.btn-download.light-mode, .btn-amount.light-mode {
+    border: 1px solid white; /* Button border */
+    color: #0867E8; /* Text color */
+    background: rgba(34, 35, 83, 0.15); /* Button background color */
+
+}
+
+/* Add vertical black line and icon before text */
+.btn-download::before {
+    content: "\2193"; /* Unicode for down arrow */
+    font-size: 20px;
+    color: #0867E8;
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: 2px solid black; /* Black vertical line */
+    height: 100%; /* Full height */
+    display: flex;
+    align-items: center;
+}
+
+/* Add vertical black line and icon before text */
+.btn-amount::before {
+    content: "$"; /* Unicode for down arrow */
+    font-size: 20px;
+    color: #0867E8;
+    margin-right: 16px;
+    padding-right: 16px;
+    border-right: 2px solid black; /* Black vertical line */
+    height: 100%; /* Full height */
+    display: flex;
+    align-items: center;
+}
+
+.btn-download.light-mode::before, .btn-amount.light-mode::before {
+
+    border-right: 2px solid #ffffff; /* Black vertical line */
+
+}
+
+
+.btn-download:hover, .btn-amount:hover {
+    color: #0867E8;
+    background: #2f3870c9; /* Lighter shade on hover */
+}
+
+.btn-download.light-mode:hover, .btn-amount.light-mode:hover {
+    color: #0867E8;
+    background: rgba(47, 56, 112, 0.38); /* Lighter shade on hover */
+}
+
+/* Download - Button */
+
+.download-button-container {
+    margin-top: 40px;
+    text-align: center; /* Center the button */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+    justify-content: flex-start;
+}
+
+/* Button Hover (Rollover) */
+/* Apply the hover effect when the hover-effect class is added */
+.download-button-container .btn-download.hover-effect, .download-button-container .btn-amount.hover-effect {
+    background: #21285B; /* Darker blue on hover */
+    color: #0867E8;
+}
+
+.download-button-container.research-btn {
+    margin-top: 0;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+
+a.btn:before {
+    content: '';
+    display: inline-block;
+    margin-right: 8px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 12px 0 12px 13px;
+    border-color: transparent transparent transparent #DEC59D;
+    vertical-align: sub;
+}
+
+
+.btn a {
+    padding: 13px 30px;
+    min-width: unset;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+a.btn:hover, .btn a:hover, input[type="submit"]:hover {
+    opacity: 0.8;
+    background: #6096ef45;
+}
+
+
+/* -------------------------------------- FORM CONTACT US -------------------------------------- */
+
+.container-header {
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 45px !important;
+}
+
+.container {
+    max-width: 930px;
+}
+
+.container-text {
+    max-width: 930px;
+}
+
+
+.container-second {
+    max-width: 1249px;
+}
+
+
+.container.wide-container {
+    max-width: 1249px;
+}
+
+.container.narrow-container {
+    max-width: 1200px;
+}
+
+#mobile-menu, #overlay, #mobile-menu-toggle {
+    display: none;
+}
+
+.default-page {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.default-page h3 {
+    font-size: 32px;
+}
+
+.default-page h5 {
+    font-size: 24px;
+}
+
+.default-page h6 {
+    font-size: 20px;
+}
+
+.default-page ul, .default-page ol {
+    padding-left: 15px;
+    padding-bottom: 36px;
+}
+
+.default-page ul li {
+    position: relative;
+    padding-left: 20px;
+}
+
+.default-page li {
+    margin-bottom: 5px;
+}
+
+.default-page ul li:before {
+    position: absolute;
+    content: '•';
+    display: block;
+    left: 0;
+    color: #b37769;
+}
+
+.single .default-page {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+img.alignleft {
+    float: left;
+    margin-right: 90px;
+}
+
+img.alignright {
+    float: right;
+    margin-left: 90px;
+}
+
+.slick-track {
+    display: flex !important;
+}
+
+.slick-slider {
+    margin-bottom: 0 !important;
+}
+
+.slick-slide {
+    height: inherit !important;
+}
+
+div.black, section.black {
+    background-color: #000;
+}
+
+div.purple, section.purple {
+    background-color: #3d39aa;
+}
+
+.default-hero {
+    padding-top: 200px;
+    padding-bottom: 150px;
+    z-index: 2;
+    background-position: top center;
+    position: relative;
+}
+
+.default-hero h1 {
+    font-family: "BodoniBook_11", serif;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.two-cols {
+    column-count: 2;
+}
+
+.three-cols {
+    column-count: 3;
+}
+
+.four-cols {
+    column-count: 4;
+}
+
+.header-logo {
+    min-width: 120px;
+    display: block;
+}
+.header-logo img {
+
+}
+
+
+
+
+
+/* -------------------------------------- FOOTER -------------------------------------- */
+/*Footer*/
+footer > img {
+    padding-top: 300px;
+}
+
+footer {
+    z-index: 9;
+    position: relative;
+    background-position: bottom center;
+    padding-top: 80px;
+}
+
+.footer-nav {
+    padding-top: 80px;
+    padding-bottom: 200px;
+    color: #000000;
+    font-size: 14px;
+}
+
+.footer-copy {
+    padding-top: 25px;
+}
+
+.footer-info .footer-phone {
+    font-family: BodoniBook_6, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 17px;
+}
+
+.footer-navigation ul {
+    column-count: 2;
+}
+
+footer nav li a {
+    font-weight: 700;
+    color: #000000;
+    font-size: 20px;
+}
+
+footer nav li.btn a {
+    display: none;
+}
+
+footer ul.social {
+    padding-top: 20px;
+}
+
+ul.social {
+    display: flex;
+}
+
+ul.social li {
+    margin-right: 10px;
+}
+
+ul.social li a {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-navigation nav > ul {
+    max-height: 220px;
+    max-width: 320px;
+    display: flex;
+    align-items: flex-start;
+    row-gap: 3px;
+    column-gap: 50px;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+
+ul.social li a:hover {
+    background-color: #fff;
+    color: #000000;
+}
+
+.footer-navigation nav ul li {
+    margin-bottom: 5px;
+    text-decoration-color: #0867E8; /* Change underline color */
+}
+
+.footer-navigation nav ul li a {
+    font-family: iA Writer Duo, sans-serif;
+
+    line-height: 1;
+    color: #000000;
+    font-stretch: normal;
+    font-size: 17px;
+    font-weight: 400;
+    display: inline-block;
+    padding: 0 0;
+    /* text-decoration-color: #0867E8;  Change underline color */
+}
+
+.footer-navigation.light-mode nav ul li a {
+    color: #0867E8;
+    text-decoration-color: #0867E8; /* Change underline color */
+}
+
+.footer-navigation a:hover {
+
+}
+
+.footer-copy {
+    font-family: "BodoniBook_6", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    padding-bottom: 50px;
+    gap: 10px
+}
+
+.footer-copy p {
+    font-family: "BodoniBook_6", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    gap: 10px;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+.footer-copy.light-mode, .footer-copy p.light-mode {
+    font-family: "BodoniBook_6", sans-serif;
+    color: black;
+}
+
+.footer-copy a {
+    color: #000000;
+}
+
+.footer-copy-left {
+    width: 50%;
+}
+
+.footer-copy-left p {
+    margin-bottom: 0;
+    font-size: 14px;
+}
+
+.footer-copy-right {
+    text-transform: uppercase;
+}
+
+.footer-logo {
+    width: 145px;
+    max-width: 450px;
+}
+.footer-logo a img {
+    max-width: 145px;
+    padding-bottom: 36px;
+}
+/* -------------------------------------- HOME HERO -------------------------------------- */
+.home-hero .container {
+    position: relative;
+
+}
+
+
+.home-hero-content h1 {
+    color: #000000;
+    text-transform: uppercase;
+    font-family: BodoniBook_6, sans-serif;
+    font-size: 120px;
+    font-weight: normal;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+
+.home-hero-content-text {
+    padding: 20px 20px 5px 20px;
+    background-color: rgba(0, 0, 0, 0.25);
+    color: #000000;
+    max-width: 620px;
+    margin-bottom: 35px;
+}
+
+.home-hero-content-text a {
+    color: #000000;
+    text-decoration: underline;
+}
+
+.home-hero-content-text p {
+    color: #000000;
+    line-height: 1.7;
+    font-size: 18px;
+}
+
+
+/* -------------------------------------- MODAL WINDOW -------------------------------------- */
+.hidden-content.fancybox-content {
+    position: relative;
+    background: #ffffff;
+    padding-top: 22px;
+    /* padding: 44px 150px 90px 150px;*/
+}
+
+.fancybox-content-padding {
+    padding: 0 10%;
+}
+
+.fancybox-content img {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.fancybox-content img.fancybox-donate {
+    min-width: 150px;
+    width: 100%;
+    max-width: 900px;
+}
+
+.fancybox-custom-close-button {
+    width: 50px;
+    font-family: "BodoniBook_6", sans-serif;
+    font-stretch: condensed;
+    font-size: 10px;
+    display: block;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid white;
+    background-color: white;
+    color: black;
+    text-decoration: none;
+    min-width: 15px;
+    line-height: 1;
+}
+
+.hidden-content {
+    display: none;
+    max-width: 1400px;
+}
+
+.header-nav-right {
+    display: none;
+    margin-right: 30px;
+}
+
+.hidden-content {
+    max-height: 100%; /* Limit modal height */
+    overflow-y: hidden; /* Hide scrollbar by default */
+    padding-top: 50px; /* Space for sticky close button */
+    position: relative;
+}
+
+.hidden-content img {
+max-width: 120px !important;
+    min-width: 120px !important;
+}
+
+.hidden-content.light-mode {
+    background-color: white;
+}
+
+
+
+/* Sticky Close Button */
+.fancybox-custom-close {
+    position: sticky;
+    top: 0;
+    right: 0; /* Align it to the right */
+    z-index: 1001; /* Ensure it's above content */
+    background: rgb(255, 255, 255); /* Dark background for visibility */
+    color: #000000;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: auto; /* Push it to the right */
+    display: block;
+    border: 0;
+}
+
+.fancybox-custom-close.light-mode {
+    background: white; /* Dark background for visibility */
+}
+
+.fancybox-custom-close.light-mode:hover {
+    color: black;
+}
+
+.fancybox-custom-close:hover {
+    color: #000000;
+    opacity: 1;
+}
+
+/* Hide the default Fancybox close button */
+.fancybox-close-small {
+    display: none !important;
+}
+
+.fancybox-custom-close.fancybox-close-small {
+    display: block !important;
+}
+
+/* WebKit Browsers (Chrome, Safari, Edge) */
+.fancybox-content::-webkit-scrollbar {
+    width: 8px; /* Set the width of the scrollbar */
+    height: 5px;
+    opacity: 0; /* Hide scrollbar by default */
+    transition: opacity 0.3s; /* Smooth transition */
+}
+
+.fancybox-content::-webkit-scrollbar-thumb {
+    padding: 2px 2px;
+    background-color: #515151; /* Color of the thumb */
+    border-radius: 10px;
+}
+
+/* Show scrollbar when hovering or scrolling */
+.fancybox-content:hover::-webkit-scrollbar,
+.fancybox-content:focus::-webkit-scrollbar {
+    opacity: 1; /* Make scrollbar visible */
+}
+
+/* Hover effect on scrollbar thumb */
+.fancybox-content::-webkit-scrollbar-thumb:hover {
+    background-color: #434343; /* Darken the thumb on hover */
+}
+
+.fancybox-content {
+    scrollbar-width: thin;
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+    overflow-y: scroll; /* Ensure scrolling is enabled */
+    scrollbar-color: #515151 #1e1e1e;
+}
+
+/* Disable scrolling when Fancybox modal is open */
+body.fancybox-active {
+    overflow: hidden;
+    touch-action: none; /* Prevent touch gestures */
+}
+
+/* -------------------------------------- text -------------------------------------- */
+.small-caps {
+    font-variant: small-caps;
+    font-variant-caps: small-caps;
+}
+
+.wide-letter-spacing {
+    letter-spacing: 2px;
+}
+
+.plain-text {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.home-about-thumb {
+    width: 35%;
+}
+
+.home .plain-text .container img {
+    height: 100%;
+    width: 100%;
+}
+
+.home-about {
+    padding-top: 100px;
+}
+
+.home-about-text {
+    width: 100%;
+}
+
+.board-list-item {
+    padding: 0 0 150px 0;
+}
+
+.board-list-item-text h3 {
+    font-size: 44px;
+    margin-bottom: 6px;
+}
+
+.board-list-item-text h4 {
+    font-size: 21px;
+    margin-bottom: 40px;
+}
+
+.board-list-item-text p {
+    margin-bottom: 1em;
+}
+
+.board-list-item-text {
+    padding-left: 50px;
+}
+
+.two-columns .flex {
+    flex-wrap: wrap;
+}
+
+.two-columns-text {
+    padding-right: 50px;
+}
+
+.board {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+
+.bio-blocks-list ul {
+    list-style: disc;
+    padding-left: 1em;
+    margin-bottom: 1.5em;
+}
+
+.bio-blocks-list ul li ul {
+    list-style: circle;
+}
+
+.board-list-item-text ul {
+    margin-bottom: 1.5em;
+}
+
+.board-list-item-text ul li a {
+    font-weight: 700;
+    color: #0867E8;
+}
+
+
+.plain-text ul {
+    list-style: initial;
+    margin-left: 50px;
+    margin-bottom: 1.5em;
+}
+
+.plain-text ul li {
+    padding-bottom: 25px;
+}
+
+.fullwidth {
+    width: 100% !important;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.board-list-item-text.fullwidth {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.fullwidth {
+    width: 100% !important;
+}
+
+.plain-text h4.top-padding {
+    padding-top: 50px;
+}
+
+
+.page-template-scientists-php .board-list {
+    padding-top: 100px;
+}
+
+
+/* -------------------------------------- FORM CONTACT US -------------------------------------- */
+form span {
+    width: 100%;
+    display: block;
+    margin-bottom: 16px;
+}
+
+form span input {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px solid #0867E8;
+}
+
+form span input::placeholder {
+    color: #0867E8; /* Change to your desired color */
+    opacity: 1; /* Ensure full visibility in some browsers */
+}
+
+form textarea {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    resize: none;
+    height: 150px;
+    width: 100%;
+    padding-left: 20px;
+    padding-top: 15px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px solid #0867E8;
+}
+
+form textarea.light-mode {
+    color: #ffffff;
+    background-color: #000000;
+    border: 2px solid #0867E8;
+}
+
+form textarea::placeholder {
+    color: #0867E8; /* Change to your desired color */
+    opacity: 1; /* Ensure full visibility in some browsers */
+}
+
+/* General input styles */
+.wpcf7-text,
+.wpcf7-email,
+.wpcf7-tel,
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    color: #000000 !important; /* Force user-typed text to stay white */
+    background-color: #ffffff !important;
+    border: 2px solid #0867E8;
+}
+
+.wpcf7-text.light-mode,
+.wpcf7-email.light-mode,
+.wpcf7-tel.light-mode {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    color: #ffffff !important; /* Force user-typed text to stay white */
+    background-color: #000000 !important;
+    border: 2px solid #0867E8;
+}
+
+/* Placeholder color */
+.wpcf7-text::placeholder,
+.wpcf7-email::placeholder,
+.wpcf7-textarea::placeholder,
+.wpcf7-tel::placeholder,
+input::placeholder,
+textarea::placeholder {
+    color: #0867E8 !important;
+    opacity: 1 !important;
+}
+
+/* Autofill styles */
+.wpcf7-text:-webkit-autofill,
+.wpcf7-email:-webkit-autofill,
+.wpcf7-textarea:-webkit-autofill,
+.wpcf7-tel:-webkit-autofill,
+input:-webkit-autofill {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+.wpcf7-text.light-mode:-webkit-autofill,
+.wpcf7-email.light-mode:-webkit-autofill,
+.wpcf7-textarea.light-mode:-webkit-autofill,
+.wpcf7-tel.light-mode:-webkit-autofill,
+input:-webkit-autofill {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/*  FORCE text color to stay white while typing */
+.wpcf7-text:focus,
+.wpcf7-email:focus,
+.wpcf7-textarea:focus,
+.wpcf7-tel:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    color: #000000 !important; /* Keep user-typed text white */
+}
+
+.wpcf7-text.light-mode:focus,
+.wpcf7-email.light-mode:focus,
+.wpcf7-textarea.light-mode:focus,
+.wpcf7-tel.light-mode:focus,
+input[type="text"].light-mode:focus,
+input[type="email"].light-mode:focus,
+input[type="tel"].light-mode:focus,
+textarea.light-mode:focus {
+    color: black !important; /* Keep user-typed text white */
+}
+
+/* Fix for browsers that ignore :focus */
+.wpcf7-text,
+.wpcf7-email,
+.wpcf7-textarea,
+.wpcf7-tel,
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    caret-color: #000000 !important; /* Ensure cursor remains visible */
+}
+
+.wpcf7-text.light-mode,
+.wpcf7-email.light-mode,
+.wpcf7-textarea.light-mode,
+.wpcf7-tel.light-mode,
+input[type="text"].light-mode,
+input[type="email"].light-mode,
+input[type="tel"].light-mode,
+textarea {
+    caret-color: #000000 !important; /* Ensure cursor remains visible */
+}
+
+.wpcf7-not-valid-tip {
+    font-size: 19px;
+}
+
+/* -------------------------------------- FORM CONTACT US -------------------------------------- */
+/* Style the <select> elements (dropdown) */
+form select,
+.wpcf7-select {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    color: #000000 !important; /* Ensure text color stays white */
+    background-color: #ffffff !important;
+    border: 2px solid #0867E8;
+    -webkit-appearance: none; /* Remove default appearance in Webkit browsers */
+    -moz-appearance: none; /* Remove default appearance in Firefox */
+    appearance: none; /* Remove default appearance in modern browsers */
+}
+
+/* Light mode for <select> elements */
+form select.light-mode,
+.wpcf7-select.light-mode {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    width: 100%;
+    height: 60px;
+    padding-left: 20px;
+    color: #ffffff !important; /* Ensure text color stays black */
+    background-color: #000000 !important;
+    border: 2px solid #0867E8;
+}
+
+/* Placeholder color for <select> */
+form select::placeholder,
+.wpcf7-select::placeholder {
+    color: #0867E8 !important;
+    opacity: 1 !important;
+}
+
+/* Autofill styles for <select> elements */
+form select:-webkit-autofill,
+.wpcf7-select:-webkit-autofill {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
+    -webkit-text-fill-color: #000000 !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+form select.light-mode:-webkit-autofill,
+.wpcf7-select.light-mode:-webkit-autofill {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: background-color 5000s ease-in-out 0s !important;
+}
+
+/* Focus styles for <select> */
+form select:focus,
+.wpcf7-select:focus {
+    color: #000000 !important; /* Ensure text stays white on focus */
+    border-color: #0867E8 !important; /* Focus border color */
+}
+
+form select.light-mode:focus,
+.wpcf7-select.light-mode:focus {
+    color: #ffffff !important; /* Ensure text stays black on focus */
+    border-color: #0867E8 !important; /* Focus border color */
+}
+
+/* Remove the default dropdown arrow and add a custom white one */
+form select,
+.wpcf7-select {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 6%22%3E%3Cpath d=%22M5 6l5-5H0z%22 fill=%22%23ffffff%22/%3E%3C/svg%3E'); /* Set arrow to white by changing the fill to #ffffff */
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+}
+
+/* Remove the default dropdown arrow and add a custom one (if needed) */
+form select.light-mode,
+.wpcf7-select.light-mode {
+    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 10 6%22%3E%3Cpath d=%22M5 6l5-5H0z%22/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px 8px;
+}
+
+
+/* Add custom styles for the dropdown list (optional) */
+form select option {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Light mode styles for options */
+form select.light-mode option {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* -------------------------------------- FORM CONTACT US -------------------------------------- */
+
+
+.svg-container {
+    width: 100%; /* Adjust as needed */
+    height: auto; /* Adjust as needed */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.desktop {
+    width: 100%;
+    height: auto;
+}
+
+.home .plain-text .container img .isabella-image {
+    max-width: 350px;
+    height: auto;
+    margin-top: 0px;
+}
+
+/* -------------------------------------- LINE BETWEEN SECTION-------------------------------------- */
+.section-line {
+    width: 100%; /* Ensure it spans the entire container width */
+    max-width: 1249px; /* Match the width of the .container-text class */
+    margin: 0 auto; /* Center the line */
+    height: 3px;
+    background-color: #717171;
+}
+
+/* Section for box, where pictures , short description and button learn more */
+.box-items {
+    display: flex;
+    flex-direction: column;
+    gap: 50px; /* Space between items */
+}
+
+.box-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 50px 0;
+}
+
+.box-item-image {
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.box-item-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.box-item-content {
+    flex: 0 0 50%;
+    max-width: 50%;
+    text-align: left;
+    padding-left: 50px;
+}
+
+.box-title {
+    font-size: 44px; /* Match the title size from the design */
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.box-text {
+    font-size: 18px;
+    color: #000000; /* Adjust color to match the design */
+    line-height: 1.6;
+}
+
+.box-item-button .btn-section:hover {
+    background: #6096ef45;
+    color: #0867E8;
+}
+
+.box-item-button .btn-donate-paypal:hover {
+    border: 2px solid #ffffff; /* Button border color */
+    background-color: #e0ac00;
+    color: #ffffff;
+}
+
+/* Line Divider
+.line-container {
+    display: flex;
+    justify-content: center;
+
+}
+
+.section-line {
+    width: 100%;
+    max-width: 1249px;
+    height: 1px;
+    background-color: #717171;
+}
+*/
+.line-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0; /* Optional */
+}
+
+.section-line-with-squares {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 1249px;
+}
+
+.square {
+    width: 6px;
+    height: 6px;
+    background-color: #0867E8;
+    flex-shrink: 0; /* prevent shrinking */
+}
+
+.section-line {
+    height: 1px;
+    background-color: #0867E8;
+    flex-grow: 1; /* take all available space between squares */
+}
+
+
+#privacy-policy h2, #privacy-policy h3, #terms-of-use h2, #terms-of-use h3, .accordion-title {
+    font-family: "Bodoni 11", serif;
+    font-weight: 500;
+    font-size: 36px;
+}
+
+#privacy-policy h2, #terms-of-use h2 {
+   margin-top: 100px;
+}
+
+.isa-photo-mobile-container {
+    display: none;
+}
+
+.isa-photo-desktop {
+    display: block;
+}
+
+.keypoints-image-mobile {
+    display: none;
+}
+
+.keypoints-image-desktop {
+    display: block;
+}
+
+.qa-mobile {
+    display: none;
+}
+
+.qa-desktop {
+    display: block;
+}
+
+
+.footer-navigation {
+    width: 355px;
+}
+
+.fancybox-slide--html .fancybox-close-small {
+    width: 50px;
+    height: 50px;
+}
+
+.cvs-link {
+    font-weight: 600;
+    font-family: 'Bodoni 6', serif;
+    text-decoration: underline;
+    letter-spacing: 0.5px;
+    color: #000000;
+    text-underline-offset: 5px;
+    text-decoration-color: #000000;
+}
+
+.cvs-link.light-mode {
+    color: black;
+    text-underline-offset: 5px;
+    text-decoration-color: black;
+}
+
+.cvs-link:hover {
+    text-decoration: underline;
+    text-decoration-color: #fff;
+}
+
+.cvs-link.light-mode:hover {
+    text-decoration-color: #000000;
+}
+
+.two-columns {
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.box-outline {
+    margin: 50px 0;
+    padding: 50px 40px;
+    border: 1px solid #0867E8;
+}
+
+.box-outline h2 {
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 44px;
+}
+
+.box-outline p {
+    margin-bottom: 25px;
+}
+
+.box-outline ul {
+    margin-bottom: 0;
+}
+
+.box-outline p:last-child {
+    margin-bottom: 0;
+}
+
+.point {
+    background-color: #000000;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.point.light-mode {
+    background-color: #0867E8;
+}
+
+.point-container {
+    margin: 50px 0;
+}
+
+.blue-text {
+    font-family: 'Bodoni 6', serif;
+    color: #0867E8;
+}
+
+
+/*---------- neeewwww classessssss --- have to move to the right place!!!------------------------------------*/
+
+/* Ensure icons are in one row */
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    display: flex; /* Makes items stay in one row */
+    gap: 30px; /* Space between icons */
+    justify-content: center; /* Centers icons horizontally */
+    align-items: center; /* Aligns icons vertically */
+}
+
+.social-links li {
+    display: inline-block;
+}
+
+.social-links a {
+    font-size: 27px; /* Adjust size */
+    color: #000000; /* Default text color */
+    text-decoration: none;
+    position: relative; /* Needed for underline effect */
+    padding-bottom: 3px; /* Space for underline */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Space between icon and text */
+}
+
+/* Hover effect: Blue underline (#0867E8, 1px thick) */
+.social-links a::after {
+    content: '';
+    position: absolute;
+    left: 50%; /* Starts from center */
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: #0867E8; /* Blue underline */
+    transition: width 0s ease-in-out, left 0s ease-in-out;
+}
+
+.social-links a:hover::after {
+    width: 100%; /* Expand underline */
+    left: 0; /* Moves to full width */
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjust space between buttons */
+    position: absolute;
+    bottom: 50px; /* Adjust the position from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 75vh;
+}
+
+.button {
+    display: flex;
+    align-items: center; /* Centers vertically */
+    justify-content: center; /* Centers horizontally */
+    cursor: pointer;
+
+    font-size: 17px;
+    font-family: "BodoniBook_6", sans-serif;
+    outline: none;
+!important;
+    text-align: center;
+    height: 47px; /* Ensures enough space for proper vertical centering */
+    min-width: 130px; /* Adjust based on button size preference */
+}
+
+
+
+
+#mobile-menu > nav > div > a {
+    font-size: 17px !important;
+    text-transform: uppercase;
+    padding-top: 13px;
+    padding-bottom: 15px;
+    display: block;
+    font-family: "iA Writer Duo", sans-serif;
+}
+
+
+
+/*
+.nav-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    height: 100%;
+    justify-content: center;
+    margin-right: 60px;
+}
+*/
+
+/* Highlight active section links (via JavaScript) */
+/*
+.nav-header li.active-menu-item,
+.nav-mobile li.active-menu-item,
+.nav-header .current-menu-item > li,
+.nav-header .current_page_item > li,
+.nav-mobile .current-menu-item > li,
+.nav-mobile .current_page_item >li {
+    color: #ffffff !important;
+    font-weight: bold;
+    background-color: #0867E8 !important;
+}
+*/
+
+/* Override highlight ONLY for Donate button */
+/*
+.donate-menu-item a,
+.donate-menu-item.current-menu-item > a,
+.donate-menu-item .active-menu-item,
+.donate-menu-item.current_page_item > a {
+    color: white !important;
+    font-weight: normal !important;
+}
+*/
+/* ✅ Apply background to full <li> */
+/*
+.nav-header li.active-menu-item,
+.nav-mobile li.active-menu-item,
+.nav-header li.current-menu-item,
+.nav-header li.current_page_item,
+.nav-mobile li.current-menu-item,
+.nav-mobile li.current_page_item {
+    background-color: #0867E8 !important;
+}
+*/
+
+/* ✅ Style the link text inside */
+/*
+.nav-header li.active-menu-item > a,
+.nav-mobile li.active-menu-item > a,
+.nav-header li.current-menu-item > a,
+.nav-header li.current_page_item > a,
+.nav-mobile li.current-menu-item > a,
+.nav-mobile li.current_page_item > a {
+    color: #ffffff !important;
+    font-weight: bold;
+}
+*/
+
+
+
+.home-hero {
+    position: relative;
+    top: 120px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Pushes content to the bottom */
+    align-items: flex-start; /* Centers the buttons */
+    margin-bottom: 100px;
+}
+
+
+/*---------- neeewwww classessssss --- have to move to the right place!!!------------------------------------*/
+
+
+.visible-menu {
+    color: #000000;
+    font-family: "BodoniBook_6", sans-serif;
+    font-stretch: normal;
+    display: flex;
+    position: absolute;
+    top: 31vh;
+    text-align: right;
+    right: 25px;
+    font-size: 18px !important;
+    text-shadow: 3px 3px 3px rgba(52, 38, 89, 0.42);
+}
+
+.visible-menu a {
+    line-height: 1.7 !important;
+}
+
+.hero-text {
+    max-width: 360px;
+    color: #000000;
+    font-family: "BodoniBook_6", sans-serif;
+    font-stretch: normal;
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    line-height: 1;
+    padding: 0 0px !important;
+    position: absolute;
+    top: 31vh;
+    text-align: center;
+    right: 21vw;
+    flex-direction: column;
+    text-shadow: 3px 3px 3px rgba(52, 38, 89, 0.42);
+}
+
+.donate-hero-text {
+    max-width: 360px;
+    color: #000000;
+    font-family: "BodoniBook_6", sans-serif;
+    font-stretch: normal;
+    font-size: 14px;
+    font-weight: 300;
+    display: flex;
+    line-height: 1;
+    padding: 0 0px !important;
+    position: absolute;
+    top: 31vh;
+    text-align: center;
+    right: 21vw;
+    flex-direction: column;
+    text-shadow: 3px 3px 3px rgba(52, 38, 89, 0.42);
+}
+
+.hero-text-mobile p {
+    color: #000000;
+    font-family: "BodoniBook_6", sans-serif !important;
+    font-stretch: normal;
+    font-size: 14px;
+    font-weight: 300;
+    text-shadow: 3px 3px 3px rgba(52, 38, 89, 0.42);
+}
+
+.hover-button-text {
+    color: #000000;
+    font-family: "BodoniBook_6", sans-serif;
+    font-stretch: normal;
+    font-size: 14px;
+    font-weight: 300;
+    display: inline-block;
+    line-height: 1;
+    padding: 0 0 !important;
+    position: absolute;
+    bottom: 50px; /* Adjust the position from the bottom */
+    left: 50%;
+    transform: translateX(-50%);
+    top: 84vh;
+    text-align: center;
+}
+
+.button-hover-text-donate,
+.button-hover-text-join {
+    line-height: 1.5;
+    text-align: center;
+    display: none;
+}
+
+.email-donate:hover {
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    text-decoration-color: #0867E8;
+}
+
+.home-hero-bg {
+    width: 100%;
+    height: 100%; /* or use a fixed height like 500px */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.board-list-item-thumb img {
+    min-width: 350px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.italic {
+    font-family: "Bodoni 6", serif;
+    font-style: italic;
+}
+
+.italic-mobile {
+    padding-left: 0;
+    font-family: "Bodoni 6", serif;
+    font-style: normal;
+    margin-bottom: 200px;
+}
+
+
+/* FAQ Section */
+.faq-timeline-list {
+    position: relative;
+    list-style: none !important;
+    margin: 0 0 0 500px !important;
+    padding: 0;
+
+}
+
+/* Invisible reCAPTCHA v3 */
+.grecaptcha-badge {
+    display: none !important;
+}
+
+/* Invisible reCAPTCHA v3 */
+
+.contact-link.light-mode {
+    color: black;
+}
+
+#theme-toggle i {
+    color: white; /* default for dark theme */
+    transition: color 0.3s ease;
+}
+
+body.light-mode #theme-toggle i {
+    color: black; /* light theme icon color */
+}
+
+
+.after-title {
+    margin-bottom: 30px;
+}
+
+
+/* from mission section */
+.italic-box {
+    font-style: italic;
+    max-width: 270px;
+}
+
+/* from mission section */
+
+/* Just download file block */
+.download-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+
+}
+
+.download-block-left {
+
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: space-between;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 20px;
+}
+
+.download-block-left img {
+    margin-bottom: 18px;
+    margin-top: 30px;
+}
+
+.download-block-right {
+    width: 200px
+}
+
+.download-block-right img {
+    margin: 0 0 !important;
+}
+.download-block-title {
+    font-size: 16px;
+    color: #0867E8;
+
+}
+
+.download-block-subtitle {
+
+}
+
+.download-block-btn {
+    cursor: pointer;
+    font-weight: 300;
+font-size: 27px;
+    color: #0e0e0e;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+    text-decoration: none;
+}
+
+.download-block-btn .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    font-size: 18px;
+
+}
+.download-block-btn:hover {
+    color: #0867E8;
+}
+.download-block img {
+    max-width: 350px;
+border: black 1px solid;
+}
+
+/* Just download file block */
+
+/* Just font-family classes */
+.font-bodoni-italic-6 {
+    font-family: "Bodoni 6", serif;;
+    font-style: italic;
+}
+
+.font-bodoni-book-6 {
+    font-family: 'Bodoni 6', serif;
+}
+
+.font-bodoni-book-11 {
+    font-family: 'Bodoni 11', serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.font-ia-writer-duo {
+    font-family: 'iA Writer Duo', sans-serif;
+}
+
+.font-bodoni-book-24 {
+    font-family: 'Bodoni 24', serif;
+}
+
+/* Just font-family classes */
+
+
+/* Isa Story Section */
+.story-images-row {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping on small screens */
+    justify-content: center;
+    margin-bottom: 2.1em;
+
+}
+
+.story-image {
+    flex: 1 1 48%; /* two images take ~50% each with gap */
+}
+
+.story-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain; /* or use 'cover' depending on the image */
+}
+
+/* Isa Story Section */
+
+
+/* FAQ Section */
+.faq-timeline-list {
+    position: relative;
+    list-style: none !important;
+    margin: 0 0 0 60px !important;
+    padding: 0;
+
+}
+
+.faq-timeline-list li {
+    position: relative;
+    padding-left: 34px;
+    font-family: iA Writer Duo, sans-serif;
+
+}
+
+.faq-timeline-list li::before {
+    content: "";
+    position: absolute;
+    left: -5px;
+    top: 1.1em;
+    width: 9px;
+    height: 9px;
+    background-color: #0867E8; /* Blue square */
+    z-index: 2;
+}
+
+/* Create the vertical line as a pseudo-element */
+.faq-timeline-list li::after {
+    content: "";
+    position: absolute;
+    left: -1px;
+    top: 1em;
+    bottom: -45px;
+    width: 1px;
+    background-color: #0867E8;
+    z-index: 1;
+}
+
+/* Remove top connector for first item */
+.faq-timeline-list li:first-child::after {
+    top: 1.5em; /* Shift start of line lower */
+
+}
+
+.faq-timeline-list li:first-child {
+    padding-top: 18px;
+
+}
+
+/* Remove bottom connector for last item */
+.faq-timeline-list li:last-child::after {
+    background-color: #ffffff;
+}
+
+.point-text {
+    display: block;
+    /*   line-height: 1.5;*/
+}
+
+.faq-timeline-list li:last-child::before {
+    top: 14px;
+}
+
+/* FAQ Section */
+
+
+/* Key Points Section */
+.key-points {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.key-point-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+
+    padding-left: 20px;
+    position: relative;
+}
+
+
+.key-point-name {
+    color: #0867E8;
+    flex: 0 0 10%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: stretch;
+}
+
+.key-point-content {
+    flex: 1;
+    text-align: left;
+}
+
+/* Key Points Section */
+.donate-menu-item a {
+    background-color: #0867E8;
+    color: white !important;
+    padding: 10px 30px !important;
+    border-radius: 20px;
+    display: inline-block !important;
+    text-align: center;
+}
+
+
+
+.back-link {
+    font-family: iA Writer Duo, sans-serif;
+    text-transform: uppercase;
+    font-size: 24px;
+    color: #0867E8;
+    margin: 40px 0;
+}
+
+.back-link a {
+    color: #000000;
+}
+
+.back-link a:hover {
+    color: #0867E8;
+}
+
+.bio-button:hover {
+    opacity: 0.8;
+    background: #6096ef45;
+}
+
+.partner-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    margin: 50px 0;
+}
+
+.partner-logos a {
+    max-width: 200px;
+}
+
+.partner-logo img {
+    cursor: pointer;
+    max-height: 80px;
+    width: 100%;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.partner-logo img:hover {
+    transform: scale(1.1);
+}
+
+
+
+
+
+.faq-timeline-list a {
+    cursor: pointer;
+    color: #0867E8;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+    /* FAQ Section */
+    .faq-timeline-list {
+        margin: 0 0 0 10px !important;
+    }
+}
+
+@media (max-width: 966px) {
+    body {
+        font-family: "Bodoni 6", serif;
+        font-size: 16px;
+        color: #000000;
+    }
+
+    body p {
+
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .container-header {
+        padding-right: 20px !important;
+    }
+
+    .home-about-thumb, .board-list-item-thumb {
+        width: 100% !important;
+    }
+
+    .board {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .btn-download, .btn-amount {
+        align-items: center;
+        font-size: 19px;
+        padding: 0 20px;
+        line-height: 20px;
+        height: 54px;
+    }
+
+    .hidden-content.fancybox-content {
+        background: #ffffff;
+        padding: 0;
+    }
+
+    .footer-navigation nav > ul {
+        flex-wrap: nowrap;
+    }
+
+    .plain-text ul {
+        margin-left: 15px;
+    }
+
+    h2 {
+        font-size: 36px;
+        line-height: 1.2;
+        font-family: "Bodoni 11", serif;
+        font-weight: 500;
+    }
+
+    h4 {
+        font-size: 20px;
+    }
+
+
+    .header-nav > .container {
+
+        padding-right: 15px;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        width: 280px;
+
+    }
+
+
+    .mobile {
+        display: block;
+    }
+
+    .header-nav-right {
+        display: flex;
+        align-items: center;
+        padding-right: 10px;
+        padding-bottom: 0px;
+        margin-right: 10px;
+        margin-top: 7px;
+    }
+
+    #mobile-menu nav > ul > li.btn {
+        margin-left: 0; /* 0.52vw */
+    }
+
+
+    /* what? */
+    #mobile-menu nav > ul > li.btn > a {
+        font-family: "iA Writer Duo", sans-serif;
+        font-stretch: condensed;
+        font-size: 24px;
+        font-weight: 700;
+        display: inline-block;
+        color: #000;
+        padding: 20px 40px;
+        box-sizing: border-box;
+        text-align: center;
+        background-color: #DEC59D;
+
+        line-height: 1;
+    }
+
+    /* what? */
+    #mobile-menu nav > ul > li.btn.black {
+        display: none;
+    }
+
+    #mobile-menu-toggle {
+        display: block;
+        z-index: 999;
+    }
+
+    .header-nav nav {
+        display: none !important;
+    }
+
+    #mobile-menu-toggle {
+        width: 40px;
+        z-index: 999;
+        position: relative;
+    }
+
+
+    #mobile-menu-toggle span:not(:last-child) {
+        margin-bottom: 9px;
+    }
+
+    #header-mobile-donate {
+        margin-right: 30px;
+        padding: 13px 30px !important;
+        font-size: 18px;
+        min-width: unset !important;
+    }
+
+    #mobile-menu {
+        max-height: 100vh;
+        overflow-y: scroll;
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        padding: 100px 0 110px 0;
+        z-index: 99;
+        width: 100%;
+        backdrop-filter: blur(10px);
+        background-color: rgb(255, 255, 255) /* Apply background only after 700px scroll */
+    }
+
+
+    #overlay {
+        z-index: 1;
+        height: 100vh;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.6);
+        display: none;
+    }
+
+    #overlay.opened {
+        display: block;
+    }
+
+
+
+    body.fixed {
+        overflow: hidden;
+    }
+
+    .container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .container-second {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .container-second-image {
+        padding-bottom: 16px;
+    }
+
+    /* Thin line div after each section */
+    .line-container {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .flex {
+        flex-wrap: wrap;
+    }
+
+    .header-nav .flex {
+        flex-wrap: nowrap;
+    }
+
+    .half {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .footer-logo a img {
+        max-width: 145px;
+        padding-bottom: 36px;
+    }
+
+    .footer-logo a {
+        display: block;
+        text-align: left;
+    }
+
+    .footer-logo {
+        margin-bottom: 30px;
+    }
+
+
+    .home-hero-content h1 {
+        font-size: 65px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .home-hero {
+        position: relative;
+        top: 100px;
+        padding-bottom: unset;
+        margin-bottom: 100px;
+    }
+
+
+    .home-hero-content {
+        width: 100%;
+        max-width: unset;
+        position: absolute;
+        top: 0;
+    }
+
+    .footer-navigation ul {
+        column-count: 1;
+    }
+
+    .footer-navigation {
+        width: -webkit-fit-content !important;
+        width: fit-content !important;
+    }
+
+    .home-hero-content-text {
+        margin-left: 40%;
+    }
+
+    .home-hero-content-bottom {
+        padding-left: 40%;
+    }
+
+
+    .board-list-item {
+        flex-wrap: nowrap;
+    }
+
+    .home-about-thumb {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .home-about-text {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    .home-about-thumb img, .board-list-item-thumb img, .two-columns-img img {
+        box-sizing: border-box;
+    }
+
+    .board-list-item-thumb img {
+        min-width: 300px;
+        width: 300px;
+    }
+
+    .desktop {
+        display: none;
+    }
+
+    .two-columns-img {
+        order: -1;
+    }
+
+    .two-columns-text {
+        padding-right: 0;
+    }
+
+
+    .home-hero .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .box-item-button .btn-section {
+        font-size: 21px;
+        height: 72px;
+    }
+
+    .box-item-button .btn-donate-paypal {
+        font-size: 21px;
+        height: 72px;
+    }
+
+
+    .board-list-item-text {
+        padding-left: 15px;
+    }
+
+
+    /* ===== Mobile Footer Layout (≤966px) ===== */
+    /* Restack the footer-nav so the logo comes on top and the menu below */
+    .footer-nav {
+        flex-direction: column;
+        padding-bottom: 40px;
+    }
+
+    /* Center the logo */
+    .footer-logo {
+        text-align: center;
+    }
+
+    /* Convert the navigation menu to a two‐column layout */
+    .footer-navigation nav ul {
+        width: 100%;
+        max-width: 300px; /* adjust as needed */
+        margin: 0 auto; /* center the list */
+        padding: 0;
+
+        /* Use CSS columns for a two‑column layout */
+        -webkit-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 20px;
+        column-gap: 20px;
+    }
+
+    /* Force a column break after the fifth menu item so that items 6 & 7 fall into the second column */
+    .footer-navigation nav ul li:nth-child(5) {
+        -webkit-column-break-after: always;
+        column-break-after: always;
+    }
+
+    /* Optional: Adjust spacing on the list items */
+    .footer-navigation nav ul li {
+        margin-bottom: 10px;
+    }
+
+    .fancybox-slide--html .fancybox-close-small {
+        position: sticky;
+    }
+
+    .isa-photo-mobile-container {
+        display: block;
+    }
+
+    .isa-photo-desktop {
+        display: none;
+    }
+
+    .keypoints-image-mobile {
+        display: block;
+    }
+
+    .keypoints-image-desktop {
+        display: none;
+    }
+
+    .qa-mobile {
+        display: block;
+        padding-top: 64px;
+    }
+
+    .qa-desktop {
+        display: none;
+    }
+
+    .board-list-item-text h4 {
+        font-size: 16px;
+    }
+
+    .board-list-item-thumb {
+        padding-bottom: 16px;
+    }
+
+    .board-list-item-text .box-title {
+        margin-bottom: 4px;
+        font-family: 'Bodoni 6', serif;
+        font-weight: 400;
+    }
+
+    .board-list-item-text h4 {
+        margin-bottom: 30px;
+    }
+
+
+    .fancybox-content img {
+        min-width: 150px;
+        max-width: 150px;
+    }
+
+
+    #contact .container h2 {
+        padding-bottom: 16px;
+    }
+
+    .footer-copy, .footer-copy p {
+        font-size: 10px;
+    }
+
+    .box-title {
+        font-size: 30px; /* Match the title size from the design */
+
+    }
+
+    .box-item {
+        flex-direction: column;
+        text-align: center;
+        padding-left: 25px;
+        padding-right: 25px;
+        line-height: 1.5;
+    }
+
+    .box-item-image,
+    .box-item-content {
+        max-width: 100%;
+        flex: none;
+    }
+
+    .box-item-content {
+        padding-left: 0;
+        padding-top: 12px;
+    }
+
+    .box-text {
+        font-size: 10px;
+    }
+
+
+
+    .download-button-container.research-btn {
+        margin-bottom: 100px;
+        margin-top: 0;
+    !important;
+    }
+
+    .point {
+        background-color: #e2e1e1;
+        width: 14px;
+        height: 14px;
+    }
+
+    .point.light-mode {
+        background-color: #0867E8;
+    }
+
+    .blue-text {
+        font-family: 'Bodoni 6', serif;
+    }
+
+    .button-container {
+        top: 65vh;
+    }
+
+    .italic {
+        font-family: "Bodoni 6", serif;
+        font-style: italic;
+    }
+
+    .hover-button-text {
+        width: 95vw;
+        top: 80vh;
+    }
+
+    .home-hero-bg {
+        width: 100%;
+        height: 100vh; /* or use a fixed height like 500px */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+
+    /* FAQ Section */
+    .faq-timeline-list {
+        position: relative;
+        list-style: none !important;
+        /*margin: 0 0 0 100px !important;*/
+        padding: 0;
+        font-size: 15px;
+    }
+    .download-block-left {
+
+     /*  font-size: 14px;*/
+    }
+
+    .download-block img {
+       max-width: 350px;
+        border: black 1px solid;
+    }
+    .download-block-btn {
+        font-size: 20px;
+    }
+
+    .italic-mobile {
+        padding-left: 50px;
+        font-family: "Bodoni 6", serif;
+        font-style: italic;
+        margin-bottom: 0;
+    }
+
+    .download-block {
+
+    }
+
+}
+@media (max-width: 966px) {
+    .donate-menu-item a {
+        margin-top: 40px;
+        border-radius: 40px;
+    }
+
+    .back-link {
+        font-size: 14px;
+
+    }
+
+
+    .item-story {
+border-bottom: none!important;
+        border-right: 1px black solid!important;
+    }
+
+    .item-research {
+        border-bottom: none!important;
+        border-right: 1px black solid!important;
+    }
+
+    .item-connection {
+        border-right: 1px black solid!important;
+    }
+
+    .item-team {
+        border-right: 1px black solid!important;
+    }
+    .item-documents {
+        border-right: 1px black solid!important;
+    }
+
+    .item-contact {
+        border-right: 1px black solid!important;
+    }
+    .item-donate {
+        border-top: none!important;
+    }
+
+}
+@media (max-width: 567px) {
+    .board-list-item {
+        flex-wrap: wrap;
+    !important;
+    }
+
+    .board-list-item-text h3 {
+        font-size: 20px;
+        margin-bottom: 5px;
+        line-height: 1.2;
+    }
+
+    .board-list-item-text {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .home-about-thumb img, .board-list-item-thumb img, .two-columns-img img {
+        box-sizing: border-box;
+    }
+
+    a.btn {
+        font-size: 17px;
+    }
+
+    .button-container {
+        top: 73vh;
+    }
+
+
+}
+
+
+

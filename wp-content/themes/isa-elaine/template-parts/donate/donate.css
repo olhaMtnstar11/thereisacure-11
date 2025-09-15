@@ -1,0 +1,626 @@
+/* Checkbox Wrapper Style */
+.custom-checkbox-wrapper {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 16px !important;
+  color: #000;
+  user-select: none;
+  margin-bottom: 12px;
+}
+.custom-checkbox-wrapper span.label-text{
+    font-size: 16px !important;
+}
+.styled-checkbox {
+  width: 30px;
+  height: 30px;
+  appearance: none;
+  border: 3px solid #E0D9C9;
+  background-color: #fff;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.styled-checkbox:checked {
+  background-color: #0867E8;
+  border-color: #0867E8;
+}
+
+.styled-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+    
+.default-hero-donate-2 {
+    padding: 0;
+    padding-top: 120px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+/*  style for donation form from square  */
+.donation-form {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 24px;
+    border: 1px solid #0867E8;
+    border-radius: 12px;
+    background-color: #000000;
+    font-family: 'Silkaextra_light', sans-serif;
+}
+
+.donation-form h2 {
+    text-align: center;
+    margin-bottom: 17px;
+}
+
+#card-container {
+    margin: 20px 0;
+}
+
+#card-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #0070ba;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#card-button:hover {
+    background-color: #005f98;
+}
+
+#payment-status-container {
+    margin-top: 20px;
+    text-align: center;
+    color: #cc0000;
+    font-weight: bold;
+}
+
+#card-container {
+    margin: 20px 0;
+}
+
+#payment-status {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+#preset-amounts {
+    margin-bottom: 10px;
+}
+
+#preset-amounts button {
+    margin-right: 8px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.payment-btn {
+    cursor: pointer;
+    font-family: "iA Writer Duo", sans-serif;
+    font-stretch: condensed;
+    display: block;
+
+    box-sizing: border-box;
+    text-align: center;
+
+
+
+    text-decoration: none;
+    width: 100%;
+
+
+    /* border-radius: 35px; */
+
+
+
+
+
+    padding: 20px 40px;
+
+
+    border: 2px solid rgb(0, 0, 0);
+    background-color: #000000;
+    color: rgb(255, 255, 255);
+
+    min-width: 240px;
+    line-height: 1;
+    font-size: 18px;
+
+
+}
+
+
+.amount-input-wrapper {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    background: #222353;
+    color: #0867E8;
+    font-family: 'Silka', sans-serif;
+    font-size: 24px;
+    height: 64px;
+    padding: 0 16px;
+    position: relative;
+    box-sizing: border-box;
+    margin-right: 15px;
+}
+
+.amount-input-wrapper input[type="text"] {
+    border: none;
+    background-color: #222353 !important;
+    color: #0867E8;
+    font-size: 24px;
+    width: 280px;
+    outline: none;
+    font-family: 'Silka', sans-serif;
+}
+
+.amount-dollar {
+    margin-right: 16px;
+    margin-bottom: 0px !important;
+    padding-right: 16px;
+    border-right: 2px solid black;
+    font-size: 20px;
+    color: #0867E8;
+    display: flex;
+    align-items: center;
+}
+
+.preset-buttons {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 2.1em;
+}
+
+.custom-amount {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 2.1em;
+    gap: 0; /* default: no gap */
+}
+
+
+
+
+
+
+
+
+
+
+.amount-input-label {
+    height: 62px;
+    color: #0867E8;
+    font-size: 24px;
+    font-family: "Silkalight", sans-serif;
+    display: flex;
+    align-items: center;
+}
+
+.error-message {
+    color: #D93025 !important;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+}
+
+input.error {
+    border: 2px solid #D93025 !important;
+}
+
+.donate-form-css input.valid {
+    border: 2px solid #E0D9C9 !important;
+}
+
+
+
+
+.amount-btn {
+    margin-right: 15px;
+    margin-top: 0px;
+}
+
+.payment-forms-row form {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+
+#add-fee-checkbox {
+    width: 30px;
+    height: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 3px solid #E0D9C9;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+
+}
+
+/* Black fill when checked */
+#add-fee-checkbox:checked {
+    background-color: #0867E8;
+    border: 3px solid #0867E8;
+}
+
+
+/* Custom checkmark */
+#add-fee-checkbox:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+.label-text {
+    margin: 0 !important;
+    padding-left: 15px;
+
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    color: #000000;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+
+/* radioradioradioradioradioradioradio */
+.payment-method-select {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1.5em;
+    flex-wrap: nowrap;
+}
+
+.btn-radio {
+    flex: 1 1 300px; /* Equal width on wrap, minimum 200px */
+    padding: 12px;
+    background-color: #E0D9C9;
+    color: #94928E;
+
+    border-radius: 0;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-size: 21px;
+    text-align: center;
+    user-select: none;
+    position: relative;
+
+    height: 62px;
+
+    display: flex;
+    align-items: center; /* Vertical center */
+    justify-content: center; /* Optional: horizontal center */
+}
+
+.btn-radio input[type="radio"] {
+    display: none;
+}
+
+.btn-radio:hover {
+    background-color: rgb(213, 204, 184);
+
+}
+
+.btn-radio.active {
+    background-color: #0867E8;
+    border-color: #0867E8;
+    color: #fff;
+}
+
+
+.step-instruction {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    color: #000000; /* Adjust to match your site's design */
+}
+
+
+.responsive-bg-donate {
+    width: 100vw;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* 👇 Set aspect ratio using padding-bottom (example: 16:9 = 56.25%) */
+    aspect-ratio: 222 / 100;
+
+    /* OR fallback for older browsers: */
+    /* padding-bottom: 56.25%; */ /* only use if you skip aspect-ratio */
+
+    /* Optional: smooth scaling */
+    transition: background-image 0.3s ease;
+}
+
+
+.custom-asterisk-list {
+    list-style: none !important;
+    padding: 0;
+    margin: 0 !important;
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 1.6;
+
+}
+
+.custom-asterisk-list li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 40px;
+    font-size: 18px !important;
+}
+.custom-asterisk-list li span{
+    font-size: 27px !important;
+}
+.custom-asterisk-list li p {
+
+    font-size: 18px !important;
+}
+
+
+.custom-asterisk-list li::before {
+    content: " ";
+    position: absolute;
+    left: 0;
+    color: #0867E8; /* Apple-style blue */
+    font-size: 18px !important;
+}
+
+li.asterisk-list::before {
+    content: "*";
+    position: absolute;
+    left: 0;
+    color: #0867E8; /* Apple-style blue */
+    font-size: 18px !important;
+}
+
+#organization-fields .input-wrapper::before {
+    content: "*";
+    position: absolute;
+    left: 0; /* adjust spacing as needed */
+    top: 30%;
+    transform: translateY(-50%);
+    color: #0867E8; /* Apple-style blue */
+    font-size: 18px !important;
+}
+
+/* input email*/
+.custom-email-input {
+    width: 100%;
+    height: 54px;
+
+    border: 2px solid #0867E8; /* default green when empty */
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+textarea.custom-email-input {
+
+    height: auto !important;
+
+
+}
+
+
+
+.donate-form-css .custom-email-input {
+    border: 2px solid #E0D9C9; /* default green when empty */
+}
+
+
+/* Placeholder style (green text) */
+.custom-email-input::placeholder {
+    color: #8b8b94 !important;;
+}
+
+/* When email is typed (not empty) */
+.donate-form-css .custom-email-input:not(:placeholder-shown) {
+    border-color: #E0D9C9; /* blue when not empty */
+}
+
+/* Focus state — keep it blue for consistency */
+.custom-email-input:focus {
+    border-color: #0867E8;
+    outline: none;
+    background-color: #f0f8ff;
+}
+
+.custom-email-input::placeholder {
+    color: #8b8b94 !important;
+}
+
+.email-helper-text {
+    display: block;
+    margin-top: 6px;
+    font-size: 14px;
+    color: #555;
+    font-style: italic;
+}
+
+/* input email*/
+
+.donation-title {
+    margin-top: 80px;
+}
+
+
+.custom-radio {
+    width: 30px;
+    height: 30px;
+    appearance: none;
+    -webkit-appearance: none;
+    border: 3px solid #E0D9C9;
+    cursor: pointer;
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px; /* square like checkbox — use 50% if you want circular */
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0;
+}
+
+/* Checked state: blue background */
+.custom-radio:checked {
+    background-color: #0867E8;
+    border-color: #0867E8;
+}
+
+/* White checkmark inside radio */
+.custom-radio:checked::after {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 8px;
+    width: 8px;
+    height: 14px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+}
+
+/* Text next to radio */
+.label-text {
+    margin: 0 !important;
+    padding-left: 15px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.add-fee-checkbox {
+    margin-bottom: 12px;
+}
+
+.custom-amount-container {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 1.5em;
+}
+
+#donation-summary {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border: 2px solid rgb(224, 217, 201);
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 12px 16px;
+    font-size: 16px;
+    color: black;
+    width: 100%;
+    line-height: 1.6;
+    margin: 0px 20px 100px 0px;
+}
+
+#donation-summary .donation-line {
+    margin: 8px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+#donation-summary .donation-line span {
+    float: right;
+    color: #333;
+    font-weight: 500;
+}
+
+
+button.disabled {
+    margin-left: auto;
+    margin-right: 0;
+    cursor: not-allowed;
+    font-family: "iA Writer Duo", sans-serif;
+    font-stretch: condensed;
+    display: block;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid rgb(224, 217, 201);
+    background-color: #ffffff;
+    color: rgb(224, 217, 201);
+    text-decoration: none;
+    min-width: 240px;
+    line-height: 1;
+    font-size: 21px;
+}
+.payment-btn:disabled {
+    margin-left: auto;
+    margin-right: 0;
+    cursor: not-allowed;
+    font-family: "iA Writer Duo", sans-serif;
+    font-stretch: condensed;
+    display: block;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    text-align: center;
+    border: 2px solid rgb(224, 217, 201);
+    background-color: #ffffff;
+    color: rgb(224, 217, 201);
+    text-decoration: none;
+    min-width: 240px;
+    line-height: 1;
+    font-size: 18px;
+}
+
+
+
+/* Apply gap only when screen is small enough to cause wrapping */
+@media (max-width: 881px) {
+    .custom-amount {
+        gap: 2.1em;
+    }
+
+    .btn-radio {
+        height: 45px;
+    }
+
+    .custom-email-input {
+        height: 48px!important;
+    }
+
+    /* radioradioradioradioradioradioradio */
+    .payment-method-select {
+
+        gap: 10px;
+        margin-bottom: 0;
+        margin-bottom: 10px;
+    }
+
+    .custom-asterisk-list li span{
+        font-size: 21px !important;
+    }
+}

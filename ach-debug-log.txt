@@ -1,0 +1,2329 @@
+
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rr2OQ4gNYgtyhYf0K95YIuu
+    [object] => payment_intent
+    [amount] => 7560
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rr2OQ4gNYgtyhYf0K95YIuu_secret_0fresPPwXa2W90HHMfM9PMIxU
+    [confirmation_method] => automatic
+    [created] => 1753991038
+    [currency] => usd
+    [customer] => cus_SmbchSrOo5y8DK
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rr2OQ4gNYgtyhYf038BcRZL
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donation_frequency] => once
+            [total_charged] => 75.60
+            [fee_covered] => yes
+            [payment_method] => bank
+            [fee_amount] => 0.60
+            [donation_amount] => 75.00
+            [donor_email] => 
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rr2Os4gNYgtyhYfHyuJ8PyU
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+        )
+
+    [processing] => 
+    [receipt_email] => 
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rr2OQ4gNYgtyhYf0K95YIuu
+    [object] => payment_intent
+    [amount] => 7560
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 7560
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rr2OQ4gNYgtyhYf0K95YIuu_secret_0fresPPwXa2W90HHMfM9PMIxU
+    [confirmation_method] => automatic
+    [created] => 1753991038
+    [currency] => usd
+    [customer] => cus_SmbchSrOo5y8DK
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rr2OQ4gNYgtyhYf038BcRZL
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donation_frequency] => once
+            [total_charged] => 75.60
+            [fee_covered] => yes
+            [payment_method] => bank
+            [fee_amount] => 0.60
+            [donation_amount] => 75.00
+            [donor_email] => 
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rr2Os4gNYgtyhYfHyuJ8PyU
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+        )
+
+    [processing] => 
+    [receipt_email] => 
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RrQ934gNYgtyhYf1iIPdEaj
+    [object] => payment_intent
+    [amount] => 66600
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RrQ934gNYgtyhYf1iIPdEaj_secret_5s4Js2LKv1tRFbXQVodVBwSdK
+    [confirmation_method] => automatic
+    [created] => 1754082341
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RrQ934gNYgtyhYf1Gf0roX8
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-01T21:07:22+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RrQBY4gNYgtyhYfJxNDYdBk
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RrQ934gNYgtyhYf1iIPdEaj
+    [object] => payment_intent
+    [amount] => 66600
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 66600
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RrQ934gNYgtyhYf1iIPdEaj_secret_5s4Js2LKv1tRFbXQVodVBwSdK
+    [confirmation_method] => automatic
+    [created] => 1754082341
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RrQ934gNYgtyhYf1Gf0roX8
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-01T21:07:22+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RrQBY4gNYgtyhYfJxNDYdBk
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.requires_action
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rvm0R4gNYgtyhYf0uGaozGs
+    [object] => payment_intent
+    [amount] => 10080
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rvm0R4gNYgtyhYf0uGaozGs_secret_eUBlCerM39EAoo3BBSJX7KYqc
+    [confirmation_method] => automatic
+    [created] => 1755119687
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rvm0R4gNYgtyhYf0BiPPnYa
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-13T21:15:01+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rvm0h4gNYgtyhYfZbiUShBo
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rvm0R4gNYgtyhYf0uGaozGs
+    [object] => payment_intent
+    [amount] => 10080
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 10080
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rvm0R4gNYgtyhYf0uGaozGs_secret_eUBlCerM39EAoo3BBSJX7KYqc
+    [confirmation_method] => automatic
+    [created] => 1755119687
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rvm0R4gNYgtyhYf0BiPPnYa
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-13T21:15:01+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rvm0h4gNYgtyhYfZbiUShBo
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rw3R84gNYgtyhYf08U3R6ZB
+    [object] => payment_intent
+    [amount] => 302
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rw3R84gNYgtyhYf08U3R6ZB_secret_zPHHug5rgq6PVkAPM5OwYEV1b
+    [confirmation_method] => automatic
+    [created] => 1755186690
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rw3R84gNYgtyhYf0irwpZtv
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-14T15:51:33+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rw3RE4gNYgtyhYfa9mt2Tzb
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3Rw3R84gNYgtyhYf08U3R6ZB
+    [object] => payment_intent
+    [amount] => 302
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 302
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3Rw3R84gNYgtyhYf08U3R6ZB_secret_zPHHug5rgq6PVkAPM5OwYEV1b
+    [confirmation_method] => automatic
+    [created] => 1755186690
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3Rw3R84gNYgtyhYf0irwpZtv
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-14T15:51:33+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1Rw3RE4gNYgtyhYfa9mt2Tzb
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.payment_failed
+FAILED Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RtDMM4gNYgtyhYf1DRnPoOs
+    [object] => payment_intent
+    [amount] => 5040
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RtDMM4gNYgtyhYf1DRnPoOs_secret_NwVsQET1XBNsWxJTaHOYLHZ1U
+    [confirmation_method] => automatic
+    [created] => 1754509850
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [last_payment_error] => Stripe\StripeObject Object
+        (
+            [code] => payment_intent_payment_attempt_expired
+            [doc_url] => https://stripe.com/docs/error-codes/payment-intent-payment-attempt-expired
+            [message] => Microdeposit verification for this PaymentIntent has timed out. Customer has not verified their bank account within the required 10 day period.
+            [payment_method] => Stripe\PaymentMethod Object
+                (
+                    [id] => pm_1RtDMa4gNYgtyhYfMkQ0sxMC
+                    [allow_redisplay] => unspecified
+                    [created] => 1754509865
+                    [customer] => 
+                    [billing_details] => Stripe\StripeObject Object
+                        (
+                            [name] => Olha Shcheniavska
+                            [phone] => 
+                            [address] => Stripe\StripeObject Object
+                                (
+                                    [country] => 
+                                    [city] => 
+                                    [postal_code] => 
+                                    [state] => 
+                                    [line1] => 
+                                    [line2] => 
+                                )
+
+                            [email] => Shcheniavska.oe@gmail.com
+                            [tax_id] => 
+                        )
+
+                    [object] => payment_method
+                    [metadata] => Stripe\StripeObject Object
+                        (
+                        )
+
+                    [type] => us_bank_account
+                    [livemode] => 
+                    [us_bank_account] => Stripe\StripeObject Object
+                        (
+                            [bank_name] => STRIPE TEST BANK
+                            [fingerprint] => EpBq8Eb1VuDqYhwW
+                            [status_details] => Array
+                                (
+                                )
+
+                            [financial_connections_account] => 
+                            [account_holder_type] => individual
+                            [networks] => Stripe\StripeObject Object
+                                (
+                                    [preferred] => ach
+                                    [supported] => Array
+                                        (
+                                            [0] => ach
+                                        )
+
+                                )
+
+                            [account_type] => checking
+                            [routing_number] => 110000000
+                            [last4] => 6789
+                        )
+
+                )
+
+            [type] => card_error
+        )
+
+    [latest_charge] => py_3RtDMM4gNYgtyhYf1XLxawEc
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => Shcheniavska.oe@gmail.com
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-06T19:51:03+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => 
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => Shcheniavska.oe@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => requires_payment_method
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Event type: payment_intent.succeeded
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxVbA4gNYgtyhYf0nCRVhpW
+    [object] => payment_intent
+    [amount] => 20200
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxVbA4gNYgtyhYf0nCRVhpW_secret_Qm3zt54iBxU1EXtncZOURzdAU
+    [confirmation_method] => automatic
+    [created] => 1755533272
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxVbA4gNYgtyhYf0vIJoVl3
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [donor_phone] => 
+            [donation_note] => 321 321
+            [updated_at] => 2025-08-18T16:08:22+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxVbf4gNYgtyhYfdkXQr9H2
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxVbA4gNYgtyhYf0nCRVhpW
+    [object] => payment_intent
+    [amount] => 20200
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 20200
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxVbA4gNYgtyhYf0nCRVhpW_secret_Qm3zt54iBxU1EXtncZOURzdAU
+    [confirmation_method] => automatic
+    [created] => 1755533272
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxVbA4gNYgtyhYf0vIJoVl3
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [donor_phone] => 
+            [donation_note] => 321 321
+            [updated_at] => 2025-08-18T16:08:22+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxVbf4gNYgtyhYfdkXQr9H2
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXBU4gNYgtyhYf13t2X1Yt
+    [object] => payment_intent
+    [amount] => 50400
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXBU4gNYgtyhYf13t2X1Yt_secret_RPCq40fSSSSLYtiP6Kd99qUnN
+    [confirmation_method] => automatic
+    [created] => 1755539368
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXBU4gNYgtyhYf1ngZNQ4U
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => wecfwec
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T17:49:34+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXBf4gNYgtyhYfp2h5o9pt
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXBU4gNYgtyhYf13t2X1Yt
+    [object] => payment_intent
+    [amount] => 50400
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 50400
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXBU4gNYgtyhYf13t2X1Yt_secret_RPCq40fSSSSLYtiP6Kd99qUnN
+    [confirmation_method] => automatic
+    [created] => 1755539368
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXBU4gNYgtyhYf1ngZNQ4U
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => wecfwec
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T17:49:34+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXBf4gNYgtyhYfp2h5o9pt
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXDK4gNYgtyhYf1Y2ZD1Ce
+    [object] => payment_intent
+    [amount] => 25000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXDK4gNYgtyhYf1Y2ZD1Ce_secret_eTg53y38PGV1eqtn3cbskaOxS
+    [confirmation_method] => automatic
+    [created] => 1755539482
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXDK4gNYgtyhYf1lCyFgXU
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => sd ds
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T17:51:29+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXDS4gNYgtyhYf175ycPIE
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXDK4gNYgtyhYf1Y2ZD1Ce
+    [object] => payment_intent
+    [amount] => 25000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 25000
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXDK4gNYgtyhYf1Y2ZD1Ce_secret_eTg53y38PGV1eqtn3cbskaOxS
+    [confirmation_method] => automatic
+    [created] => 1755539482
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXDK4gNYgtyhYf1lCyFgXU
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => sd ds
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T17:51:29+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXDS4gNYgtyhYf175ycPIE
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXQK4gNYgtyhYf1U8uHOyk
+    [object] => payment_intent
+    [amount] => 10000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXQK4gNYgtyhYf1U8uHOyk_secret_stQ4eoujQG8cPFxCrebCLW0D5
+    [confirmation_method] => automatic
+    [created] => 1755540288
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXQK4gNYgtyhYf1edkcKXB
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => 11111
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:04:53+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXQR4gNYgtyhYfdXa4d7ZT
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXQK4gNYgtyhYf1U8uHOyk
+    [object] => payment_intent
+    [amount] => 10000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 10000
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXQK4gNYgtyhYf1U8uHOyk_secret_stQ4eoujQG8cPFxCrebCLW0D5
+    [confirmation_method] => automatic
+    [created] => 1755540288
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXQK4gNYgtyhYf1edkcKXB
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => 11111
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:04:53+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXQR4gNYgtyhYfdXa4d7ZT
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXZ04gNYgtyhYf13Nb7eAI
+    [object] => payment_intent
+    [amount] => 50000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXZ04gNYgtyhYf13Nb7eAI_secret_7q5HAMy2s9yqvEZmL8mFVVRYe
+    [confirmation_method] => automatic
+    [created] => 1755540826
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXZ04gNYgtyhYf1z0tYDn1
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => ew3fefewdf2edf2
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:13:51+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXZ64gNYgtyhYfuvO9dtWq
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXZ04gNYgtyhYf13Nb7eAI
+    [object] => payment_intent
+    [amount] => 50000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 50000
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXZ04gNYgtyhYf13Nb7eAI_secret_7q5HAMy2s9yqvEZmL8mFVVRYe
+    [confirmation_method] => automatic
+    [created] => 1755540826
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXZ04gNYgtyhYf1z0tYDn1
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => ew3fefewdf2edf2
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:13:51+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXZ64gNYgtyhYfuvO9dtWq
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXZx4gNYgtyhYf0GZdycr7
+    [object] => payment_intent
+    [amount] => 10000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXZx4gNYgtyhYf0GZdycr7_secret_QeILLkbmuVKxO0P3XByrKU0e7
+    [confirmation_method] => automatic
+    [created] => 1755540885
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXZx4gNYgtyhYf0oFkvHnu
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => efef
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:14:49+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXa24gNYgtyhYfopsIHcMu
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxXZx4gNYgtyhYf0GZdycr7
+    [object] => payment_intent
+    [amount] => 10000
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 10000
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxXZx4gNYgtyhYf0GZdycr7_secret_QeILLkbmuVKxO0P3XByrKU0e7
+    [confirmation_method] => automatic
+    [created] => 1755540885
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxXZx4gNYgtyhYf0oFkvHnu
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [created_from] => custom-donation-form
+            [donor_type] => individual
+            [olha_field] => olhaolhaolha
+            [donation_note] => efef
+            [company_name] => 
+            [company_ein] => 
+            [donor_phone] => 
+            [updated_at] => 2025-08-18T18:14:49+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxXa24gNYgtyhYfopsIHcMu
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxYi34gNYgtyhYf1gcxhGdg
+    [object] => payment_intent
+    [amount] => 11100
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxYi34gNYgtyhYf1gcxhGdg_secret_6qkvoEo3zkltdaLJasjw15mXI
+    [confirmation_method] => automatic
+    [created] => 1755545231
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxYi34gNYgtyhYf1t4LEJ3E
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_type] => individual
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [donation_note] => 3re324r34r34
+            [updated_at] => 2025-08-18T19:27:18+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxYiC4gNYgtyhYf8Htcck6O
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxYi34gNYgtyhYf1gcxhGdg
+    [object] => payment_intent
+    [amount] => 11100
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 11100
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxYi34gNYgtyhYf1gcxhGdg_secret_6qkvoEo3zkltdaLJasjw15mXI
+    [confirmation_method] => automatic
+    [created] => 1755545231
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxYi34gNYgtyhYf1t4LEJ3E
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_type] => individual
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [donation_note] => 3re324r34r34
+            [updated_at] => 2025-08-18T19:27:18+00:00
+            [updated_via] => frontend-adjustment
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxYiC4gNYgtyhYf8Htcck6O
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.processing
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxYzu4gNYgtyhYf1ZchpajM
+    [object] => payment_intent
+    [amount] => 55500
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 0
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxYzu4gNYgtyhYf1ZchpajM_secret_eJfGE0KXVwjrcCeQcX0N7nEA7
+    [confirmation_method] => automatic
+    [created] => 1755546338
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxYzu4gNYgtyhYf11e6CNaF
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_type] => individual
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-18T19:45:42+00:00
+            [updated_via] => frontend-adjustment
+            [donation_note] => 34rt4r
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxZ004gNYgtyhYfjnUJapVm
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => processing
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Full Intent:
+Stripe\PaymentIntent Object
+(
+    [id] => pi_3RxYzu4gNYgtyhYf1ZchpajM
+    [object] => payment_intent
+    [amount] => 55500
+    [amount_capturable] => 0
+    [amount_details] => Stripe\StripeObject Object
+        (
+            [tip] => Array
+                (
+                )
+
+        )
+
+    [amount_received] => 55500
+    [application] => 
+    [application_fee_amount] => 
+    [automatic_payment_methods] => 
+    [canceled_at] => 
+    [cancellation_reason] => 
+    [capture_method] => automatic_async
+    [client_secret] => pi_3RxYzu4gNYgtyhYf1ZchpajM_secret_eJfGE0KXVwjrcCeQcX0N7nEA7
+    [confirmation_method] => automatic
+    [created] => 1755546338
+    [currency] => usd
+    [customer] => 
+    [description] => 
+    [excluded_payment_method_types] => 
+    [last_payment_error] => 
+    [latest_charge] => py_3RxYzu4gNYgtyhYf11e6CNaF
+    [livemode] => 
+    [metadata] => Stripe\StripeObject Object
+        (
+            [donor_type] => individual
+            [donor_name] => Olha Shcheniavska
+            [donor_email] => shcheniavska.olha@gmail.com
+            [olha_field] => olhaolhaolha
+            [created_from] => custom-donation-form
+            [updated_at] => 2025-08-18T19:45:42+00:00
+            [updated_via] => frontend-adjustment
+            [donation_note] => 34rt4r
+        )
+
+    [next_action] => 
+    [on_behalf_of] => 
+    [payment_method] => pm_1RxZ004gNYgtyhYfjnUJapVm
+    [payment_method_configuration_details] => 
+    [payment_method_options] => Stripe\StripeObject Object
+        (
+            [card] => Stripe\StripeObject Object
+                (
+                    [installments] => 
+                    [mandate_options] => 
+                    [network] => 
+                    [request_three_d_secure] => automatic
+                )
+
+            [us_bank_account] => Stripe\StripeObject Object
+                (
+                    [mandate_options] => Array
+                        (
+                        )
+
+                    [verification_method] => automatic
+                )
+
+        )
+
+    [payment_method_types] => Array
+        (
+            [0] => us_bank_account
+            [1] => card
+        )
+
+    [processing] => 
+    [receipt_email] => shcheniavska.olha@gmail.com
+    [review] => 
+    [setup_future_usage] => 
+    [shipping] => 
+    [source] => 
+    [statement_descriptor] => 
+    [statement_descriptor_suffix] => 
+    [status] => succeeded
+    [transfer_data] => 
+    [transfer_group] => 
+)
+Email extracted: shcheniavska.olha@gmail.com
+Email sent? YES
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
+Event type: payment_intent.succeeded
