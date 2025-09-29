@@ -57,6 +57,7 @@ if (is_array($array) && array_filter($array)):
     .general-tpl-section {
         width: 100%;
         padding-left: 26%;
+        padding-right: 26%;
         margin-right: auto;
         margin-left: auto;
     }

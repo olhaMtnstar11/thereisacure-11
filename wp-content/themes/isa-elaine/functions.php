@@ -95,6 +95,16 @@ function register_theme_menus()
             'for-families-header' => __('For families header'),
             'for-clinic-header' => __('For clinic header'),
 
+
+            'why-we-exist' => __('Why We Exist'),
+            'understanding-childhood-dementia' => __('Understanding Childhood Dementia'),
+            'for-researchers' => __('For Researchers'),
+            'take-action' => __('Take Action'),
+
+            'types-of-nbia' => __('Types of NBIA'),
+
+
+
         )
         );
 
@@ -111,6 +121,18 @@ function family_menu_shortcode() {
     return ob_get_clean();
 }
 add_shortcode('for_families', 'family_menu_shortcode');
+// Shortcode for "Types of NBIA" menu
+function types_of_nbia_menu_shortcode() {
+    ob_start();
+    wp_nav_menu(array(
+        'theme_location' => 'types-of-nbia',
+        'container'      => false,
+        'menu_class'     => 'types-of-nbia',
+    ));
+    return ob_get_clean();
+}
+add_shortcode('types_of_nbia', 'types_of_nbia_menu_shortcode');
+
 
 //Change admin logo
 function pr_edit_admin_logo(){
@@ -211,6 +233,34 @@ function register_document_post_type() {
 }
 add_action('init', 'register_document_post_type');
 
+
+// Post type for News
+// Register taxonomy for news categories
+function register_news_category_taxonomy() {
+    $labels = [
+        'name'              => 'News Categories',
+        'singular_name'     => 'News Category',
+        'search_items'      => 'Search Categories',
+        'all_items'         => 'All Categories',
+        'edit_item'         => 'Edit Category',
+        'update_item'       => 'Update Category',
+        'add_new_item'      => 'Add New Category',
+        'new_item_name'     => 'New Category Name',
+        'menu_name'         => 'News Categories',
+    ];
+
+    register_taxonomy('news_category', ['news'], [
+        'hierarchical'      => true,  // like categories
+        'labels'            => $labels,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'rewrite'           => ['slug' => 'news-category'],
+    ]);
+}
+add_action('init', 'register_news_category_taxonomy');
+
+
 function isa_enqueue_donation_assets() {
     if (is_page_template('tpl-donate.php')) {
         // Load Stripe.js from Stripe's CDN FIRST
@@ -265,3 +315,15 @@ function my_custom_breadcrumbs()
 
     echo '</nav>';
 }
+
+
+
+
+// Change the excerpt "more" text to a custom button
+function custom_excerpt_more($more) {
+    global $post;
+    return ' ... ';
+}
+add_filter('excerpt_more', 'custom_excerpt_more');
+
+

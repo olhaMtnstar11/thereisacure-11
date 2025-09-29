@@ -12,17 +12,28 @@
 
             <nav class="nav-header">
 
-                <button id="megaMenuToggle" class="mega-menu-btn">
-                    Products ▾
-                </button>
 
                 <!-- menu buttons -->
-                <button id="megaMenuToggleFamilies" class="mega-menu-btn">
-                    For Families ▾
+                <button id="megaMenuToggle" class="mega-menu-btn">
+                    Products
                 </button>
-                <button id="megaMenuToggleClinic" class="mega-menu-btn">
-                    For Clinic ▾
+
+                <button id="megaMenuToggleWhyWeExist" class="mega-menu-btn">
+                    Why We Exist
                 </button>
+
+                <button id="megaMenuToggleUnderstanding" class="mega-menu-btn">
+                    Understanding Childhood Dementia
+                </button>
+
+                <button id="megaMenuToggleForResearchers" class="mega-menu-btn">
+                    For Researchers
+                </button>
+
+                <button id="megaMenuToggleTakeAction" class="mega-menu-btn">
+                    Take Action
+                </button>
+
                 <!-- ----- -->
 
 
@@ -38,17 +49,35 @@
 
 
                 <!-- menu panel -->
-                <div id="megaMenuPanelFamilies" class="mega-menu-panel">
-                    <?php wp_nav_menu(array( 'menu' => 'For families header',
-                        'theme_location' => 'for-families-header',
+                <div id="megaMenuPanelWhyWeExist" class="mega-menu-panel">
+                    <?php wp_nav_menu(array( 'menu' => 'Why We Exist',
+                        'theme_location' => 'why-we-exist',
                         'container' => false,
                         'menu_class' => 'main-menu',
                         'menu_id' => 'main-mega-menu',
                     )); ?>
                 </div>
-                <div id="megaMenuPanelClinic" class="mega-menu-panel">
-                    <?php wp_nav_menu(array( 'menu' => 'For clinic header',
-                        'theme_location' => 'for-clinic-header',
+                <div id="megaMenuPanelUnderstanding" class="mega-menu-panel">
+                    <?php wp_nav_menu(array( 'menu' => 'Understanding Childhood Dementia',
+                        'theme_location' => 'understanding-childhood-dementia',
+                        'container' => false,
+                        'menu_class' => 'main-menu',
+                        'menu_id' => 'main-mega-menu',
+                    )); ?>
+                </div>
+
+                <div id="megaMenuPanelForResearchers" class="mega-menu-panel">
+                    <?php wp_nav_menu(array( 'menu' => 'For Researchers',
+                        'theme_location' => 'for-researchers',
+                        'container' => false,
+                        'menu_class' => 'main-menu',
+                        'menu_id' => 'main-mega-menu',
+                    )); ?>
+                </div>
+
+                <div id="megaMenuPanelTakeAction" class="mega-menu-panel">
+                    <?php wp_nav_menu(array( 'menu' => 'Take Action',
+                        'theme_location' => 'take-action',
                         'container' => false,
                         'menu_class' => 'main-menu',
                         'menu_id' => 'main-mega-menu',
@@ -176,11 +205,11 @@
 
             let isHovering = false;
 
-            // Open when hovering over button or panel
             [toggle, panel].forEach(el => {
                 el.addEventListener('mouseenter', () => {
                     isHovering = true;
                     panel.classList.add('open');
+                    toggle.classList.add('open'); // add class to show blue square
                 });
 
                 el.addEventListener('mouseleave', () => {
@@ -188,28 +217,36 @@
                     setTimeout(() => {
                         if (!isHovering) {
                             panel.classList.remove('open');
+                            toggle.classList.remove('open');
                         }
                     }, 100);
                 });
             });
 
-            // Close on scroll
             window.addEventListener('scroll', () => {
                 panel.classList.remove('open');
+                toggle.classList.remove('open');
             });
 
-            // Close on outside click
             document.addEventListener('click', (e) => {
                 if (!panel.contains(e.target) && e.target !== toggle) {
                     panel.classList.remove('open');
+                    toggle.classList.remove('open');
                 }
             });
         }
 
+
+
         // Example: Call setup for different menus
         setupMegaMenu('#megaMenuToggle', '#megaMenuPanel');
-        setupMegaMenu('#megaMenuToggleFamilies', '#megaMenuPanelFamilies');
-        setupMegaMenu('#megaMenuToggleClinic', '#megaMenuPanelClinic');
+        setupMegaMenu('#megaMenuToggleWhyWeExist', '#megaMenuPanelWhyWeExist');
+        setupMegaMenu('#megaMenuToggleUnderstanding', '#megaMenuPanelUnderstanding');
+        setupMegaMenu('#megaMenuToggleForResearchers', '#megaMenuPanelForResearchers');
+
+        setupMegaMenu('#megaMenuToggleTakeAction', '#megaMenuPanelTakeAction');
+
+
     });
 </script>
 
@@ -251,7 +288,12 @@
       }
 
     /* Target only top-level <li> inside your mega menu */
-    #megaMenuPanel > ul > li > a {
+    #megaMenuPanel > ul > li > a ,
+    #megaMenuPanelWhyWeExist > ul > li > a,
+    #megaMenuPanelUnderstanding > ul > li > a,
+    #megaMenuPanelForResearchers > ul > li > a,
+    #megaMenuPanelTakeAction > ul > li > a{
+        font-family: iA Writer Duo, sans-serif;
         font-size: 17px;
         font-weight: bold;
         text-transform: capitalize;
@@ -260,16 +302,31 @@
         cursor: pointer;
     }
     /* Add spacing between top-level items */
-    #megaMenuPanel > ul > li {
+    #megaMenuPanel > ul > li,
+    #megaMenuPanelWhyWeExist > ul > li,
+    #megaMenuPanelUnderstanding > ul > li,
+    #megaMenuPanelForResearchers > ul > li,
+    #megaMenuPanelTakeAction > ul > li {
         margin-right: 40px;
     }
     /* Turn top-level items into column headers */
-    #megaMenuPanel > ul > li {
+    #megaMenuPanel > ul > li,
+    #megaMenuPanelWhyWeExist > ul > li,
+    #megaMenuPanelUnderstanding > ul > li,
+    #megaMenuPanelForResearchers > ul > li,
+    #megaMenuPanelTakeAction > ul > li{
         flex: 1;
         min-width: 200px;
+
+        max-width: 200px;
     }
 
-    #megaMenuPanel > ul > li > ul > li.menu-item-has-children > a {
+    #megaMenuPanel > ul > li > ul > li.menu-item-has-children > a,
+    #megaMenuPanelWhyWeExist > ul > li > ul > li.menu-item-has-children > a,
+    #megaMenuPanelUnderstanding > ul > li > ul > li.menu-item-has-children > a,
+    #megaMenuPanelForResearchers > ul > li > ul > li.menu-item-has-children > a,
+    #megaMenuPanelTakeAction > ul > li > ul > li.menu-item-has-children > a  {
+        font-family: iA Writer Duo, sans-serif;
         font-size: 14px;
         font-weight: bold;
         text-transform: capitalize;
@@ -550,10 +607,9 @@
         background-color: transparent;
         border: 1px solid #0867E8 !important;
         border-radius: 50px;
-        padding: 10px 24px;
+        padding: 2px 18px;
         cursor: pointer;
         margin: 5px;
-        text-transform: uppercase;
         font-size: 14px !important;
     }
 
@@ -811,9 +867,9 @@
         right: 0;
         width: 100vw;
         background: #fff;
-        padding: 0 60px; /* no vertical padding when hidden */
+        padding: 0 0 0 200px; /* no vertical padding when hidden */
         box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        gap: 60px;
+        gap: 100px;
         z-index: 1000;
         flex-wrap: wrap;
         box-sizing: border-box;
@@ -829,7 +885,7 @@
     .mega-menu-panel.open {
         max-height: 800px; /* big enough to fit all content */
         opacity: 1;
-        padding: 40px 60px;
+        padding: 40px 300px;
     }
 
 
@@ -877,28 +933,65 @@
     .mega-menu-btn{
         font-family: "iA Writer Duo", sans-serif;
         background-color: transparent;
-        border: 1px solid #0867E8 !important;
-        border-radius: 50px;
-        color: #0867E8;
-        cursor: pointer;
-        margin: 5px;
-        text-transform: uppercase;
-        font-stretch: normal;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 1.5;
-        padding: 0 0;
-        height: 28px;
-        display: flex;
-        align-items: center;
-        padding: 23px;
+    /*  border: 1px solid #0867E8 !important; */
+    /* border-radius: 50px;*/
+    /* color: #0867E8;*/
+    cursor: pointer;
+    margin: 5px;
+
+    font-stretch: normal;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+    padding: 0 0;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    padding: 23px 10px;
+}
+
+
+
+
+    .mega-menu-btn::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background-color: #0867E8;
+        margin-right: 6px;
+        border-radius: 1px; /* optional */
+        flex-shrink: 0;
+        opacity: 0; /* hidden by default */
+        transition: opacity 0.2s ease;
+        vertical-align: middle;
     }
 
+    .mega-menu-btn.open::before {
+        opacity: 1; /* show when menu is open */
+    }
 
+    /* Add before element for header + mega menu links, but NOT primary-menu */
+    .header-nav nav > ul > li:not(.btn):not(.primary-menu li) > a::before,
+    .mega-menu-panel ul ul li a::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background-color: #0867E8;
+        margin-right: 6px;
+        border-radius: 1px;
+        flex-shrink: 0;
+        opacity: 0;
+        transition: opacity 0.2s ease;
+        vertical-align: middle;
+    }
 
-
-
-
+    /* Show on hover */
+    .header-nav nav > ul > li:not(.btn) > a:hover::before,
+    .mega-menu-panel ul ul li a:hover::before {
+        opacity: 1;
+    }
 
 
 </style>
