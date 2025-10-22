@@ -14,9 +14,6 @@
 
 
                 <!-- menu buttons -->
-                <button id="megaMenuToggle" class="mega-menu-btn">
-                    Products
-                </button>
 
                 <button id="megaMenuToggleWhyWeExist" class="mega-menu-btn">
                     Why We Exist
@@ -239,7 +236,7 @@
 
 
         // Example: Call setup for different menus
-        setupMegaMenu('#megaMenuToggle', '#megaMenuPanel');
+
         setupMegaMenu('#megaMenuToggleWhyWeExist', '#megaMenuPanelWhyWeExist');
         setupMegaMenu('#megaMenuToggleUnderstanding', '#megaMenuPanelUnderstanding');
         setupMegaMenu('#megaMenuToggleForResearchers', '#megaMenuPanelForResearchers');

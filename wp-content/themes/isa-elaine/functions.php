@@ -327,3 +327,20 @@ function custom_excerpt_more($more) {
 add_filter('excerpt_more', 'custom_excerpt_more');
 
 
+
+
+
+function create_event_post_type() {
+    register_post_type('event', array(
+        'labels' => array(
+            'name' => __('Events'),
+            'singular_name' => __('Event')
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'events'),
+        'show_in_rest' => true, // for Gutenberg/ACF
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+    ));
+}
+add_action('init', 'create_event_post_type');
