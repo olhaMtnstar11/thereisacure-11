@@ -59,22 +59,20 @@
                 <?php endif; ?>
 
 
-
-
                 <!-- 2 column grid section -->
             <?php elseif (get_row_layout() == 'faq'): ?>
                 <?php if (get_row_layout() == 'faq'): ?>
                     <div class="general-tpl-section">
-                    <?php if ($title = get_sub_field('title')): ?>
-                        <h2><?php echo esc_html($title); ?></h2>
-                    <?php endif; ?>
+                        <?php if ($title = get_sub_field('title')): ?>
+                            <h2><?php echo esc_html($title); ?></h2>
+                        <?php endif; ?>
 
                         <?php if (have_rows('faq_items')): ?>
                             <div class="faq-wrapper">
                                 <?php while (have_rows('faq_items')): the_row(); ?>
                                     <?php
                                     $question = get_sub_field('question');
-                                    $answer   = get_sub_field('answer');
+                                    $answer = get_sub_field('answer');
                                     ?>
                                     <div class="faq-item">
                                         <?php if ($question): ?>
@@ -99,28 +97,13 @@
                                     </div>
 
 
-
                                 <?php endwhile; ?>
                             </div>
                         <?php endif; ?>
 
 
-
-
-
-
-
-
-
-                </div>
+                    </div>
                 <?php endif; ?>
-
-
-
-
-
-
-
 
 
                 <!-- 2 column grid section -->
@@ -341,23 +324,18 @@
                     </div>
 
 
-                <?php endif; ?>
-
-
-
-
-            <?php elseif (get_row_layout() == 'events'): ?>
-                <?php if (get_row_layout() == 'events'):
+                <?php endif; ?><?php elseif (get_row_layout() == 'carousel'): ?>
+                <?php if (get_row_layout() == 'carousel'):
                     ?>
                     <?php
                     $section_title = get_sub_field('title');
                     $section_content = get_sub_field('content_text');
-                    $posts_per_page = get_sub_field('posts_per_page') ?: 5; // default to 5
-                    $event_category = get_sub_field('event_category'); // taxonomy term object
+                    $selected_posts = get_sub_field('posts_to_show'); // Relationship field
                     ?>
 
                     <div class="events-section">
                         <div class="container">
+
                             <?php if ($section_title): ?>
                                 <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
                             <?php endif; ?>
@@ -368,35 +346,12 @@
                                 </div>
                             <?php endif; ?>
 
-                            <?php
-                            // Build query arguments
-                            $args = [
-                                'post_type' => 'event',
-                                'posts_per_page' => $posts_per_page,
-                                'orderby' => 'event_date', // custom field for event date
-                                'order' => 'ASC',
-                            ];
-
-                            $event_categories = get_sub_field('event_category'); // array of term objects
-
-                            if ($event_categories) {
-                                $args['tax_query'] = [
-                                    [
-                                        'taxonomy' => 'event_category', // your event CPT taxonomy
-                                        'field' => 'term_id',
-                                        'terms' => wp_list_pluck($event_categories, 'term_id'),
-                                    ]
-                                ];
-                            }
-
-                            $events_query = new WP_Query($args);
-
-                            if ($events_query->have_posts()) : ?>
+                            <?php if ($selected_posts): ?>
                                 <div class="events-carousel-wrapper">
                                     <button class="carousel-btn prev">&#10094;</button>
                                     <div class="events-carousel">
                                         <div class="events-track">
-                                            <?php while ($events_query->have_posts()): $events_query->the_post(); ?>
+                                            <?php foreach ($selected_posts as $post): setup_postdata($post); ?>
                                                 <div class="event-slide">
                                                     <?php if (has_post_thumbnail()): ?>
                                                         <div class="event-thumb">
@@ -404,39 +359,59 @@
                                                                 <?php the_post_thumbnail('medium'); ?>
                                                             </a>
                                                         </div>
+
+                                                    <?php else: ?>
+                                                        <div class="event-thumb">
+                                                            <a href="<?php the_permalink(); ?>">
+                                                                <div style="height: 183px; width: 275px"></div>
+                                                            </a>
+                                                        </div>
                                                     <?php endif; ?>
+
                                                     <div class="event-content">
-                                                        <h3 class="event-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                                        <?php if ($date = get_field('event_date')): ?>
-                                                            <div class="event-date"><?php echo date_i18n('F j, Y', strtotime($date)); ?></div>
-                                                        <?php endif; ?>
-                                                        <?php if ($location = get_field('event_location')): ?>
-                                                            <div class="event-location"><?php echo esc_html($location); ?></div>
-                                                        <?php endif; ?>
-                                                        <p class="event-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?></p>
-                                                        <a class="read-more-btn" href="<?php the_permalink(); ?>">Learn More</a>
+                                                        <h3 class="event-title"><a
+                                                                    href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+                                                        </h3>
+                                                        <p class="event-excerpt"><?php echo wp_trim_words(get_the_excerpt(), 10, '...'); ?></p>
+                                                        <a class="read-more-btn" href="<?php the_permalink(); ?>">Learn
+                                                            More</a>
                                                     </div>
                                                 </div>
-                                            <?php endwhile; wp_reset_postdata(); ?>
+                                            <?php endforeach;
+                                            wp_reset_postdata(); ?>
                                         </div>
                                     </div>
                                     <button class="carousel-btn next">&#10095;</button>
                                 </div>
                             <?php else: ?>
-                                <p>No events found.</p>
-                            <?php endif; wp_reset_postdata(); ?>
+                                <p>No posts selected.</p>
+                            <?php endif; ?>
+
                         </div>
                     </div>
-
-
                 <?php endif; ?>
 
 
+            <?php elseif (get_row_layout() == 'poem-logo'): ?>
+                <?php if (get_row_layout() == 'poem-logo'): ?>
+                    <div class="poem-logo" style="margin: 120px 0">
+                        <?php
+                        $theme_logo = get_field('logo', 'option'); // from Theme Settings
+                        $logo_width = get_sub_field('poem_logo_width'); // number field
+                        if ($theme_logo):
+                            // fallback width if not set
+                            $max_width = $logo_width ? intval($logo_width) . 'px' : '120px';
+                            ?>
+                            <img class="p-3"
+                                 style="max-width: <?php echo esc_attr($max_width); ?>;"
+                                 src="<?php echo esc_url($theme_logo); ?>"
+                                 alt="Site Logo">
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
 
 
-
-
-                    <!-- line -->
+                <!-- line -->
             <?php elseif (get_row_layout() == 'line'): ?>
                 <?php if (get_row_layout() == 'line'): ?>
                     <!-- Thin Line Div -->
@@ -448,6 +423,63 @@
                         </div>
                     </div>
                 <?php endif; ?>
+
+
+            <?php elseif (get_row_layout() == 'general_partners'): ?>
+                <?php if (get_row_layout() == 'general_partners'): ?>
+                    <section class="partner-tpl-section box-with-border ">
+
+
+
+                            <?php if (have_rows('partner_item', 'option')): ?>
+                                <div class="partner-logos">
+                                    <?php while (have_rows('partner_item', 'option')): the_row();
+                                        $logo = get_sub_field('logo');
+                                        if (!empty($logo)) : ?>
+                                            <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>"
+                                               class="partner-logo">
+                                                <img src="<?php echo esc_url($logo); ?>" alt="">
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                </div>
+                            <?php endif; ?>
+
+
+
+                    </section>
+                <?php endif; ?>
+
+
+
+            <?php elseif (get_row_layout() == 'social_media'): ?>
+                <?php if (get_row_layout() == 'social_media'): ?>
+                    <section class="partner-tpl-section box-with-border ">
+
+
+
+                            <?php if (have_rows('social_media', 'option')): ?>
+                                <div class="partner-logos">
+                                    <?php while (have_rows('social_media', 'option')): the_row();
+                                        $logo = get_sub_field('logo');
+                                        if (!empty($logo)) : ?>
+                                            <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>"
+                                               class="partner-logo">
+                                                <img src="<?php echo esc_url($logo); ?>" alt="">
+                                            </a>
+                                        <?php endif; ?>
+                                    <?php endwhile; ?>
+                                </div>
+                            <?php endif; ?>
+
+
+
+                    </section>
+                <?php endif; ?>
+
+
+
+
 
                 <!-- 3-some different content -->
             <?php elseif (get_row_layout() == '1_column'): ?>
@@ -566,9 +598,9 @@
                     </div>
 
                 <?php endif; ?>
-                    <!-- 6-documents section -->
-                <?php elseif (get_row_layout() == 'data-list-col'): ?>
-                    <?php if (get_row_layout() == 'data-list-col'): ?>
+                <!-- 6-documents section -->
+            <?php elseif (get_row_layout() == 'data-list-col'): ?>
+                <?php if (get_row_layout() == 'data-list-col'): ?>
                     <div class="general-tpl-section">
                         <?php if (get_sub_field('title')): ?>
                             <h3 class="mb-4"><?php echo esc_html(get_sub_field('title')); ?></h3>
@@ -576,10 +608,10 @@
                     </div>
                     <div class="general-tpl-section">
                         <?php if (get_sub_field('content')): ?>
-                             <?php echo wp_kses_post(get_sub_field('content')); ?>
+                            <?php echo wp_kses_post(get_sub_field('content')); ?>
                         <?php endif; ?>
                     </div>
-                    <section class="data-list general-tpl-section " >
+                    <section class="data-list general-tpl-section ">
                         <div class="data-list-wrapper">
                             <div class="data-list-header">
                                 <div class="data-list-col data-list-col--title"><?php the_sub_field('label_1'); ?></div>
@@ -731,606 +763,10 @@
 <?php endif; ?>
 
 
-
-
-
-
-
-
-
-
 <?php
 get_footer();
 ?>
 
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const responsiveImgs = document.querySelectorAll(".hero-content-img");
 
-        function updateImages() {
-            const isDesktop = window.innerWidth >= 967;
 
-            responsiveImgs.forEach(img => {
-                const src = isDesktop ? img.dataset.desktop : img.dataset.mobile;
-                if (src) img.src = src;
-            });
-        }
-
-        updateImages(); // Initial load
-        window.addEventListener("resize", updateImages); // Update on resize
-    });
-
-
-    //accordion
-    document.addEventListener('click', function (e) {
-        const btn = e.target.closest('.acc-trigger');
-        if (!btn) return;
-
-        const panelId = btn.getAttribute('aria-controls');
-        const panel = document.getElementById(panelId);
-        const isOpen = btn.getAttribute('aria-expanded') === 'true';
-
-        // close
-        if (isOpen) {
-            btn.setAttribute('aria-expanded', 'false');
-            panel.setAttribute('hidden', '');
-        }
-        // open
-        else {
-            btn.setAttribute('aria-expanded', 'true');
-            panel.removeAttribute('hidden');
-        }
-    });
-
-
-    //detect the current section in view
-    document.addEventListener('DOMContentLoaded', function () {
-        const sections = document.querySelectorAll('.anchor-section');
-        const menuLinks = document.querySelectorAll('.for-families li a');
-
-        function activateMenu() {
-            let scrollPos = window.scrollY || window.pageYOffset;
-
-            sections.forEach(section => {
-                const top = section.offsetTop - 120; // offset for header
-                const bottom = top + section.offsetHeight;
-                const id = section.getAttribute('id');
-
-                if (scrollPos >= top && scrollPos < bottom) {
-                    menuLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.hash === '#' + id) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        // Highlight on scroll
-        window.addEventListener('scroll', activateMenu);
-
-        // Highlight on load (deep links)
-        activateMenu();
-
-        // Smooth scroll + highlight on click
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function (e) {
-                const targetId = this.hash.slice(1);
-                const target = document.getElementById(targetId);
-
-                if (target) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: target.offsetTop - 100, // adjust offset
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const menus = document.querySelectorAll(".types-nbia-sub-menu, .left-menu");
-        const footer = document.querySelector("footer");
-        const contact = document.querySelector("#contact-us");
-
-        if (!menus.length || (!footer && !contact)) return;
-
-        function toggleMenuVisibility() {
-            const windowHeight = window.innerHeight;
-            const footerRect = footer ? footer.getBoundingClientRect() : null;
-            const contactRect = contact ? contact.getBoundingClientRect() : null;
-
-            const footerVisible = footerRect && footerRect.top < windowHeight;
-            const contactVisible = contactRect && contactRect.top < windowHeight;
-
-            menus.forEach(menu => {
-                if (footerVisible || contactVisible) {
-                    menu.style.display = "none";
-                } else {
-                    menu.style.display = "block";
-                }
-            });
-        }
-
-        window.addEventListener("scroll", toggleMenuVisibility);
-        window.addEventListener("resize", toggleMenuVisibility);
-        toggleMenuVisibility(); // run once on load
-    });
-
-
-
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-        const questions = document.querySelectorAll(".faq-question");
-
-        questions.forEach((question) => {
-            question.addEventListener("click", () => {
-                const answer = question.nextElementSibling;
-                answer.classList.toggle("active");
-            });
-        });
-    });
-
-
-
-</script>
-
-
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const wrapper = document.querySelector('.events-carousel-wrapper');
-        if (!wrapper) return;
-        const track = wrapper.querySelector('.events-track');
-        const slides = wrapper.querySelectorAll('.event-slide');
-        const prevBtn = wrapper.querySelector('.carousel-btn.prev');
-        const nextBtn = wrapper.querySelector('.carousel-btn.next');
-
-        let currentIndex = 0;
-        let visibleSlides = 3;
-        let isDragging = false;
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let animationID;
-        let maxTranslate = 0;
-
-        function updateVisibleSlides() {
-            const width = window.innerWidth;
-            if (width <= 600) visibleSlides = 1;
-            else if (width <= 992) visibleSlides = 2;
-            else visibleSlides = 3;
-        }
-
-        function markSingleState() {
-            // if only one slide total -> add .single to track
-            if (slides.length === 1) {
-                track.classList.add('single');
-            } else {
-                track.classList.remove('single');
-            }
-        }
-
-        function updateCarousel() {
-            if (!slides.length) return;
-            const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(track).gap || 20);
-            maxTranslate = -(slides.length - visibleSlides) * slideWidth;
-
-            // Keep index within bounds
-            if (currentIndex < 0) currentIndex = 0;
-            if (currentIndex > slides.length - visibleSlides) currentIndex = Math.max(0, slides.length - visibleSlides);
-
-            prevTranslate = -currentIndex * slideWidth;
-            track.style.transform = `translateX(${prevTranslate}px)`;
-
-            // Show/hide buttons and dragging based on number of slides vs visibleSlides
-            if (slides.length <= visibleSlides) {
-                prevBtn.style.display = 'none';
-                nextBtn.style.display = 'none';
-                track.style.cursor = 'default';
-                disableDragging();
-            } else {
-                prevBtn.style.display = currentIndex === 0 ? 'none' : 'block';
-                nextBtn.style.display = currentIndex >= slides.length - visibleSlides ? 'none' : 'block';
-                track.style.cursor = 'grab';
-                enableDragging();
-            }
-        }
-
-        // Navigation buttons
-        nextBtn.addEventListener('click', () => {
-            if (currentIndex < slides.length - visibleSlides) {
-                currentIndex++;
-                updateCarousel();
-            }
-        });
-
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
-            }
-        });
-
-        // Drag / swipe handlers (same as your fixed version)
-        function dragStart(e) {
-            if (slides.length <= visibleSlides) return;
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            track.style.transition = 'none';
-            animationID = requestAnimationFrame(animation);
-        }
-
-        function dragAction(e) {
-            if (!isDragging) return;
-            const currentX = e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
-            const delta = currentX - startX;
-            currentTranslate = prevTranslate + delta;
-            // clamp
-            if (currentTranslate > 0) currentTranslate = 0;
-            if (currentTranslate < maxTranslate) currentTranslate = maxTranslate;
-        }
-
-        function dragEnd() {
-            if (!isDragging) return;
-            cancelAnimationFrame(animationID);
-            isDragging = false;
-            track.style.transition = 'transform 0.4s ease';
-            const slideWidth = slides[0].offsetWidth + parseInt(getComputedStyle(track).gap || 20);
-            const movedSlides = Math.round(-currentTranslate / slideWidth);
-            currentIndex = Math.min(Math.max(0, movedSlides), Math.max(0, slides.length - visibleSlides));
-            prevTranslate = -currentIndex * slideWidth;
-            track.style.transform = `translateX(${prevTranslate}px)`;
-            updateCarousel();
-        }
-
-        function animation() {
-            track.style.transform = `translateX(${currentTranslate}px)`;
-            if (isDragging) requestAnimationFrame(animation);
-        }
-
-        function enableDragging() {
-            track.addEventListener('mousedown', dragStart);
-            track.addEventListener('touchstart', dragStart, {passive: true});
-            track.addEventListener('mouseup', dragEnd);
-            track.addEventListener('mouseleave', dragEnd);
-            track.addEventListener('touchend', dragEnd);
-            track.addEventListener('mousemove', dragAction);
-            track.addEventListener('touchmove', dragAction);
-        }
-
-        function disableDragging() {
-            track.removeEventListener('mousedown', dragStart);
-            track.removeEventListener('touchstart', dragStart);
-            track.removeEventListener('mouseup', dragEnd);
-            track.removeEventListener('mouseleave', dragEnd);
-            track.removeEventListener('touchend', dragEnd);
-            track.removeEventListener('mousemove', dragAction);
-            track.removeEventListener('touchmove', dragAction);
-        }
-
-        window.addEventListener('resize', () => {
-            updateVisibleSlides();
-            // recalc after a short delay so DOM has updated
-            setTimeout(() => {
-                markSingleState();
-                updateCarousel();
-            }, 120);
-        });
-
-        // Initialize
-        updateVisibleSlides();
-        markSingleState();
-        updateCarousel();
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-<style>
-
-    .box-with-border-section {
-        padding: 0 25%;
-        margin-bottom: 120px;
-    }
-
-
-    .box-with-border {
-        font-family: iA Writer Duo, sans-serif;
-        font-size: 17px;
-        padding: 75px 100px;
-        border: 1px dashed #0867E8;
-        position: relative; /* allow absolute children */
-    }
-
-    .box-with-border-italic {
-        font-family: "Bodoni 6", serif;
-        font-style: italic;
-    }
-
-
-    /* Corner squares */
-    .box-with-border::before,
-    .box-with-border::after,
-    .box-with-border span::before,
-    .box-with-border span::after {
-        content: "";
-        width: 6px;
-        height: 6px;
-        background-color: #0867E8;
-        position: absolute;
-    }
-
-    /* top-left */
-    .box-with-border::before {
-        top: -3px;
-        left: -3px;
-    }
-
-    /* top-right */
-    .box-with-border::after {
-        top: -3px;
-        right: -3px;
-    }
-
-    /* bottom-left */
-    .box-with-border span::before {
-        bottom: -3px;
-        left: -3px;
-    }
-
-    /* bottom-right */
-    .box-with-border span::after {
-        bottom: -3px;
-        right: -3px;
-    }
-
-    .box-with-border p {
-        margin-bottom: 0;
-    }
-
-    .box-with-border b {
-        color: #0867E8;
-    }
-
-
-    @media (max-width: 966px) {
-        .box-with-border {
-            padding: 50px;
-        }
-    }
-
-    @media (max-width: 567px) {
-        .box-with-border-section {
-            max-width: 930px;
-            padding-left: 25px;
-            padding-right: 25px;
-        }
-
-        .box-with-border {
-            padding: 25px;
-        }
-    }
-
-
-
-
-    .data-list-wrapper {
-        display: flex;
-        flex-direction: column;
-        gap: 10px; /* spacing between rows */
-        margin-bottom: 2.1em;
-    }
-
-    .data-list-header,
-    .data-list-row {
-        display: grid;
-        grid-template-columns: 1fr 2fr;
-        padding: 12px 16px;
-        border: 1px solid #0867E8;
-
-    }
-
-    .data-list-header {
-        background-color: #0867E8;
-        font-weight: 700;
-        color: white;
-    }
-
-    .data-list-col {
-        padding: 4px 8px;
-    }
-
-    .data-list-col--left {
-        font-weight: 600;
-        color: #333;
-    }
-
-    .data-list-col--right {
-        color: #555;
-    }
-
-    .data-list-col--title {
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
-
-    /* ✅ Mobile view */
-    @media (max-width: 600px) {
-        .data-list-header {
-            display: none;
-        }
-
-        .data-list-row {
-            grid-template-columns: 1fr;
-            border: 1px solid #0867E8;
-
-            background: #fafafa;
-        }
-
-        .data-list-col--left {
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
-    }
-
-
-
-
-
-
-    .faq-section {
-        max-width: 800px;
-        margin: 0 auto;
-        padding: 40px 20px;
-    }
-
-    .faq-item {
-        padding: 15px 0;
-    }
-
-    .faq-question {
-        font-size: 1.2em;
-        font-weight: 600;
-        cursor: pointer;
-        position: relative;
-    }
-
-    .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: all 0.5s ease; /* makes opening slower */
-        padding-top: 0;
-        font-size: 1em;
-        color: #333;
-    }
-
-    .faq-answer.active {
-        max-height: 1000px; /* adjust depending on content size */
-        opacity: 1;
-        padding-top: 10px;
-    }
-
-
-
-
-
-
-    /*eee vvv eee nnn ttt ssss*/
-    .events-carousel-wrapper {
-        position: relative;
-        overflow: hidden;
-        max-width: 1200px;
-        margin: 0 auto;
-
-    }
-
-    .events-carousel {
-        overflow: hidden;
-        height: 400px;
-        display: flex;
-        align-items: center;
-        justify-content: center
-    }
-
-    .events-track {
-        display: flex;
-        transition: transform 0.4s ease;
-        gap: 20px;
-        justify-content: center;
-        width: 100%;
-    }
-
-    /* when track has .single class — center & make single card 300px */
-    .events-track.single {
-        justify-content: center; /* center the only slide */
-    }
-
-    .events-track.single .event-slide {
-         flex: 0 0 300px;     /* fixed width for the single item */
-         max-width: 300px;
-     }
-
-    /* ensure image and content scale nicely inside the fixed width */
-    .events-track.single .event-thumb img {
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    /* optional: reduce track gap when single */
-    .events-track.single { gap: 16px; }
-
-
-    .event-slide {
-        flex: 0 0 calc(33.333% - 20px); /* 3 per row on desktop */
-        max-width: calc(33.333% - 20px);
-        box-sizing: border-box;
-        border: 1px dashed #0867E8;
-        overflow: hidden;
-        background: #fff;
-        display: flex;
-        flex-direction: column;
-        text-decoration: none; /* make entire slide clickable */
-        color: inherit;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .event-slide:hover {
-
-    }
-
-
-
-    .event-thumb img {
-        width: 100%;
-        display: block;
-    }
-
-    .event-content {
-        padding: 15px 20px;
-    }
-
-    .carousel-btn {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        background: #0867E8;
-        color: #fff;
-        border: none;
-        padding: 10px 15px;
-
-        cursor: pointer;
-        font-size: 24px;
-        z-index: 10;
-        opacity: 0.8;
-    }
-
-    .carousel-btn:hover { opacity: 1; }
-
-    .carousel-btn.prev { left: 10px; }
-    .carousel-btn.next { right: 10px; }
-
-    @media (max-width: 992px) {
-        .event-slide { flex: 0 0 calc(50% - 20px); max-width: calc(50% - 20px); }
-        .events-track {gap: 5px; justify-content: space-between}
-    }
-
-    @media (max-width: 600px) {
-        .event-slide { flex: 0 0 calc(100% - 20px); max-width: calc(100% - 20px); }
-    }
-
-</style>

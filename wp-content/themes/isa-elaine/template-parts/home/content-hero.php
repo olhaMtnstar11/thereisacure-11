@@ -59,10 +59,53 @@ if (is_array($hero_array) && array_filter($hero_array)):
 
                     </div>
                 </div>
+
+
+
+
+
+
+
             </div>
 
 
+
+
+
+
+
+
         </section>
+
+
+
+
+<section class="plain-text">
+
+    <div class="poem-logo">
+
+        <?php if (have_rows('partner_item', 'option')): ?>
+            <div class="partner-logos">
+                <?php while (have_rows('partner_item', 'option')): the_row();
+                    $logo = get_sub_field('logo');
+                    if (!empty($logo)) : ?>
+                        <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>" class="partner-logo">
+                            <img src="<?php echo esc_url($logo); ?>" alt="">
+                        </a>
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
+
+    </div>
+
+</section>
+
+
+
+
+
+
     <?php endwhile;
 endif; ?>
 
@@ -81,7 +124,7 @@ endif; ?>
                 div.style.aspectRatio = '3 / 2'; // 10/20
             } else {
                 div.style.backgroundImage = `url(${desktopBg})`;
-                div.style.aspectRatio = '9 / 3'; // 20/20
+                div.style.aspectRatio = '14 / 3'; // 20/20
             }
         });
     }
@@ -107,6 +150,8 @@ endif; ?>
 
 
 .hero-container {
+    position: absolute;
+    top: 0px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -119,7 +164,7 @@ endif; ?>
     .hero-section {
         position: relative;
         margin-left: 15vw;
-        top: -80px;
+        top: -110px;
         align-self: flex-start;
     }
 
@@ -265,4 +310,10 @@ endif; ?>
             width: 100%;
         }
     }
+</style>
+
+
+<style>
+
+
 </style>

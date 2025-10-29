@@ -2,10 +2,8 @@
 
     <main class="single-news">
 
-        <?php if (have_posts()): while (have_posts()): the_post(); ?>
-
-
-
+        <?php if (have_posts()): while (have_posts()):
+        the_post(); ?>
 
 
         <!-- back button -->
@@ -31,19 +29,16 @@
             </div>
 
 
-
             <div class="general-tpl-section">
                 <h2 class="mb-4"><?php the_title(); ?></h2>
             </div>
             <div class="general-tpl-section">
-                <div class=" mb-4 sub-title font-ia-writer-duo"> <span class="date"><?php echo get_the_date(); ?></span></div>
+                <div class=" mb-4 sub-title font-ia-writer-duo"><span class="date"><?php echo get_the_date(); ?></span>
+                </div>
                 <?php if (get_field('sub_title')): ?>
                     <h4 class="mb-6 sub-title font-ia-writer-duo"><?php echo esc_html(get_field('sub_title')); ?></h4>
                 <?php endif; ?>
             </div>
-
-
-
 
 
             <?php if (have_rows('Sections')): ?>
@@ -56,13 +51,11 @@
                             <!-- 3 column grid -->
 
 
-
                             <div class="general-tpl-section">
                                 <?php if (get_sub_field('title_main_column')): ?>
                                     <h3 class="mb-4"><?php echo esc_html(get_sub_field('title_main_column')); ?></h3>
                                 <?php endif; ?>
                             </div>
-
 
 
                             <div class="grid-container general-tpl-section-content">
@@ -73,11 +66,8 @@
                                 </div>
 
 
-
-
                                 <?php if (get_sub_field('content_2') && get_sub_field("2_column_count")): ?>
                                     <div class="middle-column">
-
 
 
                                         <?php echo wp_kses_post(get_sub_field('content_2')); ?>
@@ -99,7 +89,8 @@
                                                                 </a>
                                                             <?php endif; ?>
                                                         <?php endif; ?>
-                                                        <a href="<?php echo esc_url($pdf_link['url']); ?>" target="_blank"
+                                                        <a href="<?php echo esc_url($pdf_link['url']); ?>"
+                                                           target="_blank"
                                                            class="">
                                                             <p class="download-block-title"><?php echo esc_html($pdf_label); ?>
                                                                 ↗ </p>
@@ -131,7 +122,8 @@
                                                                 </a>
                                                             <?php endif; ?>
                                                         <?php endif; ?>
-                                                        <a href="<?php echo esc_url($pdf_link['url']); ?>" target="_blank"
+                                                        <a href="<?php echo esc_url($pdf_link['url']); ?>"
+                                                           target="_blank"
                                                            class="">
                                                             <p class="download-block-title"><?php echo esc_html($pdf_label); ?>
                                                                 ↗ </p>
@@ -153,26 +145,6 @@
                         <?php endif; ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <!-- line -->
                     <?php elseif (get_row_layout() == 'line'): ?>
                         <?php if (get_row_layout() == 'line'): ?>
@@ -185,7 +157,6 @@
                                 </div>
                             </div>
                         <?php endif; ?>
-
 
 
                         <!-- 5-accordion -->
@@ -273,7 +244,6 @@
                                             ?>
 
 
-
                                             <div class="icons-statistic-item">
                                                 <div class="icons-statistic-img">
                                                     <img src="<?php echo esc_url($icon); ?>" alt=" ">
@@ -297,22 +267,9 @@
                         <?php endif; ?>
 
 
-
-
-
-
-
-
-
-
-
-
-
                     <?php endif; ?>
                 <?php endwhile; ?>
             <?php endif; ?>
-
-
 
 
             <!-- Thin Line Div -->
@@ -326,18 +283,6 @@
             </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
             <div class="news-meta">
 
                 <?php the_terms(get_the_ID(), 'news_category', '<span class="category">', ', ', '</span>'); ?>
@@ -348,13 +293,8 @@
                     <?php the_post_thumbnail('large'); ?>
                 </div>
             <?php endif; ?>
-
-
-
-
-
-
-            <?php endwhile; endif; ?>
+            <?php endwhile;
+            endif; ?>
 
     </main>
 

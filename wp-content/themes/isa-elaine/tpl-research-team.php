@@ -228,6 +228,7 @@ get_footer();
             align-items: start;     /* center items horizontally */
             text-align: left;      /* center text under image */
             gap: 1.5rem;             /* smaller gap on mobile */
+            height: auto;
         }
 
         .researcher-info {

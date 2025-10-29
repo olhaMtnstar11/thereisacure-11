@@ -10,20 +10,13 @@
 
             <?php
             wp_nav_menu(array(
-                'menu' => 'Mobile menu footer part 1',
-                'theme_location' => 'footer-mobile-menu-1',
+                'menu' => 'Footer Menu',
+                'theme_location' => 'footer-menu',
                 'container' => false,
-                'menu_class' => 'footer-mobile-menu-1',
+                'menu_class' => '',
             ));
             ?>
-            <?php
-            wp_nav_menu(array(
-                'menu' => 'Mobile menu part 2',
-                'theme_location' => 'mobile-menu-2',
-                'container' => false,
-                'menu_class' => 'mobile-menu-2-footer',
-            ));
-            ?>
+
         </nav>
     </div>
     <!-- /.footer-col -->

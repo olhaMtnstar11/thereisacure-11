@@ -80,7 +80,7 @@ $(document).ready(function () {
 
         // Reset button aria-expanded and content
         $("#mobile-menu-toggle").attr("aria-expanded", "false");
-        $("#mobile-menu-toggle").html('menu <span class="arrow">➔</span>');
+        $("#mobile-menu-toggle").html('menu <span class="arrow"></span>');
     }
 
     // Check window resize

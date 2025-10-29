@@ -83,12 +83,10 @@ function register_theme_menus()
         array(
 	        'main-menu' => __('Main Menu'),
             'footer-menu' => __('Footer Menu'),
-            'secondary-menu' => __('Contact'), // ✅ new menu for contact item
-            'mobile-menu-1' => __('Mobile menu part 1'), // ✅ mobile menu
-            'mobile-menu-2' => __('Mobile menu part 2'), // ✅ mobile menu
+
             'footer-mobile-menu-1' => __('Mobile menu footer part 1'), // ✅ mobile menu
 
-            'main-menu-2' => __('Main menu 2-version'),
+
             'for-families' => __('For Families'),
 
 
@@ -103,7 +101,7 @@ function register_theme_menus()
 
             'types-of-nbia' => __('Types of NBIA'),
 
-
+            'mobile_menu' => __('mobile menu'),
 
         )
         );
@@ -219,6 +217,36 @@ function add_dark_mode_script() {
     wp_enqueue_script('dark-mode-toggle', get_template_directory_uri() . '/assets/js/dark-mode.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'add_dark_mode_script');
+
+
+
+//js for acf general template
+function add_custom_template_script() {
+    // check if this page uses your template
+    if (is_page_template('tpl-content.php')) {
+        wp_enqueue_script(
+            'general-template',
+            get_template_directory_uri() . '/assets/js/general-template.js',
+            array(), // dependencies if needed
+            null, // version
+            true  // load in footer
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'add_custom_template_script');
+
+
+//js for header  nav
+function add_header_nav_script() {
+    wp_enqueue_script(
+        'header-nav',
+        get_template_directory_uri() . '/assets/js/header-nav.js',
+        array(),
+        null,
+        true
+    );
+}
+add_action('wp_enqueue_scripts', 'add_header_nav_script');
 
 
 //post type for my documents page
