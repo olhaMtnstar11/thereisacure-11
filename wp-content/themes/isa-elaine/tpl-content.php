@@ -254,18 +254,37 @@
                                     <?php while ($news_query->have_posts()): $news_query->the_post(); ?>
                                         <article class="news-item">
 
-                                            <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-                                            <?php if (has_post_thumbnail()): ?>
-                                                <div class="news-thumb">
-                                                    <a href="<?php the_permalink(); ?>">
-                                                        <?php the_post_thumbnail('medium'); ?>
-                                                    </a>
+                                            <div class="news-box">
+                                                <div class="news-picture">
+                                                    <?php if (has_post_thumbnail()): ?>
+                                                        <div class="news-thumb">
+                                                            <a href="<?php the_permalink(); ?>">
+                                                                <?php the_post_thumbnail('medium'); ?>
+                                                            </a>
+                                                        </div>
+                                                    <?php endif; ?>
                                                 </div>
-                                            <?php endif; ?>
-                                            <div class="news-excerpt">
-                                                <?php the_excerpt(); ?>
-                                                <a class="read-more-btn" href="<?php the_permalink(); ?>">Read More</a>
+                                                <div class="news-content">
+
+                                                    <h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+                                                    <div class="news-excerpt">
+                                                        <?php the_excerpt(); ?>
+                                                        <a class="read-more-btn" href="<?php the_permalink(); ?>">Read More</a>
+                                                    </div>
+
+                                                </div>
                                             </div>
+
+
+                                            <!-- Thin Line Div -->
+                                            <div class="line-container">
+                                                <div class="section-line-with-squares">
+                                                    <div class="square left"></div>
+                                                    <div class="section-line"></div>
+                                                    <div class="square right"></div>
+                                                </div>
+                                            </div>
+
 
                                         </article>
 

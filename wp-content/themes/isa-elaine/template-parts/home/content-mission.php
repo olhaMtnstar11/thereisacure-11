@@ -7,13 +7,13 @@ if (is_array($array) && array_filter($array)):
         $image_mobile = get_sub_field('image');
         $image_desktop = get_sub_field('image_desktop');
         ?>
-        <section id="mission" class="plain-text">
+        <section id="mission" class="plain-text scroll-section">
             <div class="mission-grid">
 
 
                 <?php if ($image_mobile || $image_desktop): ?>
 
-                <div class="mission-item-1" style="padding-bottom: 120px;">
+                <div class="mission-item-1 scroll-section" style="padding-bottom: 120px;">
                     <img
                             class="mission-image"
                             data-desktop-src="<?php echo esc_url($image_desktop); ?>"
@@ -59,7 +59,7 @@ if (is_array($array) && array_filter($array)):
 
                 <div class="mission-item-3" style="padding-top: 120px;">
                     <?php if (get_sub_field('title')): ?>
-                        <h2 class="mb-5"><?php echo esc_html(get_sub_field('title')); ?></h2>
+                        <h2 class=""><?php echo esc_html(get_sub_field('title')); ?></h2>
                     <?php endif; ?>
                     <?php if (get_sub_field('center_column')): ?>
                         <div class="two-column-text-mission">
@@ -294,7 +294,7 @@ if (is_array($array) && array_filter($array)):
 
 
     .new-section h2 {
-        padding-bottom: 70px;
+
     }
 
 
@@ -304,7 +304,7 @@ if (is_array($array) && array_filter($array)):
 
 
     .two-column-text-mission {
-        font-size: 20px;
+        font-size: 17px;
         column-count: 1;
         column-gap: 20px;
         line-height: 1.6;

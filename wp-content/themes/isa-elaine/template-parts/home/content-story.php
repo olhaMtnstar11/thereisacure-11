@@ -4,7 +4,7 @@ $array = get_field('isa_story');
 if (is_array($array) && array_filter($array)):
 // loop through the rows of data
     while (have_rows('isa_story')) : the_row(); ?>
-        <section id="story" class="plain-text">
+        <section id="story" class="plain-text scroll-section">
 
 
             <div class="three-column-grid new-section-content">
@@ -37,7 +37,7 @@ if (is_array($array) && array_filter($array)):
 
             <div class="new-section">
                 <?php if (get_sub_field('title')): ?>
-                    <h2 class="mb-4"><?php echo esc_html(get_sub_field('title')); ?></h2>
+                    <h2 class=""><?php echo esc_html(get_sub_field('title')); ?></h2>
                 <?php endif; ?>
 
                 <?php if (get_sub_field('sub_title')): ?>
@@ -106,7 +106,7 @@ if (is_array($array) && array_filter($array)):
     }
 
     .new-section h2 {
-        padding-bottom: 60px;
+
     }
 
     .firs-column {
@@ -138,7 +138,7 @@ if (is_array($array) && array_filter($array)):
     }
 
     .two-column-text {
-        font-size: 20px;
+        font-size: 17px;
         column-count: 2;
         column-gap: 20px;
         line-height: 1.6;
@@ -172,7 +172,7 @@ if (is_array($array) && array_filter($array)):
         }
 
         .new-section h2 {
-            padding-bottom: 10px;
+
         }
 
         .new-section-content {

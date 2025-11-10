@@ -222,8 +222,8 @@ add_action('wp_enqueue_scripts', 'add_dark_mode_script');
 
 //js for acf general template
 function add_custom_template_script() {
-    // check if this page uses your template
-    if (is_page_template('tpl-content.php')) {
+    // Check if this page uses your template OR is the front page
+    if (is_page_template('tpl-content.php') || is_front_page()) {
         wp_enqueue_script(
             'general-template',
             get_template_directory_uri() . '/assets/js/general-template.js',
@@ -299,7 +299,6 @@ function isa_enqueue_donation_assets() {
             null,
             true
         );
-
         wp_enqueue_style(
             'donate-css',
             get_template_directory_uri() . '/template-parts/donate/donate.css',
@@ -372,3 +371,173 @@ function create_event_post_type() {
     ));
 }
 add_action('init', 'create_event_post_type');
+
+
+/**
+ * 1) Fill missing/empty alts for images rendered via wp_get_attachment_image().
+ */
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
+
+    $current = isset( $attr['alt'] ) ? trim( $attr['alt'] ) : '';
+
+    // If there's already a meaningful alt, keep it.
+    if ( $current !== '' && strtolower( $current ) !== 'alt' ) {
+        return $attr;
+    }
+
+    $media_alt = trim( (string) get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ) );
+
+    if ( $media_alt !== '' ) {
+        $attr['alt'] = $media_alt;
+    } else {
+        // Prefer empty alt over junk.
+        $attr['alt'] = '';
+    }
+
+    return $attr;
+}, 10, 2 );
+
+
+
+
+
+
+
+/**
+ * Step 1: wp_get_attachment_image() safety net.
+ */
+add_filter( 'wp_get_attachment_image_attributes', function ( $attr, $attachment ) {
+
+    $current = isset( $attr['alt'] ) ? trim( $attr['alt'] ) : '';
+
+    // Keep any non-empty, non-placeholder alt.
+    if ( $current !== '' && strtolower( $current ) !== 'alt' ) {
+        return $attr;
+    }
+
+    $media_alt = trim( (string) get_post_meta( $attachment->ID, '_wp_attachment_image_alt', true ) );
+
+    if ( $media_alt !== '' ) {
+        $attr['alt'] = $media_alt;
+    } else {
+        $attr['alt'] = ''; // prefer empty to junk
+    }
+
+    return $attr;
+
+}, 10, 2 );
+
+
+/**
+ * Step 2: Global HTML pass using output buffering.
+ */
+add_action( 'template_redirect', function () {
+
+    // Only front-end, only normal HTML.
+    if (
+        is_admin()
+        || wp_doing_ajax()
+        || ( defined( 'REST_REQUEST' ) && REST_REQUEST )
+        || ( function_exists( 'wp_is_json_request' ) && wp_is_json_request() )
+        || is_feed()
+        || is_embed()
+    ) {
+        return;
+    }
+
+    ob_start( 'auto_fill_image_alts_in_html' );
+} );
+
+
+/**
+ * Buffer callback: patch all <img> tags.
+ */
+function auto_fill_image_alts_in_html( $html ) {
+    // Quick bail-out if no images.
+    if ( stripos( $html, '<img' ) === false ) {
+        return $html;
+    }
+
+    $pattern = '/<img\b[^>]*>/i';
+
+    return preg_replace_callback( $pattern, 'auto_fill_image_alts_img_callback', $html );
+}
+
+
+/**
+ * Process a single <img> tag:
+ * - Respect existing useful alt text.
+ * - Use attachment_url_to_postid() to resolve Media Library item.
+ * - Inject its alt text when appropriate.
+ */
+function auto_fill_image_alts_img_callback( $matches ) {
+    static $alt_cache = [];
+
+    $img = $matches[0];
+
+    // 1) Existing alt?
+    $has_alt = preg_match( '/\balt\s*=\s*([\'"])(.*?)\1/i', $img, $alt_match );
+    $current_alt = $has_alt ? trim( html_entity_decode( $alt_match[2], ENT_QUOTES ) ) : '';
+
+    // If alt is already meaningful, leave it alone.
+    if ( $current_alt !== '' && strtolower( $current_alt ) !== 'alt' ) {
+        return $img;
+    }
+
+    // 2) Get src.
+    if ( ! preg_match( '/\bsrc\s*=\s*([\'"])(.*?)\1/i', $img, $src_match ) ) {
+        return $img; // no src; nothing we can do
+    }
+
+    $src = $src_match[2];
+    if ( ! $src ) {
+        return $img;
+    }
+
+    // Normalize URL for lookup: strip query string.
+    $lookup = strtok( $src, '?' );
+
+    // 3) Map URL to attachment ID (cache to avoid repeated DB hits).
+    if ( isset( $alt_cache[ $lookup ] ) ) {
+        $media_alt = $alt_cache[ $lookup ];
+    } else {
+        $attachment_id = attachment_url_to_postid( $lookup );
+        if ( ! $attachment_id ) {
+            $alt_cache[ $lookup ] = '';
+            return $img; // not a library image, bail
+        }
+
+        $media_alt = trim( (string) get_post_meta( $attachment_id, '_wp_attachment_image_alt', true ) );
+        $alt_cache[ $lookup ] = $media_alt;
+    }
+
+    // 4) No alt in library? If existing alt was literal "alt", normalize to empty.
+    if ( $media_alt === '' ) {
+        if ( $has_alt && strtolower( $current_alt ) === 'alt' ) {
+            $img = preg_replace( '/\balt\s*=\s*([\'"])(.*?)\1/i', ' alt=""', $img, 1 );
+        }
+        return $img;
+    }
+
+    $media_alt_esc = esc_attr( $media_alt );
+
+    // 5) Inject or replace alt.
+    if ( $has_alt ) {
+        // Replace empty/placeholder alt attribute.
+        $img = preg_replace(
+            '/\balt\s*=\s*([\'"])(.*?)\1/i',
+            ' alt="' . $media_alt_esc . '"',
+            $img,
+            1
+        );
+    } else {
+        // No alt attr — insert one before closing angle.
+        $img = preg_replace(
+            '/\s*\/?>$/',
+            ' alt="' . $media_alt_esc . '"$0',
+            $img
+        );
+    }
+
+    return $img;
+}

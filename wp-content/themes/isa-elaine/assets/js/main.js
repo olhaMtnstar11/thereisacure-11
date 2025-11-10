@@ -391,3 +391,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 });
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.scroll-container');
+    if (!container) return; // only run on homepage
+
+    const sections = document.querySelectorAll('.scroll-section');
+    const height = window.innerHeight;
+    let isScrolling = false; // scroll lock
+
+    // Highlight active section
+    container.addEventListener('scroll', () => {
+        const scrollTop = container.scrollTop;
+        sections.forEach((sec) => {
+            const offset = sec.offsetTop;
+            if (scrollTop >= offset - height / 1.5 && scrollTop < offset + height / 1.5) {
+                sec.classList.add('active');
+            } else {
+                sec.classList.remove('active');
+            }
+        });
+    });
+
+    // Smooth one-section-per-scroll
+    container.addEventListener(
+        'wheel',
+        (e) => {
+            if (window.innerWidth > 1024) {
+                e.preventDefault();
+                if (isScrolling) return; // block multiple triggers
+                isScrolling = true;
+
+                container.scrollBy({
+                    top: e.deltaY > 0 ? height : -height,
+                    behavior: 'smooth',
+                });
+
+                // unlock after animation finishes (~1.2s)
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 1200);
+            }
+        },
+        { passive: false }
+    );
+});

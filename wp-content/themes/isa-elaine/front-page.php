@@ -1,9 +1,11 @@
 <?php get_header(); ?>
 
 
-
+<div class="scroll-container">
 <?php
 get_template_part('template-parts/home/content', 'hero');
+get_template_part('template-parts/home/content', 'goal');
+get_template_part('template-parts/home/content', 'news');
 get_template_part('template-parts/home/content', 'navigation-section');
 get_template_part('template-parts/home/content', 'mission');
 
@@ -25,8 +27,15 @@ get_template_part('template-parts/home/content', 'poem');
 
 
 get_template_part('template-parts/home/content', 'two-cols');
-get_footer();
 
 ?>
+    <div class="scroll-section">
+        <?php get_footer();?>
+    </div>
+
+
+
+
+</div>
 
 

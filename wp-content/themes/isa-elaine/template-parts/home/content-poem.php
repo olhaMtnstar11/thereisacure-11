@@ -4,7 +4,7 @@ $array = get_field('poem');
 if (is_array($array) && array_filter($array)):
 // loop through the rows of data
     while (have_rows('poem')) : the_row(); ?>
-        <section id="poem" class="plain-text">
+        <section id="poem" class="plain-text scroll-section">
 
             <div>
                 <?php if (get_sub_field('poem_logo')): ?>
@@ -20,7 +20,7 @@ if (is_array($array) && array_filter($array)):
 
             <div class="poem-logo">
                 <?php if (get_sub_field('little_logo')): ?>
-                    <img class="p-3" style="    max-width: 120px;"
+                    <img class=""
                          src="<?php echo esc_url(get_sub_field('little_logo')); ?>" alt="">
                 <?php endif; ?>
             </div>
@@ -41,14 +41,7 @@ if (is_array($array) && array_filter($array)):
 
 
         </section>
-        <!-- Thin Line Div -->
-        <div class="line-container">
-            <div class="section-line-with-squares">
-                <div class="square left"></div>
-                <div class="section-line"></div>
-                <div class="square right"></div>
-            </div>
-        </div>
+
 
 
     <?php endwhile;endif; ?>
@@ -62,21 +55,10 @@ if (is_array($array) && array_filter($array)):
         margin-left: auto;
     }
 
-    .poem-img {
-        width: 100vw;
-    }
 
-    .poem-text {
-        font-family: "Bodoni 06", sans-serif;
-        font-size: 20px;
-        text-align: center;
-        letter-spacing: 1.3px;
-        padding: 80px 0 20px 0;
-    }
 
-    .poem-text p {
-        line-height: 2 !important;
-    }
+
+
 
     .poem-logo {
         text-align: center;

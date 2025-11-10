@@ -4,7 +4,7 @@ $array = get_field('two_cols');
 if (is_array($array) && array_filter($array)):
 // loop through the rows of data
     while (have_rows('two_cols')) : the_row(); ?>
-        <section class="two-columns" id="contact">
+        <section class="two-columns scroll-section" id="contact">
 
             <div class="heading">
                 <div class="container">

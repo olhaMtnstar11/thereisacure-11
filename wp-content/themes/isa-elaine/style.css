@@ -932,13 +932,14 @@ ul.social li a:hover {
 
 .home-hero {
     position: relative;
-    top: 120px;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Pushes content to the bottom */
+    /*  top: 120px;*/
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+
     align-items: flex-start; /* Centers the buttons */
     margin-bottom: 100px;
+    justify-content: space-between!important;
 }
 
 
@@ -1247,7 +1248,7 @@ body.fancybox-active {
 }
 
 
-/* -------------------------------------- FORM CONTACT US -------------------------------------- */
+/* -------------------------------------- FORM CONTACT US  laptop-------------------------------------- */
 form span {
     width: 100%;
     display: block;
@@ -1268,6 +1269,7 @@ form span input {
 form span input::placeholder {
     color: #0867E8; /* Change to your desired color */
     opacity: 1; /* Ensure full visibility in some browsers */
+    font-size: 20px;
 }
 
 form textarea {
@@ -1292,6 +1294,7 @@ form textarea.light-mode {
 form textarea::placeholder {
     color: #0867E8; /* Change to your desired color */
     opacity: 1; /* Ensure full visibility in some browsers */
+    font-size: 20px;
 }
 
 /* General input styles */
@@ -1346,6 +1349,9 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
     -webkit-text-fill-color: #000000 !important;
     transition: background-color 5000s ease-in-out 0s !important;
+
+    font-size: 17px !important;
+
 }
 
 .wpcf7-text.light-mode:-webkit-autofill,
@@ -1358,6 +1364,7 @@ input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
     -webkit-text-fill-color: #000000 !important;
     transition: background-color 5000s ease-in-out 0s !important;
+    font-size: 17px !important;
 }
 
 /*  FORCE text color to stay white while typing */
@@ -1393,6 +1400,7 @@ input[type="email"],
 input[type="tel"],
 textarea {
     caret-color: #000000 !important; /* Ensure cursor remains visible */
+    font-size: 17px!important;
 }
 
 .wpcf7-text.light-mode,
@@ -1404,6 +1412,7 @@ input[type="email"].light-mode,
 input[type="tel"].light-mode,
 textarea {
     caret-color: #000000 !important; /* Ensure cursor remains visible */
+    font-size: 17px!important;
 }
 
 .wpcf7-not-valid-tip {
@@ -1455,6 +1464,7 @@ form select:-webkit-autofill,
     -webkit-box-shadow: 0 0 0px 1000px #ffffff inset !important;
     -webkit-text-fill-color: #000000 !important;
     transition: background-color 5000s ease-in-out 0s !important;
+
 }
 
 form select.light-mode:-webkit-autofill,
@@ -1464,6 +1474,7 @@ form select.light-mode:-webkit-autofill,
     -webkit-box-shadow: 0 0 0px 1000px #000000 inset !important;
     -webkit-text-fill-color: #ffffff !important;
     transition: background-color 5000s ease-in-out 0s !important;
+
 }
 
 /* Focus styles for <select> */
@@ -2372,13 +2383,46 @@ body.light-mode #theme-toggle i {
     background: #6096ef45;
 }
 
+/* FORCE single horizontal line + scrolling */
+.partner-logos {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important; /* <- no wrap */
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px 0;
+    margin-top: 0!important;
+}
+
+.home-hero .partner-logos {
+
+}
+
+/* base: always horizontal no wrap */
 .partner-logos {
     display: flex;
-    justify-content: center;
+    gap: 20px;
     align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    margin: 50px 0;
+    white-space: wrap;
+
+    padding: 20px 0;
+    box-sizing: border-box;
+}
+
+/* make sure links don't become full width by theme */
+.partner-logos .partner-logo {
+
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto !important;
+    width: auto !important;
+}
+
+.partner-logos .partner-logo img {
+    height: 45px;
+    width: auto;
+    display: block;
 }
 
 .partner-logos a {
@@ -2931,6 +2975,30 @@ img.full-width {
     color: #0867E8;
 }
 
+.news-box {
+display: flex;
+    gap: 30px;
+    margin-bottom: 100px;
+}
+
+.news-picture {
+    width: 100%;
+    max-width: 200px;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f0f0f0;
+}
+
+.news-picture img{
+    width: 100%;
+}
+.news-content {
+
+}
+
 .read-more-btn {
     display: inline-block;
     font-family: "iA Writer Duo", sans-serif;
@@ -2993,42 +3061,7 @@ img.full-width {
 }
 
 
-/* FORCE single horizontal line + scrolling */
-.partner-logos {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: wrap !important; /* <- no wrap */
-    align-items: center;
-    gap: 30px;
 
-    padding: 20px 0;
-}
-
-/* base: always horizontal no wrap */
-.partner-logos {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    white-space: wrap;
-
-    padding: 20px 0;
-    box-sizing: border-box;
-}
-
-/* make sure links don't become full width by theme */
-.partner-logos .partner-logo {
-
-    align-items: center;
-    justify-content: center;
-    flex: 0 0 auto !important;
-    width: auto !important;
-}
-
-.partner-logos .partner-logo img {
-    height: 45px;
-    width: auto;
-    display: block;
-}
 
 
 /*partner css style */
@@ -3046,18 +3079,20 @@ img.full-width {
 
 .poem-text {
     font-family: "Bodoni 06", sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     text-align: center;
-    letter-spacing: 1.3px;
-    padding: 80px 0 20px 0;
+    letter-spacing: 1.0px;
+    padding: 20px 0 0 0;
 }
 
 .poem-text p {
-    line-height: 2 !important;
+    line-height: 1.6 !important;
 }
-
 .poem-logo {
     text-align: center;
+}
+.poem-logo img{
+    max-width: 90px;
 }
 
 
@@ -3271,7 +3306,7 @@ img.full-width {
 
 .event-thumb {
     width: 100%;
-    aspect-ratio: 1/1; /* ensures square container */
+    aspect-ratio: 3/2; /* ensures square container */
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -3291,10 +3326,11 @@ img.full-width {
     flex-grow: 1; /* card grows with content */
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
 }
 
 .event-title {
-    font-size: 1.2rem;
+    font-size: 17px;
     font-weight: 600;
     margin-bottom: 10px;
     color: #0867E8;
@@ -3303,8 +3339,17 @@ img.full-width {
 .event-excerpt {
     flex-grow: 1; /* push Learn More button down if present */
     margin-bottom: 10px;
+    font-size: 17px;
 }
-
+.event-title a {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 3em; /* adjust depending on your font size */
+    line-height: 1.5em; /* must match your text line height */
+}
 /* Carousel buttons */
 .carousel-btn {
     position: absolute;
@@ -3737,10 +3782,13 @@ a.menu-item-906, a.menu-item-1128 {
 
 .navigation-row {
     display: flex;
-    flex-wrap: wrap; /* allow items to wrap */
+    /* flex-wrap: wrap; /* allow items to wrap */
     justify-content: center; /* center items in row */
     gap: 3rem; /* optional: space between items */
-
+    flex-wrap: nowrap;
+    flex-direction: row;
+    padding-left: 3em;
+    padding-right: 3em;
 }
 
 .navigation-card {
@@ -3748,6 +3796,7 @@ a.menu-item-906, a.menu-item-1128 {
     max-width: 450px; /*     prevent items from being too wide */
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 
@@ -3819,7 +3868,7 @@ a.read-more-button {
 }
 
 .read-more-box {
-    margin-bottom: 90px;
+    margin-bottom: 10px;
 }
 
 
@@ -4245,6 +4294,53 @@ body.mobile-menu-open {
 }
 
 
+/* home page slide scrolling */
+body.home .scroll-container {
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scroll-snap-type: y mandatory;
+    scroll-snap-stop: always;
+    scroll-behavior: smooth;
+
+    /* smoother feel on macOS / touchpads */
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Each section */
+
+body.home .scroll-section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 0 !important;
+
+    /* smooth scale and fade
+    transition:
+            transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+            opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+*/
+
+}
+
+/* When section becomes active */
+body.home .scroll-section.active {
+
+}
+
+.two-columns h4 {
+   font-size: 22px;
+}
+.two-columns div p {
+font-size: 20px;
+}
+
+
+
+
 
 
 
@@ -4263,14 +4359,103 @@ body.mobile-menu-open {
         max-width: 100%;
         width: 100%;
     }
+    .home-hero .partner-logos {
+
+    }
+    .partner-logos {
+        margin-top: 0!important;
+    }
+
+    .poem-text {
+        font-size: 12px;
+        letter-spacing: 1.0px;
+        padding: 10px 0 0 0;
+    }
+
+    .poem-text p {
+        line-height: 1.4 !important;
+    }
+
+    .poem-img {
+        width: 900px;
+    }
+
+    .footer-nav {
+        padding-bottom: 50px;
+    }
+
+
+    /* -------------------------------------- FORM CONTACT US  laptop-------------------------------------- */
+    .two-columns h2 {
+        font-size: 30px;
+        margin-bottom: 10px !important;
+    }
+    .two-columns h4 {
+        font-size: 20px;
+        margin-bottom: 10px !important;
+    }
+    .two-columns div p {
+        font-size: 17px;
+        margin-bottom: 10px !important;
+    }
+    form span input {
+        height: 45px !important;
+    }
+    form textarea {
+        height: 110px!important;
+    }
+
+    input[type="submit"], .btn a {
+        padding: 10px 40px;
+        font-size: 17px;
+    }
+
+    .wpcf7-not-valid-tip {
+        font-size: 17px;
+    }
+
+    .download-block img {
+        max-width: 250px;
+    }
 }
+
 
 @media (max-width: 1200px) {
     /* FAQ Section */
     .faq-timeline-list {
         margin: 0 0 0 10px !important;
     }
+    .poem-logo img{
+        max-width: 70px;
+    }
+
+    .footer-nav {
+        padding-bottom: 10px;
+    }
+
 }
+
+
+/* Normal scroll on mobile */
+@media (max-width: 1024px) {
+    body.home {
+        overflow: auto !important;
+    }
+
+
+    body.home .scroll-container {
+        height: auto;
+        overflow-y: visible;
+        scroll-snap-type: none;
+    }
+
+
+    body.home .scroll-section {
+        height: 100%;
+    }
+}
+
+
 
 @media (max-width: 966px) {
     body {
@@ -4500,12 +4685,7 @@ body.mobile-menu-open {
         margin: 0 auto;
     }
 
-    .home-hero {
-        position: relative;
-        top: 100px;
-        padding-bottom: unset;
-        margin-bottom: 100px;
-    }
+
 
 
     .home-hero-content {
@@ -4881,6 +5061,7 @@ body.mobile-menu-open {
 
     .partner-logos {
         flex-direction: column !important;
+
     }
 
     .poem-text {
@@ -4957,43 +5138,47 @@ body.mobile-menu-open {
         font-size: 14px;
 
     }
-
-
-}
-
-
-
-
-@media (max-width: 567px) {
-    .board-list-item {
+    .navigation-row {
         flex-wrap: wrap;
-    !important;
-    }
-
-    .board-list-item-text h3 {
-        font-size: 20px;
-        margin-bottom: 5px;
-        line-height: 1.2;
-    }
-
-    .board-list-item-text {
         padding-left: 0;
-        width: 100%;
+        padding-right: 0;
+        }
+
     }
 
-    .home-about-thumb img, .board-list-item-thumb img, .two-columns-img img {
-        box-sizing: border-box;
-    }
 
-    a.btn {
-        font-size: 17px;
-    }
 
-    .button-container {
-        top: 73vh;
-    }
 
-    /*general template*/
+    @media (max-width: 567px) {
+        .board-list-item {
+            flex-wrap: wrap;
+        !important;
+        }
+
+        .board-list-item-text h3 {
+            font-size: 20px;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .board-list-item-text {
+            padding-left: 0;
+            width: 100%;
+        }
+
+        .home-about-thumb img, .board-list-item-thumb img, .two-columns-img img {
+            box-sizing: border-box;
+        }
+
+        a.btn {
+            font-size: 17px;
+        }
+
+        .button-container {
+            top: 73vh;
+        }
+
+        /*general template*/
     .general-tpl-section {
         max-width: 930px;
         padding-left: 25px;
@@ -5106,6 +5291,16 @@ body.mobile-menu-open {
 
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 

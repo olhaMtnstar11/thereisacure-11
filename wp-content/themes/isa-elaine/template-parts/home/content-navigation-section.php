@@ -4,7 +4,7 @@ $array = get_field('navigation_section');
 if (is_array($array) && array_filter($array)):
 // loop through the rows of data
     while (have_rows('navigation_section')) : the_row(); ?>
-        <section id="navigation" class="plain-text">
+        <section id="navigation" class="plain-text scroll-section section-2">
             <div class="navigation-row">
                 <?php while (have_rows('navigation')): the_row();
                     $image_mobile = get_sub_field('image');
@@ -61,128 +61,15 @@ if (is_array($array) && array_filter($array)):
             </div>
         </section>
 
-        <!-- Thin Line Div -->
-        <div class="line-container">
-            <div class="section-line-with-squares">
-                <div class="square left"></div>
-                <div class="section-line"></div>
-                <div class="square right"></div>
-            </div>
-        </div>
+
 
 
         <!-- /.home-about -->
     <?php endwhile;endif; ?>
 
 <style>
-    .navigation-row {
-        display: flex;
-        flex-wrap: wrap; /* allow items to wrap */
-        justify-content: center; /* center items in row */
-        gap: 3rem; /* optional: space between items */
-
-    }
-
-    .navigation-card {
-        flex: 0 1 450px; /* flexible: grow/shrink with min width */
-        max-width: 450px; /*     prevent items from being too wide */
-        display: flex;
-        flex-direction: column;
-    }
 
 
-    .card-title {
-        font-size: 34px;
-        margin-bottom: 15px;
-    }
-
-    .card-image {
-        /*
-        height: -webkit-fill-available;
-        */
-    }
-
-    .card-image img {
-        width: 100%;
-        height: auto;
-    }
-
-    .card-text {
-        font-family: "Bodoni 06", sans-serif;
-        font-size: 17px;
-        line-height: 1.5;
-    }
-
-    .hidden-text {
-        display: none;
-    }
-
-    .hidden-text.show {
-        display: block;
-    }
-
-    .read-more-button {
-        font-family: "iA Writer Duo", sans-serif;
-        background-color: transparent;
-        text-align: left;
-        width: 190px;
-        border: 1px solid #0867E8;
-        border-radius: 50px;
-        font-size: 15px;
-        padding: 3px 20px 3px 20px;
-        cursor: pointer;
-        margin: 30px 0;
-        text-transform: uppercase;
-    }
-
-    .read-more-button a {
-        color: #0867E8 !important;
-    }
-
-    a.read-more-button {
-        color: #0867E8;
-        transition: all 0.3s ease;
-    }
-
-    .read-more-button:hover {
-        opacity: 0.8;
-        background: #6096ef45;
-    }
-
-    .navigation-card a:hover {
-       /* color: #0867E8;*/
-        transition: all 0.3s ease;
-    }
-
-    .mobile-container-navigation {
-        padding: 0 0;
-    }
-
-    .read-more-box {
-        margin-bottom: 90px;
-    }
-
-    @media (max-width: 966px) {
-        .mobile-container-navigation {
-            padding: 0 25px;
-        }
-
-        .navigation-card {
-            flex: 0 1 100%; /* flexible: grow/shrink with min width */
-            max-width: 100%;
-           /*   max-width: 500px;     prevent items from being too wide */
-        }
-
-        .read-more-button {
-            font-size: 16px;
-
-        }
-
-        .card-text p{
-            font-size: 15px;
-        }
-
-    }
 
 </style>
 

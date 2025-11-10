@@ -286,10 +286,14 @@
             <?php the_terms(get_the_ID(), 'news_category', '<span class="category">', ', ', '</span>'); ?>
         </div>
 
+
+
         <?php if (has_post_thumbnail()): ?>
+        <!--
             <div class="news-featured-image">
                 <?php the_post_thumbnail('large'); ?>
             </div>
+            -->
         <?php endif; ?>
 
 
