@@ -4,6 +4,7 @@
 <div class="scroll-container">
 <?php
 get_template_part('template-parts/home/content', 'hero');
+get_template_part('template-parts/home/content', 'line');
 get_template_part('template-parts/home/content', 'goal');
 get_template_part('template-parts/home/content', 'news');
 get_template_part('template-parts/home/content', 'navigation-section');

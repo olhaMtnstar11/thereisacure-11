@@ -3064,14 +3064,7 @@ display: flex;
 
 
 
-/*partner css style */
-.general-tpl-section {
-    width: 100%;
-    padding-left: 26%;
-    padding-right: 26%;
-    margin-right: auto;
-    margin-left: auto;
-}
+
 
 .poem-img {
     width: 100vw;
@@ -5042,14 +5035,14 @@ font-size: 20px;
     }
 
     .general-tpl-section-content {
-        padding: 0 25px;
+        padding: 0 25px !important;
         text-align: left;
     }
 
     .general-tpl-section {
         max-width: 930px;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding-left: 25px !important;
+        padding-right: 25px !important;
     }
 
     .left-menu {
