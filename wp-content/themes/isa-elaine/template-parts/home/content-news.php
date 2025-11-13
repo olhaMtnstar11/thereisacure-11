@@ -22,7 +22,7 @@ if (is_array($array) && array_filter($array)):
                 <div class="container">
 
                     <?php if ($section_title): ?>
-                        <h2 class="section-title"><?php echo esc_html($section_title); ?></h2>
+                        <h2 ><?php echo esc_html($section_title); ?></h2>
                     <?php endif; ?>
 
                     <?php if ($section_content): ?>

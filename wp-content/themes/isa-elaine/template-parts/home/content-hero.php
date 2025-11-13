@@ -193,7 +193,7 @@ padding-right: 40px;
 
     .hero-button.secondary {
         background-color: transparent;
-        color: #CDB78D;
+        color: black;
         border: none;
     }
 

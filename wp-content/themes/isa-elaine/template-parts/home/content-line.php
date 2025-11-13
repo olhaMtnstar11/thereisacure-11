@@ -2,24 +2,36 @@
 $array = get_field('line');
 
 if (is_array($array) && array_filter($array)):
-    while (have_rows('line')) : the_row(); ?>
+    while (have_rows('line')) : the_row();
 
-        <section id="line" class="plain-text scroll-section ">
-            <div class="container" style="height: 100%">
-                <ul class="custom-timeline-list">
-                    <?php
-                    if (have_rows('item')) :
-                        while (have_rows('item')) : the_row();
-                            $title = get_sub_field('title');
-                            $subtitle = get_sub_field('sub_title');
-                            $content = get_sub_field('content');
-                            ?>
+        if (have_rows('item')) :
+            while (have_rows('item')) : the_row();
+                $title = get_sub_field('title');
+                $subtitle = get_sub_field('sub_title');
+                $content = get_sub_field('content');
 
+                $image = get_sub_field('image'); // URL
+                ?>
+
+                <!-- Each item = one section -->
+                <section id="line" class="plain-text scroll-section">
+                    <div class=" timeline-container" style="display: flex">
+
+                        <!-- Image on the far left -->
+                        <?php if ($image): ?>
+                            <div class="timeline-image">
+                                <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>" >
+                            </div>
+                        <?php endif; ?>
+
+
+
+                        <ul class="custom-timeline-list">
                             <li class="custom-timeline-item">
                                 <div class="marker-square"></div>
                                 <div class="content-block">
                                     <?php if ($title): ?>
-                                        <h2 class="line-title "><?php echo esc_html($title); ?></h2>
+                                        <h2 class="line-title"><?php echo esc_html($title); ?></h2>
                                     <?php endif; ?>
 
                                     <?php if ($subtitle): ?>
@@ -31,27 +43,20 @@ if (is_array($array) && array_filter($array)):
                                     <?php endif; ?>
                                 </div>
                             </li>
+                        </ul>
+                    </div>
+                </section>
 
-                        <?php endwhile;
-                    endif;
-                    ?>
-                </ul>
-            </div>
 
-        </section>
 
-        <!-- Decorative Line -->
-        <div class="line-container">
-            <div class="section-line-with-squares">
-                <div class="square left"></div>
-                <div class="section-line"></div>
-                <div class="square right"></div>
-            </div>
-        </div>
+            <?php endwhile;
+        endif;
 
-    <?php endwhile;
+    endwhile;
 endif;
 ?>
+
+
 
 
 <script>
@@ -101,6 +106,16 @@ endif;
 </script>
 
 <style>
+
+    .timeline-container {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        padding-left: 120px; /* adjust this value */
+    }
     .custom-timeline-list {
         list-style: none;
         padding: 0;
@@ -114,7 +129,7 @@ endif;
         position: absolute;
         left: 6px;
         top: var(--line-top, 0);
-        bottom: var(--line-bottom, 0);
+        bottom: var(--line-bottom, 10);
         width: 2px;
         background-color: #0867E8;
         z-index: 1;
@@ -125,7 +140,7 @@ endif;
         display: flex;
         align-items: flex-start;
         gap: 15px;
-        padding: 20px 0;
+
         position: relative;
     }
 
@@ -141,32 +156,38 @@ endif;
 
     /* Typography */
     .line-title {
-        font-size: 1.25rem;
+        font-size: 72px;
         margin: 0 0 5px;
     }
 
     .line-subtitle {
-        font-size: 1rem;
+        font-size: 24px;
         color: #0867E8;
         margin: 0 0 10px;
     }
 
     .line-content {
-        font-size: 0.95rem;
+        font-size: 17px;
         color: #333;
     }
-
+    .content-block {
+        max-width: 500px;
+    }
 
     .content-block h2 {
-        font-size: 44px;
+        font-size: 72px;
         padding-bottom: 10px;
     }
 
     .content-block h3 {
-        font-size: 17px;
+        font-size: 24px;
         font-family: iA Writer Duo, sans-serif;
     }
 
+
+    .timeline-image img {
+        width: 300px;
+    }
     @media (max-width: 1400px) {
 
         .content-block h2 {
@@ -176,7 +197,7 @@ endif;
         }
 
         .content-block h3 {
-            font-size: 14px;
+            font-size: 24px;
             font-family: iA Writer Duo, sans-serif;
         }
 
@@ -184,6 +205,17 @@ endif;
 
     }
 
+    @media (max-width: 966px) {
+        .timeline-container {
+            padding: 0 25px
+        }
 
+        .timeline-image {
+            max-width: 100%;
+        }
+        .timeline-image img {
 
+            width: 150px;
+        }
+    }
 </style>

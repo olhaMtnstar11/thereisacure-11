@@ -103,6 +103,13 @@ function register_theme_menus()
 
             'mobile_menu' => __('mobile menu'),
 
+
+
+
+
+
+
+
         )
         );
 

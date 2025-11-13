@@ -21,7 +21,7 @@ if (is_array($array) && array_filter($array)):
 
 
         <section class="plain-text scroll-section ">
-            <h2 > Goal </h2>
+           
 
             <div class="stat-callout">
                 <div class="goal-block" style="">
@@ -260,10 +260,7 @@ if (is_array($array) && array_filter($array)):
 
 
     @media (max-width: 1400px) {
-        .home h2 {
-            font-size: 52px;
-            margin-bottom: 10px;
-        }
+
 
 
 

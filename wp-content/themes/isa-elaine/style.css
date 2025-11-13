@@ -4303,7 +4303,8 @@ body.home .scroll-container {
 /* Each section */
 
 body.home .scroll-section {
-    height: 100vh;
+    height: 100vh;       /* fallback */
+    height: 100dvh;      /* modern browsers */
     scroll-snap-align: start;
     display: flex;
     align-items: center;
@@ -4366,7 +4367,7 @@ font-size: 20px;
     }
 
     .poem-text p {
-        line-height: 1.4 !important;
+        line-height: 1.1 !important;
     }
 
     .poem-img {
