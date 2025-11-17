@@ -931,6 +931,7 @@ ul.social li a:hover {
 /* -------------------------------------- HOME HERO -------------------------------------- */
 
 .home-hero {
+	gap: 100px !important;
     position: relative;
     /*  top: 120px;*/
       height: 100vh;
@@ -939,7 +940,7 @@ ul.social li a:hover {
 
     align-items: flex-start; /* Centers the buttons */
     margin-bottom: 100px;
-    justify-content: space-between!important;
+  /* justify-content: space-between!important; */
 }
 
 
@@ -1623,7 +1624,7 @@ form select.light-mode option {
 .line-container {
     display: flex;
     justify-content: center;
-    padding: 20px 0; /* Optional */
+    padding: 40px 0; /* Optional */
 }
 
 .section-line-with-squares {
@@ -2390,11 +2391,18 @@ body.light-mode #theme-toggle i {
     flex-wrap: wrap !important; /* <- no wrap */
     align-items: center;
     gap: 30px;
+	justify-content:center;
 
     padding: 20px 0;
     margin-top: 0!important;
 }
 
+.page-id-1133 .general-tpl-section {
+	padding-right:0 !important;
+}
+.page-id-1133 .general-tpl-section img {
+	width:100%;
+}
 .home-hero .partner-logos {
 
 }
@@ -2406,7 +2414,7 @@ body.light-mode #theme-toggle i {
     align-items: center;
     white-space: wrap;
 
-    padding: 20px 0;
+    padding: 60px 0;
     box-sizing: border-box;
 }
 
@@ -2984,7 +2992,7 @@ display: flex;
 .news-picture {
     width: 100%;
     max-width: 200px;
-    aspect-ratio: 3 / 2;
+
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -3064,7 +3072,14 @@ display: flex;
 
 
 
-
+/*partner css style */
+.general-tpl-section {
+    width: 100%;
+    padding-left: 26%;
+    padding-right: 26%;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .poem-img {
     width: 100vw;
@@ -4300,11 +4315,14 @@ body.home .scroll-container {
     -webkit-overflow-scrolling: touch;
 }
 
+
+body.home .scroll-container .home-hero.scroll-section.section-1 {
+     height: 95vh;
+}
 /* Each section */
 
 body.home .scroll-section {
-    height: 100vh;       /* fallback */
-    height: 100dvh;      /* modern browsers */
+    height: 100vh;
     scroll-snap-align: start;
     display: flex;
     align-items: center;
@@ -4432,26 +4450,15 @@ font-size: 20px;
 
 /* Normal scroll on mobile */
 @media (max-width: 1024px) {
-    body.home {
-        overflow: auto !important;
-    }
 
-
-    body.home .scroll-container {
-        height: auto;
-        overflow-y: visible;
-        scroll-snap-type: none;
-    }
-
-
-    body.home .scroll-section {
-        height: 100%;
-    }
 }
 
 
 
 @media (max-width: 966px) {
+	.two-image-row {
+		flex-wrap:wrap;
+	}
     body {
         font-family: "Bodoni 6", serif;
         font-size: 16px;
@@ -5036,14 +5043,14 @@ font-size: 20px;
     }
 
     .general-tpl-section-content {
-        padding: 0 25px !important;
+        padding: 0 25px;
         text-align: left;
     }
 
     .general-tpl-section {
         max-width: 930px;
-        padding-left: 25px !important;
-        padding-right: 25px !important;
+        padding-left: 25px;
+        padding-right: 25px;
     }
 
     .left-menu {
@@ -5138,6 +5145,29 @@ font-size: 20px;
         padding-right: 0;
         }
 
+	
+	    body.home {
+        overflow: auto !important;
+    }
+
+
+    body.home .scroll-container {
+        height: auto;
+        overflow-y: visible;
+        scroll-snap-type: none;
+    }
+
+body.home .scroll-container .home-hero.scroll-section.section-1 {
+    height: auto;
+        overflow-y: visible;
+        scroll-snap-type: none;
+}
+    body.home .scroll-section {
+        height: 100%;
+    }
+	
+	
+	
     }
 
 

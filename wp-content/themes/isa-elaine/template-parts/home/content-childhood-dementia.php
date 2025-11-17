@@ -33,7 +33,7 @@ if (is_array($array) && array_filter($array)):
                                  src="<?php echo esc_url(get_field('logo', 'option')); ?>"
                                  alt="<?php echo esc_attr(get_bloginfo()); ?>">
 
-                            <img src="<?php echo esc_url($logo_image); ?>" alt="Childhood Dementia Logo">
+                            <img style="padding: 5px" src="<?php echo esc_url($logo_image); ?>" alt="Childhood Dementia Logo">
                         </div>
 
 
@@ -77,7 +77,7 @@ if (is_array($array) && array_filter($array)):
     }
     .map-image img {
         max-width: 100%;
-        max-height: 300px;
+        max-height: 250px;
 
     }
 
@@ -87,6 +87,7 @@ if (is_array($array) && array_filter($array)):
         width: 100%;
         padding: 50px 0;
         text-align: center;
+        margin-bottom: 100px;
     }
     .logos-container .logo-items {
 
@@ -101,6 +102,8 @@ if (is_array($array) && array_filter($array)):
     }
 
     .logos-container .logo-items img {
+
+        background-color: white;
         max-height: 100px;
         display: inline-block;
 

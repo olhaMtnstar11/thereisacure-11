@@ -58,14 +58,7 @@ if ($header_pictures) {
                     For Researchers
                 </button>
 
-                <button id="megaMenuToggleTakeAction"
-                        class="mega-menu-btn"
-                        type="button"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        aria-controls="megaMenuPanelTakeAction">
-                    Take Action
-                </button>
+ 
 
                 <!-- ----- -->
 

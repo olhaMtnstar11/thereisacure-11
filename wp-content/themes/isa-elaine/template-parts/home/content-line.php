@@ -55,7 +55,14 @@ if (is_array($array) && array_filter($array)):
     endwhile;
 endif;
 ?>
-
+<!-- Thin Line Div -->
+<div class="line-container">
+    <div class="section-line-with-squares">
+        <div class="square left"></div>
+        <div class="section-line"></div>
+        <div class="square right"></div>
+    </div>
+</div>
 
 
 
@@ -212,6 +219,7 @@ endif;
 
         .timeline-image {
             max-width: 100%;
+			display: none;
         }
         .timeline-image img {
 

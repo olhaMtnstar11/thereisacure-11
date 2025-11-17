@@ -135,11 +135,11 @@ get_footer();
     }
 
     .researcher-item {
-        height: 250px;
         display: flex;
         align-items: flex-start;
         gap: 2rem;
         flex-wrap: wrap;
+		padding-bottom: 2em;
     }
 
     /* square image container */

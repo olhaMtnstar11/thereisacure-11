@@ -102,14 +102,7 @@ function register_theme_menus()
             'types-of-nbia' => __('Types of NBIA'),
 
             'mobile_menu' => __('mobile menu'),
-
-
-
-
-
-
-
-
+  'new-menu' => __('New menu'),
         )
         );
 
@@ -212,6 +205,11 @@ add_action('wp_ajax_loadmore', 'true_load_posts');
 add_action('wp_ajax_nopriv_loadmore', 'true_load_posts');
 
 
+
+
+
+
+
 function hide_admin_bar_from_visitor() {
     if( ! is_user_logged_in() ){
         return false;
@@ -219,6 +217,12 @@ function hide_admin_bar_from_visitor() {
     return false;
 }
 add_filter( 'show_admin_bar', 'hide_admin_bar_from_visitor', 9999 );
+
+
+
+
+
+
 
 function add_dark_mode_script() {
     wp_enqueue_script('dark-mode-toggle', get_template_directory_uri() . '/assets/js/dark-mode.js', array(), null, true);
@@ -548,3 +552,10 @@ function auto_fill_image_alts_img_callback( $matches ) {
 
     return $img;
 }
+
+
+
+
+
+
+

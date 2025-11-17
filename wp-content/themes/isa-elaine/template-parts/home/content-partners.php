@@ -28,7 +28,7 @@ if (is_array($array) && array_filter($array)):
 
 
 
-                                             <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>"
+                                             <a target="_blank" href="<?php echo esc_url(get_sub_field('url')); ?>"
                                                 class="partner-logo">
                                                  <img src="<?php echo esc_url($logo); ?>" alt="">
                                              </a>
@@ -47,39 +47,43 @@ if (is_array($array) && array_filter($array)):
                      </div>
 
 
-                     <div class="home_partners_container">
-                         <?php if ($title_research): ?>
-                             <h3 class="section-title"><?php echo esc_html($title_research); ?></h3>
-                         <?php endif; ?>
-
-                         <div class="flex-partners research" style="">
-                             <?php if (have_rows('partners_research')): ?>
-                                 <?php while (have_rows('partners_research')) : the_row();
-                                     $logo = get_sub_field('logo'); // image URL
-                                     if ($logo): ?>
-
-                                             <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>"
-                                                class="partner-logo">
-                                                 <img src="<?php echo esc_url($logo); ?>" alt="">
-                                             </a>
-
-                                     <?php endif;
-                                 endwhile; ?>
-                             <?php endif; ?>
-                         </div>
-                         <div class="partner-image-container research-img">
-                             <img style="max-width: 200px" src="<?php echo esc_url($image_research); ?>" alt="">
-
-                         </div>
-
-                     </div>
-
-                 </div>
+</div>
 
 
         </section>
+<section id="home_partners" class="plain-text scroll-section">
 
+    <div class="home-partners-wrapper">
 
+    <div class="home_partners_container">
+        <?php if ($title_research): ?>
+            <h3 class="section-title"><?php echo esc_html($title_research); ?></h3>
+        <?php endif; ?>
+
+        <div class="flex-partners research" style="">
+            <?php if (have_rows('partners_research')): ?>
+                <?php while (have_rows('partners_research')) : the_row();
+                    $logo = get_sub_field('logo'); // image URL
+                    if ($logo): ?>
+
+                        <a target="_blank" href="<?php echo esc_url(get_sub_field('url')); ?>"
+                           class="partner-logo">
+                            <img src="<?php echo esc_url($logo); ?>" alt="">
+                        </a>
+
+                    <?php endif;
+                endwhile; ?>
+            <?php endif; ?>
+        </div>
+        <div class="partner-image-container research-img">
+            <img style="max-width: 200px" src="<?php echo esc_url($image_research); ?>" alt="">
+
+        </div>
+
+    </div>
+    </div>
+
+</section>
 
     <?php endwhile; endif; ?>
 <!-- Decorative Line -->
@@ -168,7 +172,7 @@ if (is_array($array) && array_filter($array)):
 
   .awareness-img.partner-image-container img {
 left: 0;
-      transform: translate(30%, -25%);
+      transform: translate(10%, 20%);
   }
 
   .research-img.partner-image-container img {

@@ -21,8 +21,7 @@ if (is_array($array) && array_filter($array)):
 
 
         <section class="plain-text scroll-section ">
-           
-
+       
             <div class="stat-callout">
                 <div class="goal-block" style="">
                     <div class="goal-text">
@@ -94,13 +93,13 @@ if (is_array($array) && array_filter($array)):
         width: 100%;
         text-align: center;
         gap: 50px;
-        margin: 0 0 0 0 ;
+        margin: 0 0 100px 0 ;
         padding: 20px 0 0 0;
         background-color: rgba(205, 183, 141, 0.06);
     }
 
     .stat-callout-second {
-        margin: 0 0 0 0 ;
+
         gap: 50px;
     }
 
@@ -260,7 +259,10 @@ if (is_array($array) && array_filter($array)):
 
 
     @media (max-width: 1400px) {
-
+        .home h2 {
+            font-size: 52px;
+            margin-bottom: 10px;
+        }
 
 
 
@@ -288,7 +290,8 @@ if (is_array($array) && array_filter($array)):
             flex-direction: column;
             gap: 10px;
             padding: 50px 25px;
-            margin: 20px 0;
+            margin: 20px 0 100px 20px;
+
         }
         .stat-callout-second {
             flex-direction: column-reverse;
@@ -381,7 +384,7 @@ if (is_array($array) && array_filter($array)):
 
         .line-with-arrow {
             flex-direction: column; /* stack vertically */
-            flex: 0 0 80px;
+            flex: 0 0 250px;
             align-items: center;
         }
         .line-with-arrow .line {

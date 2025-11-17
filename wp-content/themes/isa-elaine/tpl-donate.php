@@ -27,9 +27,42 @@ get_header(); ?>
 
 <div style="display:flex; justify-content:center; width:100%;">
   <div id="donate-form" style="max-width:700px; width:100%;">
-    <div id="phoqQyDyn2VDFPYxlzvZ0" classy="731753"></div>
+
+    <!-- Default form (shown unless ?form=stanford) -->
+    <div class="form-panel is-active" data-form="default">
+		<h3>
+			Give to the Isa Elaine Foundation Fund
+		</h3>
+      <div id="phoqQyDyn2VDFPYxlzvZ0" classy="731753"></div>
+    </div>
+
+    <!-- Stanford variant (shown when ?form=stanford) -->
+    <div class="form-panel" data-form="stanford">
+      <div id="HUajOo9n4GnOkgcNcvG_7" classy="744726"></div>
+    </div>
+
   </div>
 </div>
+
+<style>
+  .form-panel { display: none; }
+  .form-panel.is-active { display: block; }
+</style>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var key = (params.get('form') || '').toLowerCase();
+    var showStanford = key === 'stanford';
+
+    var panels = document.querySelectorAll('#donate-form .form-panel');
+    panels.forEach(function (p) { p.classList.remove('is-active'); });
+    var target = document.querySelector('#donate-form .form-panel[data-form="' + (showStanford ? 'stanford' : 'default') + '"]');
+    if (target) target.classList.add('is-active');
+
+  })();
+</script>
+
 
 </section>
 

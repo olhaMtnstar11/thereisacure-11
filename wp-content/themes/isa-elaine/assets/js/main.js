@@ -1,28 +1,30 @@
 $(document).ready(function () {
 
     // Mobile menu toggle functionality
-    $("#mobile-menu-toggle").click(function (e) {
-        e.preventDefault();
-        $(this).toggleClass("opened");
-        $('body').toggleClass("fixed");
-        $("#mobile-menu").fadeToggle();
-        $("#overlay").toggleClass("opened");
+$("#mobile-menu-toggle").on("click", function (e) {
+    e.preventDefault();
 
-        // Update aria-expanded for accessibility
-        let expanded = $(this).attr("aria-expanded") === "true";
-        $(this).attr("aria-expanded", !expanded);
+    const $btn = $(this);
+    const isExpanded = $btn.attr("aria-expanded") === "true";
 
-        // Update button content
-        if (!expanded) {
-            // Menu is opening → show "✕"
-            $(this).html('<span class="close-icon" aria-hidden="true">✕</span>');
-        } else {
-            // Menu is closing → revert to original
-            $(this).html('  <a href="#" id="mobile-menu-toggle" aria-expanded="false">\n' +
-                '                    menu <span class="arrow"> </span>\n' +
-                '                </a>');
-        }
-    });
+    // toggle aria-expanded
+    $btn.attr("aria-expanded", String(!isExpanded));
+
+    // toggle classes
+    $btn.toggleClass("opened");
+    $("body").toggleClass("fixed");
+    $("#mobile-menu").fadeToggle();
+    $("#overlay").toggleClass("opened");
+
+    // Update button content
+    if ($btn.hasClass("opened")) {
+        // Menu is opening → show "✕"
+        $btn.html('<span class="close-icon" aria-hidden="true">✕</span>');
+    } else {
+        // Menu is closing → show "menu"
+        $btn.html('menu <span class="arrow"></span>');
+    }
+});
 
     // Mobile menu item click functionality (to close menu after clicking)
     $("#mobile-menu a[href*='#']").click(function (e) {

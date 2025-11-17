@@ -49,7 +49,7 @@ if (is_array($hero_array) && array_filter($hero_array)):
                         <?php endif; ?>
                         <?php if ($labelButton2 && $linkButton2): ?>
                             <a class="hero-button secondary" href="<?php echo esc_url($linkButton2); ?>">
-                                <?php echo esc_html($labelButton2); ?>
+                                <?php echo esc_html($labelButton2); ?> &rightarrow;
                             </a>
                         <?php endif; ?>
                     </div>
@@ -237,8 +237,8 @@ padding-right: 40px;
     @media (max-width: 1400px) {
 
         .hero-inner {
-            top: 80px;
-            padding-top: 80px;
+            top: 70px;
+            padding-top: 45px;
             display: flex;
             align-items: flex-start; /* image stays near top */
             justify-content: center;
@@ -287,7 +287,7 @@ padding-right: 40px;
             flex-direction: column-reverse;
             align-items: center;
             gap: 20px;
-            top: 0px;
+            top: 20px;
         }
 
         .hero-content-block {
