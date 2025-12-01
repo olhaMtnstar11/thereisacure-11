@@ -30,12 +30,12 @@
         fill: #725711;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="292.073" y1="78.75562" x2="252.80474" y2="78.75562" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="61.47283" y1="90.69472" x2="22.20457" y2="90.69472" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
       <stop offset=".39273" stop-color="#c5c9cd" stop-opacity=".16921"/>
       <stop offset="1" stop-color="#54606d" stop-opacity=".5"/>
     </linearGradient>
   </defs>
-  <polygon class="cls-6" points="258.03579 83.57086 258.36049 79.02676 255.32076 78.67771 253.98223 70.54363 239.26278 73.47668 235.10573 71.84678 229.00393 75.30892 230.84082 89.31461 258.03579 83.57086"/>
+  <polygon class="cls-6" points="27.61572 92.04414 31.4504 72.52489 15.07989 67.06699 10.408 76.33608 20.04975 114.38395 34.94043 123.15527 35.10385 129.81398 47.13494 131.1815 49.20289 118.66886 27.61572 92.04414"/>
 
 </svg>

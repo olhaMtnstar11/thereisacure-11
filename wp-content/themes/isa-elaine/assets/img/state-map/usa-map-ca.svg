@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 200">
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 250">
   <defs>
     <style>
       .cls-1 {
-        clip-path: url(#clippath);
+        fill: #fff;
       }
 
       .cls-2 {
-        fill: none;
+        fill: #848484;
       }
 
       .cls-3 {
+        fill: #0867e8;
+      }
+
+      .cls-4 {
+        fill: #a3a3a3;
+      }
+
+      .cls-5 {
+        fill: #494949;
+      }
+
+      .cls-6 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-7 {
         fill: #d6e8fc;
       }
     </style>
-    <clipPath id="clippath">
-      <rect class="cls-2" x="8.79978" y="14.47955" width="280.4886" height="167.62392"/>
-    </clipPath>
+    <linearGradient id="linear-gradient" x1="58.09674" y1="97.20143" x2="18.82848" y2="97.20143" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0"/>
+      <stop offset=".39273" stop-color="#c5c9cd" stop-opacity=".16921"/>
+      <stop offset="1" stop-color="#54606d" stop-opacity=".5"/>
+    </linearGradient>
   </defs>
-  <g class="cls-1">
-    <polygon class="cls-3" points="27.46251 81.76694 31.26913 62.39051 15.01841 56.97255 10.3807 66.17382 19.9519 103.9433 34.73362 112.65044 34.89585 119.26043 46.83892 120.61795 48.89174 108.19686 27.46251 81.76694"/>
-  </g>
+  <polygon class="cls-7" points="27.61572 92.04414 31.4504 72.52489 15.07989 67.06699 10.408 76.33608 20.04975 114.38395 34.94043 123.15527 35.10385 129.81398 47.13494 131.1815 49.20289 118.66886 27.61572 92.04414"/>
 </svg>

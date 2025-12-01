@@ -63,9 +63,9 @@ if (is_array($hero_array) && array_filter($hero_array)):
                 </div>
             </div>
 
-            <?php if (have_rows('partner_item', 'option')): ?>
+            <?php if (have_rows('partner_item')): ?>
                 <div class="partner-logos">
-                    <?php while (have_rows('partner_item', 'option')): the_row();
+                    <?php while (have_rows('partner_item')): the_row();
                         $logo = get_sub_field('logo');
                         if (!empty($logo)) : ?>
                             <a target="_blank" href="<?php echo esc_url(get_sub_field('link')); ?>" class="partner-logo">
@@ -215,7 +215,7 @@ padding-right: 40px;
     .responsive-bg-home {
 
         width: 35vw;
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 5 / 3;
         background-size: cover;
         background-position: center;
 
@@ -224,7 +224,7 @@ padding-right: 40px;
 
 
     .partner-logo img {
-        max-height: 50px;
+        max-height: 60px;
         object-fit: contain;
     }
 
@@ -294,7 +294,7 @@ padding-right: 40px;
             text-align: justify;
 
             transform: translate(0);
-          margin: 20px 20px;
+          margin: 0px 20px;
             padding: 0px;
             align-self: center;
         }
@@ -307,7 +307,7 @@ padding-right: 40px;
 
         .hero-content p{
 
-            font-size: 15px;
+            font-size: 12px;
 
         }
 
@@ -321,7 +321,7 @@ padding-right: 40px;
             align-content: center;
         }
         .hero-button-box a{
-            font-size: 13px;
+            font-size: 20px;
         }
 
         .hero-button.primary {
@@ -343,7 +343,7 @@ padding-right: 40px;
         }
 
         .partner-logos {
-            gap: 15px;
+            gap: 45px;
         }
     }
 

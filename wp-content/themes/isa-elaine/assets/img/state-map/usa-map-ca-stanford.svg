@@ -7,35 +7,35 @@
       }
 
       .cls-2 {
-        fill: #0867e8;
+        fill: #848484;
       }
 
       .cls-3 {
-        fill: #e4a321;
+        fill: #0867e8;
       }
 
       .cls-4 {
-        fill: #c1861a;
+        fill: #a3a3a3;
       }
 
       .cls-5 {
-        fill: url(#linear-gradient);
+        fill: #494949;
       }
 
       .cls-6 {
-        fill: #d6e8fc;
+        fill: url(#linear-gradient);
       }
 
       .cls-7 {
-        fill: #725711;
+        fill: #d6e8fc;
       }
     </style>
-    <linearGradient id="linear-gradient" x1="292.073" y1="78.75562" x2="252.80474" y2="78.75562" gradientUnits="userSpaceOnUse">
+    <linearGradient id="linear-gradient" x1="58.09674" y1="97.20143" x2="18.82848" y2="97.20143" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#fff" stop-opacity="0"/>
       <stop offset=".39273" stop-color="#c5c9cd" stop-opacity=".16921"/>
       <stop offset="1" stop-color="#54606d" stop-opacity=".5"/>
     </linearGradient>
   </defs>
-  <polygon class="cls-6" points="258.03579 83.57086 258.36049 79.02676 255.32076 78.67771 253.98223 70.54363 239.26278 73.47668 235.10573 71.84678 229.00393 75.30892 230.84082 89.31461 258.03579 83.57086"/>
+  <polygon class="cls-7" points="27.61572 92.04414 31.4504 72.52489 15.07989 67.06699 10.408 76.33608 20.04975 114.38395 34.94043 123.15527 35.10385 129.81398 47.13494 131.1815 49.20289 118.66886 27.61572 92.04414"/>
 
 </svg>

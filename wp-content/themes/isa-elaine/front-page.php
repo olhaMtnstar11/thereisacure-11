@@ -4,6 +4,9 @@
 <div class="scroll-container">
 <?php
 get_template_part('template-parts/home/content', 'hero');
+
+//get_template_part('template-parts/home/content', 'partners2');
+
 get_template_part('template-parts/home/content', 'map');
 		get_template_part('template-parts/home/content', 'childhood-dementia');
 

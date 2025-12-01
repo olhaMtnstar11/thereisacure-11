@@ -3,6 +3,12 @@
         <a href="<?php echo home_url() ?>" >
             <img src="<?php echo esc_url(get_field('logo', 'option')); ?>" alt="<?php echo get_bloginfo(); ?>">
         </a>
+
+        <a href="<?php echo home_url() ?>" >
+            <img src="<?php echo esc_url(get_field('seal', 'option')); ?>" alt="<?php echo get_bloginfo(); ?>">
+        </a>
+
+
     </div>
     <!-- /.footer-col -->
     <div id="footer-mobile-menu">
@@ -22,6 +28,15 @@
     <!-- /.footer-col -->
 </div>
 <!-- /.flex -->
+
+<style>
+    .footer-col {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        gap: 10px;
+    }
+</style>
 
 
 

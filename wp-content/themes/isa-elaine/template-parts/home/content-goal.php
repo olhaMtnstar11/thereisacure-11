@@ -259,10 +259,7 @@ if (is_array($array) && array_filter($array)):
 
 
     @media (max-width: 1400px) {
-        .home h2 {
-            font-size: 52px;
-            margin-bottom: 10px;
-        }
+
 
 
 

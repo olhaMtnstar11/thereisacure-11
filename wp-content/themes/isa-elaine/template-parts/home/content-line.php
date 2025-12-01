@@ -35,7 +35,7 @@ if (is_array($array) && array_filter($array)):
                                     <?php endif; ?>
 
                                     <?php if ($subtitle): ?>
-                                        <h3 class="line-subtitle small-caps wide-letter-spacing"><?php echo esc_html($subtitle); ?></h3>
+                                        <h3 class="line-subtitle "><?php echo esc_html($subtitle); ?></h3>
                                     <?php endif; ?>
 
                                     <?php if ($content): ?>
@@ -182,13 +182,16 @@ endif;
     }
 
     .content-block h2 {
+        font-family: iA Writer Duo, sans-serif;
+        font-weight: 700;
         font-size: 72px;
         padding-bottom: 10px;
     }
 
     .content-block h3 {
-        font-size: 24px;
+        font-size: 18px;
         font-family: iA Writer Duo, sans-serif;
+        text-transform: uppercase;
     }
 
 
@@ -204,8 +207,7 @@ endif;
         }
 
         .content-block h3 {
-            font-size: 24px;
-            font-family: iA Writer Duo, sans-serif;
+            font-size: 17px;
         }
 
 

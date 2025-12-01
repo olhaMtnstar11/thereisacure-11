@@ -11,7 +11,7 @@ if (is_array($array) && array_filter($array)):
         ?>
 
         <section id="childhood_dementia" class="plain-text scroll-section">
-            <div class="general-tpl-section" style=" max-height: 100%;">
+            <div class="" style="width:  100%; max-height: 100%;">
 
                 <!-- Map Image -->
                 <?php if ($map_image): ?>
@@ -20,40 +20,35 @@ if (is_array($array) && array_filter($array)):
                     </div>
                 <?php endif; ?>
             </div>
-                <!-- Gold background logo -->
-                <?php if ($logo_image): ?>
-                    <div class="logos-container">
+            <!-- Gold background logo -->
+            <?php if ($logo_image): ?>
+                <div class="logos-container">
 
 
+                    <div class="logo-items childhood-text-content">
+                        <img class=""
+                             src="<?php echo esc_url(get_field('logo', 'option')); ?>"
+                             alt="<?php echo esc_attr(get_bloginfo()); ?>">
 
-
-
-                        <div class="logo-items">
-                            <img class=""
-                                 src="<?php echo esc_url(get_field('logo', 'option')); ?>"
-                                 alt="<?php echo esc_attr(get_bloginfo()); ?>">
-
-                            <img style="padding: 5px" src="<?php echo esc_url($logo_image); ?>" alt="Childhood Dementia Logo">
-                        </div>
-
-
-
-                        <!-- Text content -->
-                        <div class=" container childhood-text-content">
-                            <?php if ($title): ?>
-                                <h2 class="small-caps "><?php echo esc_html($title); ?></h2>
-                            <?php endif; ?>
-                            <?php if ($content): ?>
-                                <div class="content">
-                                    <?php echo wp_kses_post($content); ?>
-                                </div>
-                            <?php endif; ?>
-                        </div>
-
+                        <img style="padding: 5px" src="<?php echo esc_url($logo_image); ?>"
+                             alt="Childhood Dementia Logo">
                     </div>
-                <?php endif; ?>
 
 
+                    <!-- Text content -->
+                    <div class=" container childhood-text-content">
+                        <?php if ($title): ?>
+                            <h2 class="small-caps "><?php echo esc_html($title); ?></h2>
+                        <?php endif; ?>
+                        <?php if ($content): ?>
+                            <div class="content">
+                                <?php echo wp_kses_post($content); ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+
+                </div>
+            <?php endif; ?>
 
 
         </section>
@@ -73,8 +68,8 @@ if (is_array($array) && array_filter($array)):
     /* Map Image */
     .map-image {
         text-align: center;
-        margin-bottom: 20px;
     }
+
     .map-image img {
         max-width: 100%;
         max-height: 250px;
@@ -85,20 +80,21 @@ if (is_array($array) && array_filter($array)):
     .logos-container {
         background-color: #cdb78d4a;
         width: 100%;
-        padding: 50px 0;
+        /*  padding: 50px 0;*/
         text-align: center;
-        margin-bottom: 100px;
+        /*  margin-bottom: 100px;*/
     }
+
     .logos-container .logo-items {
 
         display: flex;
-        margin-bottom: 20px;
+
         justify-content: center;
         align-items: stretch;
         align-content: center;
         flex-wrap: nowrap;
         flex-direction: row;
-        gap: 70px;
+        gap: 40px;
     }
 
     .logos-container .logo-items img {
@@ -116,23 +112,26 @@ if (is_array($array) && array_filter($array)):
         text-align: justify;
         padding: 20px;
     }
+
     .childhood-text-content h2 {
         font-size: 24px;
         margin-bottom: 15px;
     }
-    .childhood-text-content .content p{
+
+    .childhood-text-content .content p {
         font-size: 17px;
         line-height: 1.9;
     }
 
-    .childhood-text-content .content a{
+    .childhood-text-content .content a {
         color: #0867E8;
         text-decoration: underline;
         cursor: pointer;
     }
 
-
-
+    .childhood-text-content .content p:last-child {
+        margin-bottom: 0px;
+    }
 
 
     @media (max-width: 1400px) {
@@ -140,10 +139,30 @@ if (is_array($array) && array_filter($array)):
             font-size: 17px !important;
             margin-bottom: 15px;
         }
-        .childhood-text-content .content p{
+
+        .childhood-text-content .content p {
             font-size: 14px !important;
-line-height: 1.4;
+            line-height: 1.5;
+        }
+
+        .logos-container .logo-items img {
+            max-height: 60px;
+        }
+        .map-image img {
+            width: 100%;
+            max-height: 200px;
+        }
+
+    }
+
+
+    @media (max-width: 966px) {
+        .map-image img {
+            width: 100%;
+            max-height: 100%;
         }
     }
+
+
 </style>
 

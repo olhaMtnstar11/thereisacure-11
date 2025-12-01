@@ -924,6 +924,7 @@ ul.social li a:hover {
 }
 
 .footer-logo a img {
+    width: 145px;
     max-width: 145px;
     padding-bottom: 36px;
 }
@@ -2428,7 +2429,7 @@ body.light-mode #theme-toggle i {
 }
 
 .partner-logos .partner-logo img {
-    height: 45px;
+    height: 55px;
     width: auto;
     display: block;
 }
@@ -3087,14 +3088,14 @@ display: flex;
 
 .poem-text {
     font-family: "Bodoni 06", sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     text-align: center;
     letter-spacing: 1.0px;
     padding: 20px 0 0 0;
 }
 
 .poem-text p {
-    line-height: 1.6 !important;
+    line-height: 1.2 !important;
 }
 .poem-logo {
     text-align: center;
@@ -4338,10 +4339,7 @@ body.home .scroll-section {
 
 }
 
-/* When section becomes active */
-body.home .scroll-section.active {
 
-}
 
 .two-columns h4 {
    font-size: 22px;
@@ -4381,15 +4379,15 @@ font-size: 20px;
     .poem-text {
         font-size: 12px;
         letter-spacing: 1.0px;
-        padding: 10px 0 0 0;
+        padding: 20px 0 0 0;
     }
 
     .poem-text p {
-        line-height: 1.1 !important;
+        line-height: 1.0 !important;
     }
 
     .poem-img {
-        width: 900px;
+
     }
 
     .footer-nav {
@@ -4466,7 +4464,6 @@ font-size: 20px;
     }
 
     body p {
-
         font-size: 16px;
         line-height: 1.5;
     }
@@ -5066,7 +5063,10 @@ font-size: 20px;
     }
 
     .poem-text {
-        font-size: 16px;
+        padding: 100px 0;
+    }
+    .poem-text p{
+        font-size: 11px;
     }
 
     .partner-tpl-section {

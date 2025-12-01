@@ -1,8 +1,8 @@
 <?php
-$array = get_field('map');
+$array = get_field('map2');
 
 if (is_array($array) && array_filter($array)):
-    while (have_rows('map')) : the_row();
+    while (have_rows('map2')) : the_row();
 
 
         // Get subfields
@@ -12,7 +12,7 @@ if (is_array($array) && array_filter($array)):
         $top_researchers = get_sub_field('top_researchers');
 
         $pin_image = get_sub_field('pin_image'); // URL
-
+        $funds_text = get_sub_field('funds_text');
 
         ?>
 
@@ -24,12 +24,28 @@ if (is_array($array) && array_filter($array)):
                 <?php if ($title): ?>
                     <h3 class="section-title"><?php echo esc_html($title); ?></h3>
                 <?php endif; ?>
+
+
+
                 <div class="map-content-wrapper">
 
 
                     <!-- Map Image -->
                     <?php if ($image): ?>
-                        <div class="map-box" style="    width: 100%;">
+                        <div class="map-box" style="width: 100%;">
+
+                            <?php if ($funds_text): ?>
+                                <h3 class="section-title"><?php echo esc_html($funds_text); ?></h3>
+                            <?php endif; ?>
+
+                            <div class="found">
+                                <span class="label"></span>
+                                <span class="value">$500,000</span>
+                            </div>
+
+
+
+
                             <div class="usa-map">
                                 <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
                                 <div class="pin pin-left"></div>
@@ -44,23 +60,34 @@ if (is_array($array) && array_filter($array)):
                     <?php endif; ?>
 
 
-                    <div style="    width: 100%;">
+
+                    <div class="navigation-usa-map">
 
 
                         <div class="stats">
-                            <?php if ($patients): ?>
-                                <div class="stat">
-                                    <span class="label">Patients</span>
-                                    <span class="value"><?php echo esc_html($patients); ?></span>
-                                </div>
-                            <?php endif; ?>
 
+                            <div class="stats-box">
+                                <?php if ($patients): ?>
+                                    <h3 class="label">Patients</h3>
+                                    <div class="stat">
+                                        <span class="value"><?php echo esc_html($patients); ?></span>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+
+
+                            <div class="stats-box">
+
+                                <h3 class="label">Top Researchers</h3>
                             <?php if ($top_researchers): ?>
                                 <div class="stat">
-                                    <span class="label">Top Researchers</span>
+
                                     <span class="value"><?php echo esc_html($top_researchers); ?></span>
                                 </div>
                             <?php endif; ?>
+
+                            </div>
+
                         </div>
 
                         <?php
@@ -78,9 +105,9 @@ if (is_array($array) && array_filter($array)):
                                     <?php foreach ($partners as $index => $partner):
                                         $title = $partner['title'];
                                         $description = $partner['description'];
-
                                         $state = $partner['state']; // new ACF state field
 
+                                        $pin_image_partner = $partner['pin']; //
 
                                         // Convert to safe file part: lowercase + replace spaces with hyphens
                                         $state_slug = strtolower(str_replace(' ', '-', trim($state)));
@@ -88,14 +115,33 @@ if (is_array($array) && array_filter($array)):
                                         // Build final image path
                                         $partner_map_image = get_template_directory_uri() . '/assets/img/state-map/usa-map-' . $state_slug . '.svg';
 
-                                        // $partner_map_image = $partner['image']; // new image field
+
+                                        $is_partner = $partner['ispartners'];
+
+
+                                        $partner_pin = get_template_directory_uri() . '/assets/img/state-map/'
+                                            . 'pin-coe'
+                                            . '.svg';
+
+                                        $coe_pin = get_template_directory_uri() . '/assets/img/state-map/'
+                                            . 'pin-partner'
+                                            . '.svg';
+
+
+
 
                                         // Make first partner active + checked
                                         $activeClass = ($index === 0) ? 'active checked' : '';
                                         ?>
                                         <li class="partner-item <?php echo $activeClass; ?>"
                                             data-state="<?php echo esc_attr($state_slug); ?>"
-                                            data-image="<?php echo esc_url($partner_map_image); ?>">
+                                            data-image="<?php echo esc_url($partner_map_image); ?>"
+
+                                            data-image-is-partner="<?php echo esc_url($is_partner? $partner_pin: $coe_pin); ?>"
+
+
+                                            data-pin-img="<?php echo esc_url($pin_image_partner); ?>"
+                                        >
 
                                             <div class="partner-top">
                                                 <span class="partner-color"></span>
@@ -115,12 +161,9 @@ if (is_array($array) && array_filter($array)):
                             </div>
                         <?php endif; ?>
 
-
                     </div>
 
-
                 </div>
-
 
             </div>
         </section>
@@ -141,6 +184,29 @@ endif;
 
 
 <style>
+    body.home .scroll-container .home-hero.scroll-section.section-1 {
+        height: 95vh;
+    }
+
+    /* Each section */
+
+    body.home .scroll-section {
+        height: 100vh;
+        scroll-snap-align: start;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding-bottom: 0 !important;
+
+        /* smooth scale and fade
+        transition:
+                transform 1.4s cubic-bezier(0.25, 0.1, 0.25, 1),
+                opacity 1.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+    */
+
+    }
+
     .research-map-section {
         font-family: iA Writer Duo, sans-serif;
         padding: 130px 20px 0 20px !important;
@@ -163,8 +229,8 @@ endif;
     /* Wrapper for map image + stats + partners */
     .map-content-wrapper {
         display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
+        flex-direction: row;
+        flex-wrap: nowrap;
         /* gap: 30px;  spacing between map and stats */
         justify-content: space-between;
         align-items: flex-start;
@@ -175,7 +241,7 @@ endif;
         font-size: 14px;
         letter-spacing: 1px;
         color: #555;
-        margin-bottom: 15px;
+        margin-bottom: 30px;
     }
 
     .section-title h2 {
@@ -199,13 +265,20 @@ endif;
 
     }
 
+    .map-box h3{
+margin-bottom: 1px;
+    }
+
     .usa-map {
         position: relative;
         display: inline-block;
         width: 100%;
-        max-width: 400px;
+        max-width: 700px;
     }
 
+    .navigation-usa-map {
+        width: 65%;
+    }
     .usa-map img {
         width: 100%;
         height: auto;
@@ -216,7 +289,7 @@ endif;
         position: absolute;
         top: 0;
         left: 0;
-        width: 10%;;
+        width: 50%;;
         height: 100%;
     }
 
@@ -252,6 +325,20 @@ endif;
         width: 100%;
     }
 
+
+    .stats-box {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+
+    }
+    .found {
+        background: white;
+        padding: 5px 10px;
+        text-align: center;
+        width: 90%;
+        border: 2px solid #0867E8;
+    }
     .label {
         display: block;
         text-transform: uppercase;
@@ -305,18 +392,25 @@ endif;
 
 
     .partner-color {
-        width: 14px;
-        height: 14px;
-        border: 2px solid #002b5c;
+        width: 24px;
+        height: 24px;
+
+
+        outline: 2px solid #0867E8;
+        border: 3px solid white;
         margin-right: 8px;
-        background-color: transparent; /* unchecked by default */
+        background-color: white; /* unchecked by default */
         transition: background 0.3s;
+
+
+
+
         cursor: pointer;
     }
 
     /* checked state */
     .partner-item.checked .partner-color {
-        background-color: #e63946;
+        background-color: #0867E8;
     }
 
 
@@ -383,13 +477,30 @@ endif;
 
         .usa-map {
 
-            max-width: 100%;
+            max-width: 70%;
         }
 
+        .navigation-usa-map {
+            width: 100%;
+        }
+        .section-title {
+
+            margin-bottom: 15px;
+        }
     }
 
 
     @media (max-width: 966px) {
+        body.home .scroll-container .home-hero.scroll-section.section-1 {
+            height: auto;
+            overflow-y: visible;
+            scroll-snap-type: none;
+        }
+
+        body.home .scroll-section {
+            height: 100%;
+        }
+
 
         /* Wrapper for map image + stats + partners */
         .map-content-wrapper {
@@ -429,6 +540,10 @@ endif;
         }
 
 
+        .navigation-usa-map {
+            width: 100%;
+        }
+
     }
 </style>
 
@@ -437,10 +552,11 @@ endif;
 
         // ---- state coordinates (keys are human-readable; we normalize later) ----
         const stateCoordinates = {
-            "ca": {x: 95, y: 48},
-            "or": {x: 115, y: 25},
-            "pa": {x: 847, y: 35},
-            "tx": {x: 480, y: 70},
+            "ca-stanford": {x: 69, y: 47},
+            "ca-us-d": {x: 42, y: 37},
+            "or": {x: 58, y: 30},
+            "pa": {x: 146, y: 35},
+            "tx": {x: 91, y: 70},
 
             "fl": {x: 815, y: 78},
             "ga": {x: 755, y: 64},
@@ -536,9 +652,15 @@ endif;
                 const partnerName = partnerNameEl ? partnerNameEl.textContent.trim() : '';
 
                 // --- Add pin ---
+                // Get pin image from the partner item
+                const pinImg = item.dataset.pinImg || customPinImage;
+
+// Create pin
                 const pin = document.createElement('img');
                 pin.className = 'dynamic-pin';
-                pin.src = customPinImage;
+                pin.src = pinImg;
+
+
                 pin.style.position = 'absolute';
                 pin.style.zIndex = '111';
                 pin.style.left = coords.x + '%';
@@ -564,6 +686,28 @@ endif;
 
                     mapContainer.appendChild(overlay);
                 }
+
+
+
+                // --- Add partner overlay image on the map ---
+                const overlaySrcPin = item.getAttribute('data-image-is-partner');
+                if (overlaySrcPin) {
+                    const overlay = document.createElement('img');
+                    overlay.className = 'partner-map-overlay';
+                    overlay.src = overlaySrcPin;  // <-- use the correct variable
+                    overlay.style.position = 'absolute';
+                    overlay.style.top = 0;
+                    overlay.style.left = 0;
+                    overlay.style.width = '100%';
+                    overlay.style.objectFit = 'contain';
+                    overlay.style.pointerEvents = 'none';
+                    overlay.dataset.partnerName = partnerName;
+
+                    mapContainer.appendChild(overlay);
+                }
+
+
+
             });
         }
 
