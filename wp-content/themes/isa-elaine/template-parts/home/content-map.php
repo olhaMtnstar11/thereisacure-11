@@ -3,17 +3,13 @@ $array = get_field('map2');
 
 if (is_array($array) && array_filter($array)):
     while (have_rows('map2')) : the_row();
-
-
         // Get subfields
         $title = get_sub_field('title');
         $image = get_sub_field('image'); // URL
         $patients = get_sub_field('patients');
         $top_researchers = get_sub_field('top_researchers');
-
         $pin_image = get_sub_field('pin_image'); // URL
         $funds_text = get_sub_field('funds_text');
-
         ?>
 
         <script>
@@ -25,26 +21,17 @@ if (is_array($array) && array_filter($array)):
                     <h3 class="section-title"><?php echo esc_html($title); ?></h3>
                 <?php endif; ?>
 
-
-
                 <div class="map-content-wrapper">
-
 
                     <!-- Map Image -->
                     <?php if ($image): ?>
                         <div class="map-box" style="width: 100%;">
 
-                            <?php if ($funds_text): ?>
-                                <h3 class="section-title"><?php echo esc_html($funds_text); ?></h3>
-                            <?php endif; ?>
+                            <div class="fund-bars-container" style="">
+                                <div class="fund-box">
 
-                            <div class="found">
-                                <span class="label"></span>
-                                <span class="value">$500,000</span>
+                                </div>
                             </div>
-
-
-
 
                             <div class="usa-map">
                                 <img src="<?php echo esc_url($image); ?>" alt="<?php echo esc_attr($title); ?>">
@@ -54,15 +41,11 @@ if (is_array($array) && array_filter($array)):
                                 <!-- dynamic pins will appear here -->
                                 <div class="dynamic-pins"></div>
 
-
                             </div>
                         </div>
                     <?php endif; ?>
 
-
-
                     <div class="navigation-usa-map">
-
 
                         <div class="stats">
 
@@ -75,19 +58,14 @@ if (is_array($array) && array_filter($array)):
                                 <?php endif; ?>
                             </div>
 
-
                             <div class="stats-box">
-
                                 <h3 class="label">Top Researchers</h3>
                             <?php if ($top_researchers): ?>
                                 <div class="stat">
-
                                     <span class="value"><?php echo esc_html($top_researchers); ?></span>
                                 </div>
                             <?php endif; ?>
-
                             </div>
-
                         </div>
 
                         <?php
@@ -115,7 +93,6 @@ if (is_array($array) && array_filter($array)):
                                         // Build final image path
                                         $partner_map_image = get_template_directory_uri() . '/assets/img/state-map/usa-map-' . $state_slug . '.svg';
 
-
                                         $is_partner = $partner['ispartners'];
 
 
@@ -127,20 +104,30 @@ if (is_array($array) && array_filter($array)):
                                             . 'pin-partner'
                                             . '.svg';
 
-
-
-
                                         // Make first partner active + checked
                                         $activeClass = ($index === 0) ? 'active checked' : '';
+
+                                        $is_funded       = $partner['is_funded'] ?? false;
+
+                                        $funds_value = $partner['value'] ?? 0;
+
+
+
+
+                                        $funds_percentage = $partner['percentage'] ?? 0;
+
                                         ?>
                                         <li class="partner-item <?php echo $activeClass; ?>"
                                             data-state="<?php echo esc_attr($state_slug); ?>"
                                             data-image="<?php echo esc_url($partner_map_image); ?>"
-
                                             data-image-is-partner="<?php echo esc_url($is_partner? $partner_pin: $coe_pin); ?>"
-
-
                                             data-pin-img="<?php echo esc_url($pin_image_partner); ?>"
+                                            data-funds-value="<?php echo esc_attr($funds_value); ?>"
+                                            data-funds-percentage="<?php echo esc_attr($funds_percentage); ?>"
+                                            data-is-funded="<?php echo $is_funded ? '1' : '0'; ?>"
+
+                                            data-funds-text="<?php echo esc_attr($funds_text); ?>"
+                                            data-value="<?php echo esc_attr($funds_value); ?>"
                                         >
 
                                             <div class="partner-top">
@@ -160,11 +147,8 @@ if (is_array($array) && array_filter($array)):
 
                             </div>
                         <?php endif; ?>
-
                     </div>
-
                 </div>
-
             </div>
         </section>
 
@@ -210,7 +194,6 @@ endif;
     .research-map-section {
         font-family: iA Writer Duo, sans-serif;
         padding: 130px 20px 0 20px !important;
-
         height: auto; /* allow height to adjust */
         justify-content: flex-start !important;
     }
@@ -254,15 +237,12 @@ endif;
 
     .map-box {
         text-align: center;
-
         position: relative;
         display: flex;
         align-items: center;
         flex-wrap: nowrap;
         flex-direction: column;
         justify-content: center;
-
-
     }
 
     .map-box h3{
@@ -325,26 +305,46 @@ margin-bottom: 1px;
         width: 100%;
     }
 
-
     .stats-box {
         display: flex;
         flex-direction: column;
         width: 50%;
+    }
 
-    }
-    .found {
-        background: white;
+    .fund-box {
+        position: relative;
+        border: 2px solid #2e75ff;
         padding: 5px 10px;
-        text-align: center;
+        font-size: 26px;
+        font-weight: 700;
+        display: inline-block;
+        overflow: hidden;
         width: 90%;
-        border: 2px solid #0867E8;
     }
+
+    .fund-box .fund-fill {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background: #d4e5ff; /* your light blue */
+        z-index: 1;
+    }
+
+    .fund-box span {
+        position: relative;
+        z-index: 2;
+        display: block;
+        text-align: left;   /* <-- forces text to left */
+    }
+
     .label {
         display: block;
         text-transform: uppercase;
-        font-size: 12px;
-        color: #555;
         margin-bottom: 5px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        color: #555;
     }
 
     .value {
@@ -354,15 +354,12 @@ margin-bottom: 1px;
     }
 
     .partners {
-
         border-radius: 6px;
-
     }
 
     .partners-header {
         margin-bottom: 10px;
     }
-
     .partners-title {
         font-weight: 600;
         font-size: 14px;
@@ -376,7 +373,6 @@ margin-bottom: 1px;
     }
 
     .partner-item {
-
         margin-bottom: 3px;
         overflow: hidden;
     }
@@ -390,21 +386,14 @@ margin-bottom: 1px;
         background: #cfe0ff;
     }
 
-
     .partner-color {
         width: 24px;
         height: 24px;
-
-
         outline: 2px solid #0867E8;
         border: 3px solid white;
         margin-right: 8px;
         background-color: white; /* unchecked by default */
         transition: background 0.3s;
-
-
-
-
         cursor: pointer;
     }
 
@@ -413,12 +402,10 @@ margin-bottom: 1px;
         background-color: #0867E8;
     }
 
-
     .partner-name {
         flex: 1;
         font-size: 13px;
     }
-
 
     .partner-toggle {
         font-weight: bold;
@@ -443,7 +430,6 @@ margin-bottom: 1px;
         background-color: white;
         padding: 8px 15px;
         font-size: 13px;
-
         margin-top: 3px;
         margin-left: 30px;
     }
@@ -453,18 +439,19 @@ margin-bottom: 1px;
         display: block;
     }
 
+
+    .fund-bars-container {
+        width: 90%;
+        margin-bottom: 10px
+    }
+
     /* RESPONSIVE */
-
-
     @media (max-width: 1400px) {
-
-
         /* Wrapper for map image + stats + partners */
         .map-content-wrapper {
             display: flex;
             flex-direction: row;
             flex-wrap: nowrap;
-
             justify-content: space-between;
             align-items: flex-start;
         }
@@ -474,9 +461,7 @@ margin-bottom: 1px;
             max-width: 100%;
         }
 
-
         .usa-map {
-
             max-width: 70%;
         }
 
@@ -484,7 +469,6 @@ margin-bottom: 1px;
             width: 100%;
         }
         .section-title {
-
             margin-bottom: 15px;
         }
     }
@@ -507,7 +491,6 @@ margin-bottom: 1px;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
-
             justify-content: space-between;
             align-items: flex-start;
         }
@@ -530,7 +513,6 @@ margin-bottom: 1px;
             margin-bottom: 0 !important;
         }
 
-
         .label {
             font-size: 9px;
         }
@@ -539,11 +521,21 @@ margin-bottom: 1px;
             font-size: 20px;
         }
 
-
         .navigation-usa-map {
             width: 100%;
         }
 
+        .fund-box {
+            width: 100%;
+        }
+
+        .usa-map {
+            width: 100%;
+        }
+
+        .fund-bars-container {
+            width: 100%;
+        }
     }
 </style>
 
@@ -659,8 +651,6 @@ margin-bottom: 1px;
                 const pin = document.createElement('img');
                 pin.className = 'dynamic-pin';
                 pin.src = pinImg;
-
-
                 pin.style.position = 'absolute';
                 pin.style.zIndex = '111';
                 pin.style.left = coords.x + '%';
@@ -687,8 +677,6 @@ margin-bottom: 1px;
                     mapContainer.appendChild(overlay);
                 }
 
-
-
                 // --- Add partner overlay image on the map ---
                 const overlaySrcPin = item.getAttribute('data-image-is-partner');
                 if (overlaySrcPin) {
@@ -697,18 +685,84 @@ margin-bottom: 1px;
                     overlay.src = overlaySrcPin;  // <-- use the correct variable
                     overlay.style.position = 'absolute';
                     overlay.style.top = 0;
+
                     overlay.style.left = 0;
                     overlay.style.width = '100%';
                     overlay.style.objectFit = 'contain';
                     overlay.style.pointerEvents = 'none';
+
+
                     overlay.dataset.partnerName = partnerName;
 
                     mapContainer.appendChild(overlay);
                 }
-
-
-
             });
+
+
+            function updateCheckedBars() {
+                const barContainer = document.querySelector('.fund-bars-container');
+                if (!barContainer) return;
+
+                barContainer.innerHTML = '';
+
+                const checkedItems = getPartnerItems().filter(i => i.classList.contains('checked'));
+
+                // --- FIND FIRST FUNDED PARTNER TO GET TEXT ---
+                let barTitle = '';
+                let totalValue = 0;
+
+                checkedItems.forEach(item => {
+                    const isFunded = item.dataset.isFunded === '1' || item.dataset.isFunded === 'true';
+                    if (!isFunded) return;
+
+                    // title — taken only once
+                    if (!barTitle) {
+                        barTitle = item.dataset.fundsText || '';
+                    }
+
+                    // sum values
+                    const value = parseFloat(item.dataset.fundsValue) || 0;
+                    totalValue += value;
+                });
+
+                // Nothing to show
+                if (totalValue <= 0) return;
+
+                const percent = totalValue;
+
+                // --- WRAPPER ---
+                const barWrapper = document.createElement('div');
+                barWrapper.className = 'fund-wrapper';
+                barWrapper.style.marginBottom = '12px';
+
+                // --- H3 TITLE FROM ACF ---
+                const h3 = document.createElement('h3');
+                h3.className = 'section-title';
+                h3.textContent = barTitle;
+                barWrapper.appendChild(h3);
+
+                // --- BAR BOX ---
+                const barBox = document.createElement('div');
+                barBox.className = 'fund-box';
+
+                const fill = document.createElement('div');
+                fill.className = 'fund-fill';
+                fill.style.width = percent + '%';
+
+                const valueEl = document.createElement('span');
+                valueEl.textContent = totalValue;
+                valueEl.textContent = '$' + totalValue.toLocaleString('en-US');
+
+                barBox.appendChild(fill);
+                barBox.appendChild(valueEl);
+
+                barWrapper.appendChild(barBox);
+
+                barContainer.appendChild(barWrapper);
+            }
+
+
+            updateCheckedBars();
         }
 
         // Initialize on load (handles PHP-set "active checked" first item)
