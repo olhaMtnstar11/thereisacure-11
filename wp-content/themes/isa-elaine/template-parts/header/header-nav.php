@@ -172,8 +172,35 @@ if ($header_pictures) {
                     'theme_location' => 'secondary-menu',
                     'container'      => false,
                     'menu_class'     => 'primary-menu',
+
+                    'depth' => 0 // IMPORTANT: 0 = unlimited depth
                 ));
                 ?>
+
+
+
+
+                <div class="thumber-menu-wrapper">
+
+                    <!-- HAMBURGER -->
+                    <div class="menu-toggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+
+                    <!-- RIGHT SLIDE MENU -->
+                    <nav class="thumber-menu thumber-menu-right">
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'primary_menu',
+                            'container' => false,
+                            'menu_class' => 'menu-right-primary',
+                        ));
+                        ?>
+                    </nav>
+
+                </div>
 
             </nav>
 
@@ -320,3 +347,264 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 </script>
+
+
+
+
+<style>
+    /* HAMBURGER BUTTON */
+    .menu-toggle {
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 100000;
+        position: relative;
+    }
+
+    .menu-toggle span {
+        display: block;
+        height: 3px;
+        background: #000; /* black hamburger */
+        border-radius: 2px;
+        transition: transform 0.4s ease, opacity 0.4s ease, background 0.4s ease;
+    }
+
+    /* When menu is opened (X icon), make lines white */
+    .menu-toggle.active span {
+        background: #fff; /* white X */
+    }
+
+    /* When menu is opened, transform hamburger into X */
+    .menu-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(10px, 10px);
+        background: #fff; /* X is white */
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0; /* hide middle line */
+    }
+
+    .menu-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+        background: #fff; /* X is white */
+    }
+
+    /* Optional: add hover effect for better UX */
+    .menu-toggle:hover span {
+        background: #333; /* slightly darker black on hover */
+    }
+
+    /* RIGHT SIDE SLIDE MENU */
+    .thumber-menu-right {
+        position: fixed;
+        top: 0;
+        right: -300px; /* hidden */
+        width: 300px;
+        height: 100vh;
+        background: #111;
+        padding: 60px 20px;
+        transition: right 0.4s ease;
+        z-index: 99999;
+        overflow: hidden;
+    }
+
+    /* When opened */
+    .thumber-menu-right.active {
+
+        right: 0;
+    }
+
+    /* Stack all menu levels horizontally for sliding */
+    .thumber-menu-right ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        /* height: 100%;  <-- remove this */
+        position: absolute;
+        top: 100px;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start; /* align items at top */
+        transition: transform 0.3s ease;
+    }
+    .thumber-menu-right ul.sub-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+        top: 0;
+        padding-left: 10px;
+    }
+    /* Top-level menu visible by default */
+    .thumber-menu-right ul.menu-right-primary {
+        transform: translateX(0);
+    }
+
+    /* Submenus start hidden (shifted right) */
+    .thumber-menu-right ul.sub-menu {
+        transform: translateX(100%);
+    }
+
+    /* Active submenu slides in */
+    .thumber-menu-right ul.sub-menu.active {
+
+    }
+
+    /* Top-level slides left when submenu open */
+    .thumber-menu-right ul.menu-right-primary.slide-left {
+        transform: translateX(-100%);
+    }
+
+    /* Menu links */
+    /* All menu links, including sub-items */
+    .thumber-menu-right a {
+        font-family: "iA Writer Duo", sans-serif;
+        font-stretch: normal;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 1.5;
+        padding: 0 0;
+        height: 28px;
+        display: flex;
+        align-items: center;
+
+        color: #fff;          /* White text */
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    /* Hover effect */
+    .thumber-menu-right a:hover {
+        opacity: 0.7;
+        padding-left: 10px;
+    }
+    .menu-right-primary > li > a {
+        font-weight: bold;
+    }
+    .sub-menu a {
+        font-weight: normal;
+    }
+    /* Back button */
+    /* Optional: give back button bold font */
+    .back-btn {
+        font-weight: bold;    /* back button still bold */
+        display: block;
+        margin-bottom: 20px;
+        color: #fff;
+
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    /* FORCE VERTICAL FLEX FOR RIGHT SLIDE MENU */
+    .thumber-menu-right nav > ul.menu-right-primary,
+    .thumber-menu-right .menu-right-primary {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 20px;
+
+        align-items: flex-start;
+        justify-content: flex-end;
+        align-content: flex-start;
+    }
+
+    /* FORCE WHITE TEXT */
+    .thumber-menu-right .menu-right-primary a {
+        color: #fff !important;
+    }
+
+
+</style>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const toggle = document.querySelector(".menu-toggle");
+        const menu = document.querySelector(".thumber-menu-right");
+        const rootMenu = menu.querySelector("ul.menu-right-primary");
+
+        // Toggle menu open/close
+        toggle.addEventListener("click", () => {
+            menu.classList.toggle("active");
+            toggle.classList.toggle("active");
+            resetAllMenus();
+            rootMenu.classList.add("active-level");
+        });
+
+        function resetAllMenus() {
+            const allMenus = menu.querySelectorAll("ul");
+            allMenus.forEach(ul => {
+                ul.classList.remove("active-level", "slide-left");
+            });
+        }
+
+        function closeMenu() {
+            menu.classList.remove("active");
+            toggle.classList.remove("active");
+            resetAllMenus();
+        }
+
+        document.addEventListener("click", e => {
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape") closeMenu();
+        });
+
+        // Recursive function to initialize submenus
+        function initSubmenus(parentUl) {
+            const items = parentUl.querySelectorAll(":scope > li.menu-item-has-children");
+
+            items.forEach(li => {
+                const link = li.querySelector(":scope > a");
+                const submenu = li.querySelector(":scope > ul.sub-menu");
+                if (!link || !submenu) return;
+
+                // Add back button if not exists
+                if (!submenu.querySelector(".back-btn")) {
+                    const backLi = document.createElement("li");
+                    const backBtn = document.createElement("a");
+                    backBtn.href = "#";
+                    backBtn.textContent = "← Back";
+                    backBtn.classList.add("back-btn");
+                    backLi.appendChild(backBtn);
+                    submenu.prepend(backLi);
+
+                    backBtn.addEventListener("click", e => {
+                        e.preventDefault();
+                        submenu.classList.remove("active-level");
+                        parentUl.classList.remove("slide-left");
+                        parentUl.classList.add("active-level");
+                    });
+                }
+
+                // Click on parent link opens submenu
+                link.addEventListener("click", e => {
+                    e.preventDefault();
+                    parentUl.classList.add("slide-left");
+                    parentUl.classList.remove("active-level");
+                    submenu.classList.add("active-level");
+                });
+
+                // Recursively initialize deeper submenus
+                initSubmenus(submenu);
+            });
+        }
+
+        // Initialize all menus starting from root
+        resetAllMenus();
+        rootMenu.classList.add("active-level");
+        initSubmenus(rootMenu);
+    });
+
+</script>
+
+
+
+
+

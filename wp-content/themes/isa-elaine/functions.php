@@ -109,6 +109,17 @@ function register_theme_menus()
 }
 add_action('init', 'register_theme_menus');
 
+
+
+function thumber_register_menu() {
+    register_nav_menus(array(
+        'primary_menu' => __('Primary Menu', 'yourtheme'),
+    ));
+}
+add_action('after_setup_theme', 'thumber_register_menu');
+
+
+
 function family_menu_shortcode() {
     ob_start();
     wp_nav_menu(array(

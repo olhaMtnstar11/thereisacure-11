@@ -467,6 +467,7 @@ margin-bottom: 1px;
 
         .navigation-usa-map {
             width: 100%;
+            margin-right: 10px;
         }
         .section-title {
             margin-bottom: 15px;
@@ -523,6 +524,7 @@ margin-bottom: 1px;
 
         .navigation-usa-map {
             width: 100%;
+            margin-right: 0px;
         }
 
         .fund-box {
