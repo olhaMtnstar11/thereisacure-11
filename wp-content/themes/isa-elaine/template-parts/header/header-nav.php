@@ -401,205 +401,146 @@ document.addEventListener('DOMContentLoaded', function () {
     .thumber-menu-right {
         position: fixed;
         top: 0;
-        right: -300px; /* hidden */
+        right: -300px; /* hidden by default */
         width: 300px;
         height: 100vh;
         background: #111;
         padding: 60px 20px;
-        transition: right 0.4s ease;
+        transition: right 0.3s ease;
         z-index: 99999;
         overflow: hidden;
     }
 
-    /* When opened */
     .thumber-menu-right.active {
-
         right: 0;
     }
 
-    /* Stack all menu levels horizontally for sliding */
-    .thumber-menu-right ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        width: 100%;
-        /* height: 100%;  <-- remove this */
+    .thumber-menu-right .menu-panel {
         position: absolute;
-        top: 100px;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start; /* align items at top */
-        transition: transform 0.3s ease;
-    }
-    .thumber-menu-right ul.sub-menu {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: flex-start;
         top: 0;
-        padding-left: 10px;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #111;
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        padding-top: 20px;
     }
-    /* Top-level menu visible by default */
-    .thumber-menu-right ul.menu-right-primary {
+
+    .thumber-menu-right .menu-panel.active {
         transform: translateX(0);
     }
 
-    /* Submenus start hidden (shifted right) */
-    .thumber-menu-right ul.sub-menu {
-        transform: translateX(100%);
-    }
-
-    /* Active submenu slides in */
-    .thumber-menu-right ul.sub-menu.active {
-
-    }
-
-    /* Top-level slides left when submenu open */
-    .thumber-menu-right ul.menu-right-primary.slide-left {
+    .thumber-menu-right .menu-panel.back {
         transform: translateX(-100%);
     }
 
-    /* Menu links */
-    /* All menu links, including sub-items */
     .thumber-menu-right a {
-        font-family: "iA Writer Duo", sans-serif;
-        font-stretch: normal;
-        font-size: 15px;
-        font-weight: 400;
-        line-height: 1.5;
-        padding: 0 0;
-        height: 28px;
-        display: flex;
-        align-items: center;
-
-        color: #fff;          /* White text */
-        text-decoration: none;
-        transition: 0.3s;
-    }
-
-    /* Hover effect */
-    .thumber-menu-right a:hover {
-        opacity: 0.7;
-        padding-left: 10px;
-    }
-    .menu-right-primary > li > a {
-        font-weight: bold;
-    }
-    .sub-menu a {
-        font-weight: normal;
-    }
-    /* Back button */
-    /* Optional: give back button bold font */
-    .back-btn {
-        font-weight: bold;    /* back button still bold */
-        display: block;
-        margin-bottom: 20px;
         color: #fff;
-
-        cursor: pointer;
         text-decoration: none;
+        padding: 10px 0;
+        display: block;
     }
 
-    /* FORCE VERTICAL FLEX FOR RIGHT SLIDE MENU */
-    .thumber-menu-right nav > ul.menu-right-primary,
-    .thumber-menu-right .menu-right-primary {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 20px;
-
-        align-items: flex-start;
-        justify-content: flex-end;
-        align-content: flex-start;
-    }
-
-    /* FORCE WHITE TEXT */
-    .thumber-menu-right .menu-right-primary a {
-        color: #fff !important;
+    .back-btn {
+        font-weight: bold;
+        margin-bottom: 10px;
+        cursor: pointer;
     }
 
 
 </style>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const toggle = document.querySelector(".menu-toggle");
         const menu = document.querySelector(".thumber-menu-right");
-        const rootMenu = menu.querySelector("ul.menu-right-primary");
 
-        // Toggle menu open/close
+        const menuStack = []; // store previous panels
+
         toggle.addEventListener("click", () => {
             menu.classList.toggle("active");
             toggle.classList.toggle("active");
-            resetAllMenus();
-            rootMenu.classList.add("active-level");
+            if (menu.classList.contains("active")) {
+                openPanel(menu.querySelector("ul.menu-right-primary"));
+            } else {
+                resetPanels();
+            }
         });
 
-        function resetAllMenus() {
-            const allMenus = menu.querySelectorAll("ul");
-            allMenus.forEach(ul => {
-                ul.classList.remove("active-level", "slide-left");
+        function resetPanels() {
+            menu.querySelectorAll(".menu-panel").forEach(p => p.remove());
+            menuStack.length = 0;
+        }
+
+        function openPanel(ul) {
+            const currentPanel = menu.querySelector(".menu-panel.active");
+
+            // Hide current panel and push to stack
+            if (currentPanel) {
+                currentPanel.classList.remove("active");
+                menuStack.push(currentPanel);
+            }
+
+            // Create new panel for submenu
+            const panel = document.createElement("div");
+            panel.classList.add("menu-panel", "active");
+
+            // Add back button if this is not the root
+            if (menuStack.length > 0) {
+                const back = document.createElement("button"); // button is better than <a>
+                back.textContent = "← Back";
+                back.classList.add("back-btn");
+                back.addEventListener("click", () => {
+                    panel.classList.remove("active"); // hide current panel
+                    const parentPanel = menuStack.pop();
+                    parentPanel.classList.add("active"); // show previous level
+                });
+                panel.appendChild(back);
+            }
+
+            // Clone top-level <li> items from ul
+            Array.from(ul.children).forEach(li => {
+                const newLi = li.cloneNode(false); // only clone li itself
+                const link = li.querySelector("a");
+                if (link) {
+                    const newLink = link.cloneNode(true); // clone only the link
+                    newLi.appendChild(newLink);
+                }
+                panel.appendChild(newLi);
+
+                // Attach click if has submenu
+                const subUl = li.querySelector("ul");
+                if (subUl) {
+                    const newLink = newLi.querySelector("a");
+                    newLink.addEventListener("click", e => {
+                        e.preventDefault();
+                        openPanel(subUl); // go to child menu
+                    });
+                }
             });
+
+            menu.appendChild(panel);
         }
 
-        function closeMenu() {
-            menu.classList.remove("active");
-            toggle.classList.remove("active");
-            resetAllMenus();
-        }
-
+        // Close menu on outside click or ESC
         document.addEventListener("click", e => {
-            if (!menu.contains(e.target) && !toggle.contains(e.target)) closeMenu();
+            if (!menu.contains(e.target) && !toggle.contains(e.target)) {
+                menu.classList.remove("active");
+                toggle.classList.remove("active");
+                resetPanels();
+            }
         });
 
         document.addEventListener("keydown", e => {
-            if (e.key === "Escape") closeMenu();
+            if (e.key === "Escape") {
+                menu.classList.remove("active");
+                toggle.classList.remove("active");
+                resetPanels();
+            }
         });
-
-        // Recursive function to initialize submenus
-        function initSubmenus(parentUl) {
-            const items = parentUl.querySelectorAll(":scope > li.menu-item-has-children");
-
-            items.forEach(li => {
-                const link = li.querySelector(":scope > a");
-                const submenu = li.querySelector(":scope > ul.sub-menu");
-                if (!link || !submenu) return;
-
-                // Add back button if not exists
-                if (!submenu.querySelector(".back-btn")) {
-                    const backLi = document.createElement("li");
-                    const backBtn = document.createElement("a");
-                    backBtn.href = "#";
-                    backBtn.textContent = "← Back";
-                    backBtn.classList.add("back-btn");
-                    backLi.appendChild(backBtn);
-                    submenu.prepend(backLi);
-
-                    backBtn.addEventListener("click", e => {
-                        e.preventDefault();
-                        submenu.classList.remove("active-level");
-                        parentUl.classList.remove("slide-left");
-                        parentUl.classList.add("active-level");
-                    });
-                }
-
-                // Click on parent link opens submenu
-                link.addEventListener("click", e => {
-                    e.preventDefault();
-                    parentUl.classList.add("slide-left");
-                    parentUl.classList.remove("active-level");
-                    submenu.classList.add("active-level");
-                });
-
-                // Recursively initialize deeper submenus
-                initSubmenus(submenu);
-            });
-        }
-
-        // Initialize all menus starting from root
-        resetAllMenus();
-        rootMenu.classList.add("active-level");
-        initSubmenus(rootMenu);
     });
 
 </script>
