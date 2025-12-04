@@ -426,7 +426,7 @@ document.addEventListener('DOMContentLoaded', function () {
         transition: transform 0.3s ease;
         display: flex;
         flex-direction: column;
-        padding-top: 20px;
+        padding-top: 100px;
     }
 
     .thumber-menu-right .menu-panel.active {
@@ -445,11 +445,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     .back-btn {
-        font-weight: bold;
+        all: unset; /* removes all browser default styles */
+        font-weight: bold; /* optional, your style */
+        cursor: pointer; /* pointer on hover */
+        color: #fff; /* text color */
+        font-size: 16px; /* adjust as needed */
+        display: inline-block; /* ensures proper layout */
+        text-align: left; /* optional */
+        padding: 0; /* remove any padding */
+        margin: 0; /* remove margin */
         margin-bottom: 10px;
-        cursor: pointer;
-    }
 
+    }
 
 </style>
 
