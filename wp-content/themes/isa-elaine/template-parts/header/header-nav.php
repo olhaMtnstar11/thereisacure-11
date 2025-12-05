@@ -396,12 +396,8 @@ if ($header_pictures) {
 
 
 <style>
-    /* Hide all submenus */
-    .menu-right-primary ul.sub-menu {
-        display: none;
-    }
 
-    /* Sliding panel container */
+
     .sidebar-inner {
         position: relative;
         width: 100%;
@@ -409,7 +405,6 @@ if ($header_pictures) {
         overflow: hidden;
     }
 
-    /* Panels for each level */
     .sidebar-panel {
         position: absolute;
         top: 0;
@@ -419,18 +414,20 @@ if ($header_pictures) {
         overflow-y: auto;
         background: #fff;
         transition: left .3s ease;
-        padding: 20px;
+        z-index: 1;
+        pointer-events: auto;
     }
 
     .sidebar-panel.active {
         left: 0;
+        z-index: 10;
     }
 
     .sidebar-panel.prev {
         left: -100%;
+        z-index: 5;
     }
 
-    /* Back button */
     .sidebar-back {
         font-size: 14px;
         margin-bottom: 20px;
@@ -438,97 +435,82 @@ if ($header_pictures) {
         color: #ff6600;
         display: inline-block;
     }
+
 </style>
 
 <script>
 
-    document.addEventListener("DOMContentLoaded", () => {
+            document.addEventListener("DOMContentLoaded", () => {
+            const rootMenu = document.querySelector(".menu-right-primary");
+            const sidebarInner = document.querySelector(".sidebar-inner");
+            const panelStack = [];
 
-        const rootMenu = document.querySelector(".menu-right-primary");
-        const sidebarInner = document.querySelector(".sidebar-inner");
+            // Initialize first panel
+            const firstPanel = createPanel(rootMenu, true);
+            sidebarInner.innerHTML = "";
+            sidebarInner.appendChild(firstPanel);
+            firstPanel.classList.add("active");
+            panelStack.push(firstPanel);
 
-        let panelStack = [];
-
-        // Initialize first panel
-        const firstPanel = createPanelFromList(rootMenu);
-        sidebarInner.innerHTML = "";
-        sidebarInner.appendChild(firstPanel);
-        panelStack.push(firstPanel);
-
-        function createPanelFromList(ul, isRoot = panelStack.length === 0) {
+            function createPanel(ul, isRoot = false) {
             const panel = document.createElement("div");
             panel.className = "sidebar-panel";
-            panel.style.left = "100%"; // start offscreen
+            panel.style.left = isRoot ? "0" : "100%";
+            panel.style.zIndex = panelStack.length + 1;
 
-            // Add back button only if not root
+            // Back button for non-root panels
             if (!isRoot) {
-                const backBtn = document.createElement("div");
-                backBtn.className = "sidebar-back";
-                backBtn.textContent = "← Back";
-                backBtn.addEventListener("click", () => slideBack(panel));
-                panel.appendChild(backBtn);
-            }
+            const backBtn = document.createElement("div");
+            backBtn.className = "sidebar-back";
+            backBtn.textContent = "← Back";
+            backBtn.addEventListener("click", () => slideBack(panel));
+            panel.appendChild(backBtn);
+        }
 
             const clone = ul.cloneNode(true);
             panel.appendChild(clone);
 
-            // Append first, then attach events
-            sidebarInner.appendChild(panel);
+            // Attach click handlers for items with children
+            clone.querySelectorAll("li.menu-item-has-children > a").forEach(link => {
+            const sub = link.parentElement.querySelector("ul.sub-menu");
+            if (!sub) return;
 
-            // Attach events for items with children
-            clone.querySelectorAll("li.menu-item-has-children > a").forEach(a => {
-                const sub = a.parentElement.querySelector("ul.sub-menu");
-                if (!sub) return; // allow normal link if no submenu
-
-                a.addEventListener("click", (e) => {
-                    e.preventDefault();
-                    createNextPanel(sub, panel);
-                });
-            });
+            link.addEventListener("click", (e) => {
+            e.preventDefault();
+            slideForward(sub, panel);
+        });
+        });
 
             return panel;
         }
 
-        function createNextPanel(submenu, currentPanel) {
-            const nextPanel = createPanelFromList(submenu);
-            nextPanel.classList.add("active");
-
-            // Animate
-            requestAnimationFrame(() => {
-                currentPanel.classList.remove("active");
-                currentPanel.classList.add("prev");
-
-                nextPanel.classList.add("active");
-            });
-
+            function slideForward(submenu, currentPanel) {
+            const nextPanel = createPanel(submenu);
+            sidebarInner.appendChild(nextPanel);
             panelStack.push(nextPanel);
-        }
 
-        function slideBack(currentPanel) {
-            const previousPanel = panelStack[panelStack.length - 2];
-            if (!previousPanel) return;
-
+            // Animate panels
+            requestAnimationFrame(() => {
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
-
-            previousPanel.classList.remove("prev");
-            previousPanel.classList.add("active");
-
-            panelStack.pop();
-
-            setTimeout(() => {
-                currentPanel.remove();
-            }, 300);
+            nextPanel.classList.add("active");
+            nextPanel.style.left = "0";
+        });
         }
 
-        // Make first panel visible
-        requestAnimationFrame(() => {
-            firstPanel.classList.add("active");
+            function slideBack(currentPanel) {
+            const previousPanel = panelStack[panelStack.length - 2];
+            currentPanel.classList.remove("active");
+            currentPanel.classList.add("prev");
+            previousPanel.classList.remove("prev");
+            previousPanel.classList.add("active");
+            panelStack.pop();
+
+            setTimeout(() => currentPanel.remove(), 300);
+        }
         });
-
-    });
-
 </script>
+
 
 
 
