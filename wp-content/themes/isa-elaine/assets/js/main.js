@@ -1,141 +1,12 @@
-$(document).ready(function () {
-
-    // Mobile menu toggle functionality
-$("#mobile-menu-toggle").on("click", function (e) {
-    e.preventDefault();
-
-    const $btn = $(this);
-    const isExpanded = $btn.attr("aria-expanded") === "true";
-
-    // toggle aria-expanded
-    $btn.attr("aria-expanded", String(!isExpanded));
-
-    // toggle classes
-    $btn.toggleClass("opened");
-    $("body").toggleClass("fixed");
-    $("#mobile-menu").fadeToggle();
-    $("#overlay").toggleClass("opened");
-
-    // Update button content
-    if ($btn.hasClass("opened")) {
-        // Menu is opening → show "✕"
-        $btn.html('<span class="close-icon" aria-hidden="true">✕</span>');
-    } else {
-        // Menu is closing → show "menu"
-        $btn.html('menu <span class="arrow"></span>');
-    }
-});
-
-    // Mobile menu item click functionality (to close menu after clicking)
-    $("#mobile-menu a[href*='#']").click(function (e) {
-        e.preventDefault();
-        closeMobileMenu();
-
-        var target = $(this).attr("href");
-        var fixed_offset = 100;
-
-        if (target.startsWith("#")) {
-            var targetElement = $(target);
-            if (targetElement.length) {
-                $('html, body').stop().animate({
-                    scrollTop: targetElement.offset().top - fixed_offset
-                }, 1000);
-            }
-        } else {
-            var baseUrl = window.location.origin;
-            var fullUrl = baseUrl + target;
-            window.location.href = fullUrl;
-        }
-    });
-
-    // Ensure the mobile menu closes before opening the Donate popup
-    /*
-  $(".donate").click(function (e) {
-        e.preventDefault();
-        closeMobileMenu();
-
-        // Small delay to allow menu to close before opening Fancybox
-        setTimeout(() => {
-            $.fancybox.open({
-                src: '#donate-popup',
-                type: 'inline'
-            });
-        }, 300);
-    });
-    * */
-
-
-    // Function to handle resizing
-    function handleResize() {
-        const screenWidth = $(window).width();
-        if (screenWidth >= 966) {
-            closeMobileMenu();
-        }
-    }
-
-    // Function to close the mobile menu and reset styles
-    function closeMobileMenu() {
-        $("#mobile-menu-toggle").removeClass("opened");
-        $("body").removeClass("fixed");
-        $("#mobile-menu").fadeOut();
-        $("#overlay").removeClass("opened");
-
-        // Reset button aria-expanded and content
-        $("#mobile-menu-toggle").attr("aria-expanded", "false");
-        $("#mobile-menu-toggle").html('menu <span class="arrow"></span>');
-    }
-
-    // Check window resize
-    $(window).resize(function () {
-        handleResize();
-    });
-
-    // Initial check on page load
-    handleResize();
-
-    // Handle scroll event to ensure mobile menu is reset properly
-    $(window).on('scroll', function () {
-        handleResize();
-    });
-
-    // Slick carousel initialization
-    $('.reasons-list').slick({
-        dots: false,
-        infinite: false,
-        speed: 300,
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 966,
-                settings: {
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1
-                }
-            }
-        ]
-    });
-
-});
-
-
+// -------------------------------
 // Sticky navigation logic
+// -------------------------------
 document.addEventListener('DOMContentLoaded', function () {
     const headerNav = document.querySelector('.header-nav');
     const overlayDiv = document.querySelector('#overlay');
-    const mobileMenuToggle = document.querySelector('#mobile-menu-toggle');
 
-    let heroSection = document.querySelector('.home-hero');
-    let defaultSection = document.querySelector('.default-hero');
+    const heroSection = document.querySelector('.home-hero');
+    const defaultSection = document.querySelector('.default-hero');
 
     function updateStickyClasses() {
         if (window.pageYOffset > headerNav.offsetTop) {
@@ -146,11 +17,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (heroSection) {
             const threshold = heroSection.offsetTop + heroSection.offsetHeight - headerNav.offsetHeight;
-
             if (window.pageYOffset > threshold) {
-                if (!overlayDiv.classList.contains('opened')) {
-                    headerNav.classList.add('sticky-bg');
-                }
+                headerNav.classList.add('sticky-bg');
             } else {
                 headerNav.classList.remove('sticky-bg');
             }
@@ -161,83 +29,48 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 
-    function toggleStickyBg() {
-        if (overlayDiv.classList.contains('opened')) {
-            headerNav.classList.remove('sticky-bg');
-        } else {
-            updateStickyClasses();
-        }
-    }
-
-    function debounce(func, wait) {
-        let timeout;
-        return function () {
-            clearTimeout(timeout);
-            timeout = setTimeout(func, wait);
-        };
-    }
-
     window.addEventListener('scroll', updateStickyClasses);
     window.addEventListener('resize', updateStickyClasses);
-
-    // Listen for clicks on the mobile menu toggle button
-    if (mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', function () {
-            setTimeout(toggleStickyBg, 10); // Small delay to ensure class is added/removed first
-        });
-    }
 
     updateStickyClasses();
 });
 
-// Form validation for button submit
+// -------------------------------
+// Form validation for Contact Form 7
+// -------------------------------
 document.addEventListener('DOMContentLoaded', function () {
-    const form = document.querySelector('.wpcf7-form'); // Select Contact Form 7 form
-
-    if (!form) {
-        // Optionally log a warning, or just exit if the form is not found
-        // console.warn('Form with class .wpcf7-form not found.');
-        return;
-    }
+    const form = document.querySelector('.wpcf7-form');
+    if (!form) return;
 
     const submitButton = form.querySelector('input[type="submit"]');
 
     function isValidEmail(email) {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email regex
-        return emailPattern.test(email);
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
     }
 
     function checkFormValidity() {
         let isValid = true;
 
-        // Loop through all required fields
         form.querySelectorAll('.wpcf7-validates-as-required').forEach(input => {
-            if (!input.value.trim()) {
-                isValid = false; // Mark as invalid if empty
-            }
+            if (!input.value.trim()) isValid = false;
         });
 
-        // Validate email field
         const emailInput = form.querySelector('.wpcf7-email');
-        if (emailInput && !isValidEmail(emailInput.value)) {
-            isValid = false; // Mark as invalid if email format is incorrect
-        }
+        if (emailInput && !isValidEmail(emailInput.value)) isValid = false;
 
-        submitButton.disabled = !isValid; // Enable/Disable button
+        submitButton.disabled = !isValid;
     }
 
-    // Check on input change
     form.addEventListener('input', checkFormValidity);
-
-    // Disable button initially
     checkFormValidity();
 });
 
-
-// disable touch scrolling on the background in SAFARI
+// -------------------------------
+// Disable touch scrolling behind Fancybox (Safari)
+// -------------------------------
 document.addEventListener("DOMContentLoaded", function () {
-    let body = document.body;
-    let fancyboxContent = document.querySelector(".fancybox-content");
+    const body = document.body;
+    const fancyboxContent = document.querySelector(".fancybox-content");
 
     function disableScroll(event) {
         if (!fancyboxContent.contains(event.target)) {
@@ -247,7 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.addEventListener("fancyboxopen", function () {
         body.classList.add("fancybox-active");
-        document.addEventListener("touchmove", disableScroll, {passive: false});
+        document.addEventListener("touchmove", disableScroll, { passive: false });
     });
 
     document.addEventListener("fancyboxclose", function () {
@@ -256,13 +89,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
+// -------------------------------
+// Donate / Join button hover text
+// -------------------------------
 jQuery(document).ready(function ($) {
-    $(".button-hover-text-donate, .button-hover-text-join").hide(); // Hide text initially
+    $(".button-hover-text-donate, .button-hover-text-join").hide();
 
     $(".button.donate").hover(
         function () {
-            $(".button-hover-text-donate, .button-hover-text-join").stop(true, true).hide(); // Immediately hide both
+            $(".button-hover-text-donate, .button-hover-text-join").stop(true, true).hide();
             $(".button-hover-text-donate").fadeIn();
         },
         function () {
@@ -272,7 +107,7 @@ jQuery(document).ready(function ($) {
 
     $(".button.join").hover(
         function () {
-            $(".button-hover-text-donate, .button-hover-text-join").stop(true, true).hide(); // Immediately hide both
+            $(".button-hover-text-donate, .button-hover-text-join").stop(true, true).hide();
             $(".button-hover-text-join").fadeIn();
         },
         function () {
@@ -281,134 +116,52 @@ jQuery(document).ready(function ($) {
     );
 });
 
-
-/*
-
-document.addEventListener("DOMContentLoaded", function () {
-    let heroBg = document.querySelector(".home-hero-bg");
-    let navHeader = document.querySelector(".visible-menu");
-    let heroTextD = document.querySelector(".hero-text-desktop");
-    let heroTextM = document.querySelector(".hero-text-mobile");
-    let buttonHover = document.querySelector(".button-container-desktop");
-    let buttonText = document.querySelector(".button-container-mobile");
-
-    if (!heroBg || !navHeader) return;
-
-    function updateBackgroundAndMenu() {
-        // ✅ Always get the most recent data values
-        let desktopBg = heroBg.getAttribute("data-desktop-bg");
-        let mobileBg = heroBg.getAttribute("data-mobile-bg");
-
-        let isMobilebg = window.matchMedia("(max-width: 650px)").matches;
-        let isMobilemenu = window.matchMedia("(max-width: 950px)").matches;
-        let bgImage = isMobilebg ? mobileBg : desktopBg;
-
-        heroBg.style.backgroundImage = `url('${bgImage}')`;
-        navHeader.style.display = isMobilemenu ? "flex" : "none";
-        heroTextD.style.display = isMobilemenu ? "none" : "flex";
-        heroTextM.style.display = isMobilemenu ? "block" : "none";
-        buttonHover.style.display = isMobilemenu ? "none" : "flex";
-        buttonText.style.display = isMobilemenu ? "block" : "none";
-    }
-
-   // updateBackgroundAndMenu();   ---if you want change pict only in first loading
-    window.addEventListener("resize", updateBackgroundAndMenu);
-    window.addEventListener("orientationchange", updateBackgroundAndMenu);
-    updateBackgroundAndMenu();
-});
-
-
-
-* */
+// -------------------------------
+// Responsive hero background
+// -------------------------------
 function updateHeroBackgrounds() {
     const isMobile = window.innerWidth < 966;
 
     document.querySelectorAll('.responsive-bg').forEach(div => {
         const mobileBg = div.getAttribute('data-mobile-bg');
         const desktopBg = div.getAttribute('data-desktop-bg');
-
-        if (isMobile) {
-            div.style.backgroundImage = `url(${mobileBg})`;
-            div.style.aspectRatio = '1 / 2'; // 10/20
-        } else {
-            div.style.backgroundImage = `url(${desktopBg})`;
-            div.style.aspectRatio = '40 / 21'; // 20/20
-        }
+        div.style.backgroundImage = `url(${isMobile ? mobileBg : desktopBg})`;
+        div.style.aspectRatio = isMobile ? '1 / 2' : '40 / 21';
     });
 }
 
 document.addEventListener('DOMContentLoaded', updateHeroBackgrounds);
 window.addEventListener('resize', updateHeroBackgrounds);
 
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-
-    /*
-    const donationInput = document.querySelector('input[name="donation-amount"]');
-
-    if (donationInput) {
-        // Set default value
-        donationInput.value = "";
-
-        donationInput.addEventListener('focus', function () {
-            if (this.value === "$0.00") {
-                this.value = "";
-            }
-        });
-
-        donationInput.addEventListener('blur', function () {
-            if (this.value.trim() === "" || this.value.trim() === "$0.00") {
-                this.value = null;
-            } else {
-                formatCurrency(this);
-            }
-        });
-
-        donationInput.addEventListener('input', function () {
-            // Remove anything that's not a number
-            let cleanValue = this.value.replace(/[^0-9]/g, '');
-            if (cleanValue.length > 0) {
-                this.value = formatToCurrency(cleanValue);
-            } else {
-                this.value = "";
-            }
-        });
+// -------------------------------
+// Donation input formatting
+// -------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    function formatToCurrency(value) {
+        const num = parseFloat(value) / 100;
+        return num.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
     }
-    */
 
     function formatCurrency(input) {
         let cleanValue = input.value.replace(/[^0-9]/g, '');
-        if (cleanValue.length > 0) {
-            input.value = formatToCurrency(cleanValue);
-        } else {
-            input.value = "$0.00";
-        }
+        input.value = cleanValue.length > 0 ? formatToCurrency(cleanValue) : "$0.00";
     }
-
-    function formatToCurrency(value) {
-        const num = parseFloat(value) / 100;
-        return num.toLocaleString('en-US', {style: 'currency', currency: 'USD'});
-    }
-
 });
 
-
-
-
+// -------------------------------
+// Scroll container: one section per scroll
+// -------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     const container = document.querySelector('.scroll-container');
-    if (!container) return; // only run on homepage
+    if (!container) return;
 
     const sections = document.querySelectorAll('.scroll-section');
     const height = window.innerHeight;
-    let isScrolling = false; // scroll lock
+    let isScrolling = false;
 
-    // Highlight active section
     container.addEventListener('scroll', () => {
         const scrollTop = container.scrollTop;
-        sections.forEach((sec) => {
+        sections.forEach(sec => {
             const offset = sec.offsetTop;
             if (scrollTop >= offset - height / 1.5 && scrollTop < offset + height / 1.5) {
                 sec.classList.add('active');
@@ -418,26 +171,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Smooth one-section-per-scroll
-    container.addEventListener(
-        'wheel',
-        (e) => {
-            if (window.innerWidth > 1024) {
-                e.preventDefault();
-                if (isScrolling) return; // block multiple triggers
-                isScrolling = true;
+    container.addEventListener('wheel', e => {
+        if (window.innerWidth > 1024) {
+            e.preventDefault();
+            if (isScrolling) return;
+            isScrolling = true;
 
-                container.scrollBy({
-                    top: e.deltaY > 0 ? height : -height,
-                    behavior: 'smooth',
-                });
+            container.scrollBy({
+                top: e.deltaY > 0 ? height : -height,
+                behavior: 'smooth',
+            });
 
-                // unlock after animation finishes (~1.2s)
-                setTimeout(() => {
-                    isScrolling = false;
-                }, 1200);
-            }
-        },
-        { passive: false }
-    );
+            setTimeout(() => isScrolling = false, 1200);
+        }
+    }, { passive: false });
 });

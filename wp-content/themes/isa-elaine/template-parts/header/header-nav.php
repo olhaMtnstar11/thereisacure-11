@@ -28,15 +28,7 @@ if ($header_pictures) {
             </a>
 
 
-            <div class="header-nav-right">
-                <a href="#"
-                   id="mobile-menu-toggle"
-                   aria-expanded="false"
-                   aria-controls="mobile-menu"
-                   role="button">
-                    menu <span class="arrow-sub-menu"> </span>
-                </a>
-            </div>
+
             <!-- /.header-nav-right -->
 
         </div>
@@ -44,20 +36,7 @@ if ($header_pictures) {
     <!-- /.container -->
 </div>
 
-<div id="mobile-menu" style="z-index: 1000" aria-hidden="true">
-    <nav class="nav-mobile" aria-label="Mobile navigation">
-        <?php
-        // Combine your key menus into one mobile accordion menu
-        wp_nav_menu(array(
-            'menu' => 'mobile menu',
-            'theme_location' => 'mobile_menu',
-            'container' => false,
-            'menu_class' => 'mobile-menu-list',
-            'menu_id' => 'mobile-menu-list',
-        ));
-        ?>
-    </nav>
-</div>
+
 
 
 <aside class="sidebar">
@@ -440,47 +419,73 @@ if ($header_pictures) {
     .sidebar-panel ul.sub-menu {
 
     }
+
+
+    /* Make all list items in the sidebar show pointer */
+    .sidebar-inner li {
+        cursor: pointer;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+ margin: 20px 0;
+    }
+
+    .
 </style>
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const rootMenu = document.querySelector(".menu-right-primary");
+        // ---------- Desktop sidebar ----------
+        const sidebarRootMenu = document.querySelector(".menu-right-primary");
         const sidebarInner = document.querySelector(".sidebar-inner");
-        const panelStack = [];
+        const sidebarPanelStack = [];
 
-        // Initialize first panel
-        const firstPanel = createPanel(rootMenu, true);
-        sidebarInner.innerHTML = "";
-        sidebarInner.appendChild(firstPanel);
-        firstPanel.classList.add("active");
-        panelStack.push(firstPanel);
+        if (sidebarRootMenu) {
+            const firstPanel = createPanel(sidebarRootMenu, true, sidebarPanelStack);
+            sidebarInner.innerHTML = "";
+            sidebarInner.appendChild(firstPanel);
+            firstPanel.classList.add("active");
+            sidebarPanelStack.push(firstPanel);
+        }
 
-        function createPanel(ul, isRoot = false) {
+        // ---------- Mobile menu ----------
+        const mobileRootMenu = document.querySelector("#mobile-menu .mobile-menu-list");
+        const mobileMenuContainer = document.querySelector("#mobile-menu nav");
+        const mobilePanelStack = [];
+
+        if (mobileRootMenu && mobileMenuContainer) {
+            const firstMobilePanel = createPanel(mobileRootMenu, true, mobilePanelStack);
+            mobileMenuContainer.innerHTML = "";
+            mobileMenuContainer.appendChild(firstMobilePanel);
+            firstMobilePanel.classList.add("active");
+            mobilePanelStack.push(firstMobilePanel);
+        }
+
+        function createPanel(ul, isRoot = false, stack) {
             const panel = document.createElement("div");
             panel.className = "sidebar-panel";
 
+            // Back button
             if (!isRoot) {
                 const backBtn = document.createElement("div");
                 backBtn.className = "sidebar-back";
                 backBtn.textContent = "← Back";
-                backBtn.addEventListener("click", () => slideBack(panel));
+                backBtn.addEventListener("click", () => slideBack(panel, stack));
                 panel.appendChild(backBtn);
             }
 
-            // Create a **new ul** with only the items we want (no submenus shown yet)
+            // Create new UL with only top-level items
             const newUL = document.createElement("ul");
             newUL.className = ul.className;
 
             Array.from(ul.children).forEach(li => {
-                const cloneLI = li.cloneNode(false); // clone just the LI, not its children
-                cloneLI.innerHTML = li.querySelector("a").outerHTML; // only copy the link
+                const cloneLI = li.cloneNode(false); // only LI
+                cloneLI.innerHTML = li.querySelector("a").outerHTML; // only the link
 
-                // If this LI has children, attach click to open submenu
+                // If has submenu
                 if (li.classList.contains("menu-item-has-children")) {
                     const sub = li.querySelector("ul.sub-menu");
                     cloneLI.querySelector("a").addEventListener("click", (e) => {
                         e.preventDefault();
-                        slideForward(sub, panel);
+                        slideForward(sub, panel, stack);
                     });
                 }
 
@@ -491,28 +496,27 @@ if ($header_pictures) {
             return panel;
         }
 
-        function slideForward(submenu, currentPanel) {
-            const nextPanel = createPanel(submenu);
-            sidebarInner.appendChild(nextPanel);
-            panelStack.push(nextPanel);
+        function slideForward(submenu, currentPanel, stack) {
+            const nextPanel = createPanel(submenu, false, stack);
+            currentPanel.parentNode.appendChild(nextPanel);
+            stack.push(nextPanel);
 
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
             nextPanel.classList.add("active");
         }
 
-        function slideBack(currentPanel) {
-            const previousPanel = panelStack[panelStack.length - 2];
+        function slideBack(currentPanel, stack) {
+            const previousPanel = stack[stack.length - 2];
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
             previousPanel.classList.remove("prev");
             previousPanel.classList.add("active");
-            panelStack.pop();
+            stack.pop();
 
             setTimeout(() => currentPanel.remove(), 300);
         }
     });
-
 </script>
 
 

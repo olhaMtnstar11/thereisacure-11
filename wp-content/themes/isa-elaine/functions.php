@@ -76,47 +76,25 @@ add_theme_support('post-thumbnails');
 /**
  * menus
  **/
-function register_theme_menus()
-{
-
-    register_nav_menus(
-        array(
-	        'main-menu' => __('Main Menu'),
-            'footer-menu' => __('Footer Menu'),
-
-            'footer-mobile-menu-1' => __('Mobile menu footer part 1'), // ✅ mobile menu
-
-
-            'for-families' => __('For Families'),
-
-
-            'for-families-header' => __('For families header'),
-            'for-clinic-header' => __('For clinic header'),
-
-
-            'why-we-exist' => __('Why We Exist'),
-            'understanding-childhood-dementia' => __('Understanding Childhood Dementia'),
-            'for-researchers' => __('For Researchers'),
-            'take-action' => __('Take Action'),
-
-            'types-of-nbia' => __('Types of NBIA'),
-
-            'mobile_menu' => __('mobile menu'),
-  'new-menu' => __('New menu'),
-        )
-        );
-
-}
-add_action('init', 'register_theme_menus');
-
-
-
-function thumber_register_menu() {
+function register_theme_menus() {
     register_nav_menus(array(
+        'main-menu' => __('Main Menu'),
         'primary_menu' => __('Primary Menu', 'yourtheme'),
+        'mobile_menu' => __('Mobile Menu'),
+        'footer-menu' => __('Footer Menu'),
+        'footer-mobile-menu-1' => __('Mobile menu footer part 1'),
+        'for-families' => __('For Families'),
+        'for-families-header' => __('For families header'),
+        'for-clinic-header' => __('For clinic header'),
+        'why-we-exist' => __('Why We Exist'),
+        'understanding-childhood-dementia' => __('Understanding Childhood Dementia'),
+        'for-researchers' => __('For Researchers'),
+        'take-action' => __('Take Action'),
+        'types-of-nbia' => __('Types of NBIA'),
+        'new-menu' => __('New Menu'),
     ));
 }
-add_action('after_setup_theme', 'thumber_register_menu');
+add_action('after_setup_theme', 'register_theme_menus');
 
 
 
