@@ -408,24 +408,25 @@ if ($header_pictures) {
     .sidebar-panel {
         position: absolute;
         top: 0;
-        left: 100%;
+        left: 0;
         width: 100%;
         height: 100%;
         overflow-y: auto;
         background: #fff;
-        transition: left .3s ease;
+        transition: opacity 0.3s ease;
         z-index: 1;
         pointer-events: auto;
+        display: none; /* hide by default */
     }
 
     .sidebar-panel.active {
-        left: 0;
+        display: block; /* show active panel */
         z-index: 10;
+        opacity: 1;
     }
 
     .sidebar-panel.prev {
-        left: -100%;
-        z-index: 5;
+        display: none; /* hide previous panel */
     }
 
     .sidebar-back {
@@ -435,70 +436,72 @@ if ($header_pictures) {
         color: #ff6600;
         display: inline-block;
     }
+    /* Hide all submenus initially */
+    .sidebar-panel ul.sub-menu {
 
+    }
 </style>
 
 <script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const rootMenu = document.querySelector(".menu-right-primary");
+        const sidebarInner = document.querySelector(".sidebar-inner");
+        const panelStack = [];
 
-            document.addEventListener("DOMContentLoaded", () => {
-            const rootMenu = document.querySelector(".menu-right-primary");
-            const sidebarInner = document.querySelector(".sidebar-inner");
-            const panelStack = [];
+        // Initialize first panel
+        const firstPanel = createPanel(rootMenu, true);
+        sidebarInner.innerHTML = "";
+        sidebarInner.appendChild(firstPanel);
+        firstPanel.classList.add("active");
+        panelStack.push(firstPanel);
 
-            // Initialize first panel
-            const firstPanel = createPanel(rootMenu, true);
-            sidebarInner.innerHTML = "";
-            sidebarInner.appendChild(firstPanel);
-            firstPanel.classList.add("active");
-            panelStack.push(firstPanel);
-
-            function createPanel(ul, isRoot = false) {
+        function createPanel(ul, isRoot = false) {
             const panel = document.createElement("div");
             panel.className = "sidebar-panel";
-            panel.style.left = isRoot ? "0" : "100%";
-            panel.style.zIndex = panelStack.length + 1;
 
-            // Back button for non-root panels
             if (!isRoot) {
-            const backBtn = document.createElement("div");
-            backBtn.className = "sidebar-back";
-            backBtn.textContent = "← Back";
-            backBtn.addEventListener("click", () => slideBack(panel));
-            panel.appendChild(backBtn);
-        }
+                const backBtn = document.createElement("div");
+                backBtn.className = "sidebar-back";
+                backBtn.textContent = "← Back";
+                backBtn.addEventListener("click", () => slideBack(panel));
+                panel.appendChild(backBtn);
+            }
 
-            const clone = ul.cloneNode(true);
-            panel.appendChild(clone);
+            // Create a **new ul** with only the items we want (no submenus shown yet)
+            const newUL = document.createElement("ul");
+            newUL.className = ul.className;
 
-            // Attach click handlers for items with children
-            clone.querySelectorAll("li.menu-item-has-children > a").forEach(link => {
-            const sub = link.parentElement.querySelector("ul.sub-menu");
-            if (!sub) return;
+            Array.from(ul.children).forEach(li => {
+                const cloneLI = li.cloneNode(false); // clone just the LI, not its children
+                cloneLI.innerHTML = li.querySelector("a").outerHTML; // only copy the link
 
-            link.addEventListener("click", (e) => {
-            e.preventDefault();
-            slideForward(sub, panel);
-        });
-        });
+                // If this LI has children, attach click to open submenu
+                if (li.classList.contains("menu-item-has-children")) {
+                    const sub = li.querySelector("ul.sub-menu");
+                    cloneLI.querySelector("a").addEventListener("click", (e) => {
+                        e.preventDefault();
+                        slideForward(sub, panel);
+                    });
+                }
 
+                newUL.appendChild(cloneLI);
+            });
+
+            panel.appendChild(newUL);
             return panel;
         }
 
-            function slideForward(submenu, currentPanel) {
+        function slideForward(submenu, currentPanel) {
             const nextPanel = createPanel(submenu);
             sidebarInner.appendChild(nextPanel);
             panelStack.push(nextPanel);
 
-            // Animate panels
-            requestAnimationFrame(() => {
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
             nextPanel.classList.add("active");
-            nextPanel.style.left = "0";
-        });
         }
 
-            function slideBack(currentPanel) {
+        function slideBack(currentPanel) {
             const previousPanel = panelStack[panelStack.length - 2];
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
@@ -508,7 +511,8 @@ if ($header_pictures) {
 
             setTimeout(() => currentPanel.remove(), 300);
         }
-        });
+    });
+
 </script>
 
 
