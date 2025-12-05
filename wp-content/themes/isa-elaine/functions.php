@@ -570,3 +570,9 @@ function auto_fill_image_alts_img_callback( $matches ) {
 
 
 
+function theme_sidebar_files() {
+    wp_enqueue_style('theme-sidebar', get_template_directory_uri() . '/assets/css/sidebar/sidebar.css');
+
+    wp_enqueue_script('theme-sidebar', get_template_directory_uri() . '/assets/js/sidebar/sidebar.js', [], false, true);
+}
+add_action('wp_enqueue_scripts', 'theme_sidebar_files');

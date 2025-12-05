@@ -3398,7 +3398,7 @@ nav {
     position: relative;
 }
 
-.header-nav nav > ul {
+.header-nav nav .header-donate-button ul {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -3464,7 +3464,7 @@ nav {
 }
 
 
-.header-nav nav > ul > li:not(.btn) > a {
+.header-nav nav .header-donate-button ul > li:not(.btn) > a {
     color: #000000;
     font-family: "iA Writer Duo", sans-serif;
     font-stretch: normal;
@@ -5315,10 +5315,6 @@ body.home .scroll-container .home-hero.scroll-section.section-1 {
 
 
 }
-
-
-
-
 
 
 
