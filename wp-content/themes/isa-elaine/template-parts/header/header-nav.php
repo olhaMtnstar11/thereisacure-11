@@ -96,14 +96,15 @@ if ($header_pictures) {
         position: fixed;
         top: 0;
         right: 0;
-        width: 280px;
+        width: 400px; /* new bigger width */
+        padding: 50px 25px; /* optional: adjust padding */
         height: 100%;
         background: #fff;
         border-left: 1px solid #ddd;
         transform: translateX(100%);
         transition: transform .3s ease;
         z-index: 9999;
-        padding: 50px 20px;
+
     }
 
     .sidebar.open {
@@ -116,7 +117,7 @@ if ($header_pictures) {
     .sidebar-buttons {
         position: fixed;
         top: 40px;
-        right: 40px;
+        right: 40px; /* keep same or adjust */
         display: flex;
         align-items: center;
         gap: 20px;
@@ -127,7 +128,7 @@ if ($header_pictures) {
     }
 
     .sidebar.open ~ .sidebar-buttons {
-        transform: translateX(-280px); /* sidebar width */
+        transform: translateX(-400px); /* sidebar width */
     }
 
     /* ------------------------- */
@@ -424,9 +425,22 @@ if ($header_pictures) {
         color: #0867E8;
         display: inline-block;
     }
-    /* Hide all submenus initially */
-    .sidebar-panel ul.sub-menu {
 
+
+
+
+    /* Add arrow for items with children */
+    .sidebar-panel ul li.menu-item-has-children > a::after {
+        content: "▶"; /* Unicode arrow */
+        display: inline-block;
+        margin-left: 8px;
+        font-size: 12px;
+        transition: transform 0.3s ease;
+    }
+
+    /* Rotate arrow when submenu is active */
+    .sidebar-panel ul li.menu-item-has-children.active > a::after {
+        transform: rotate(90deg);
     }
 
 
@@ -437,7 +451,16 @@ if ($header_pictures) {
  margin: 20px 0;
     }
 
-    .
+    /* Mobile sidebar */
+    @media (max-width: 966px) {
+        .sidebar {
+            width: 220px; /* keep mobile width */
+        }
+
+        .sidebar.open ~ .sidebar-buttons {
+            transform: translateX(-220px); /* match mobile width */
+        }
+    }
 </style>
 
 <script>
@@ -472,6 +495,9 @@ if ($header_pictures) {
             const panel = document.createElement("div");
             panel.className = "sidebar-panel";
 
+
+
+
             // Back button
             if (!isRoot) {
                 const backBtn = document.createElement("div");
@@ -500,6 +526,8 @@ if ($header_pictures) {
 
                 newUL.appendChild(cloneLI);
             });
+
+
 
             panel.appendChild(newUL);
             return panel;
