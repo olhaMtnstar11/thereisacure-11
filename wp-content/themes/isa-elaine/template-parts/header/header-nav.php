@@ -183,6 +183,15 @@ if ($header_pictures) {
     }
 
     /* ANIMATION → X */
+
+
+    /* When sidebar is open, change to white (close "X") */
+    .sidebar.open ~ .sidebar-buttons .menu-toggle span {
+        background: #fff;
+    }
+
+
+
     .sidebar.open ~ .sidebar-buttons .menu-toggle span:nth-child(1) {
         transform: translateY(14px) rotate(45deg);
     }
@@ -412,7 +421,7 @@ if ($header_pictures) {
         font-size: 14px;
         margin-bottom: 20px;
         cursor: pointer;
-        color: #ff6600;
+        color: #0867E8;
         display: inline-block;
     }
     /* Hide all submenus initially */
