@@ -7,29 +7,27 @@ if (is_array($array) && array_filter($array)):
         <section id="story" class="plain-text scroll-section">
 
 
-            <div class="three-column-grid new-section-content">
-                <div class="firs-column">
+            <div class="general-tpl-section">
 
-                </div>
 
-                <div class="two-column-text two-column-image-title">
+
 
                     <div class="image-row">
-                        <div>
+
                             <?php if (get_sub_field('isa_image_1')): ?>
                                 <img src="<?php echo esc_url(get_sub_field('isa_image_1')); ?>" alt="">
                             <?php endif; ?>
-                        </div>
 
-                        <div>
+
+
                             <?php if (get_sub_field('isa_image_2')): ?>
                                 <img src="<?php echo esc_url(get_sub_field('isa_image_2')); ?>" alt="">
                             <?php endif; ?>
-                        </div>
+
                     </div>
 
 
-                </div>
+
 
 
             </div>
@@ -151,8 +149,20 @@ if (is_array($array) && array_filter($array)):
     .research-block {
         font-size: 20px;
     }
+    .image-row img {
+        width: 100%;
+        height: auto;       /* keeps proportion */
+        max-height: 350px;  /* adjust this number */
+        object-fit: cover;
+    }
+    .image-row {
+        display: flex;
+        flex-wrap: nowrap; /* allows wrapping on small screens */
 
-
+    }
+    .two-column-image-title {
+        column-count: 1;
+    }
     @media (max-width: 1600px) {
         .two-column-text {
             column-count: 1;
@@ -160,6 +170,11 @@ if (is_array($array) && array_filter($array)):
 
         .two-column-text img {
             max-width: 400px;
+        }
+
+        .new-section h2 {
+margin-bottom: 20px;
+            font-size: 44px;
         }
     }
 
@@ -213,21 +228,7 @@ if (is_array($array) && array_filter($array)):
     }
 
 
-    .image-row {
-        display: flex;
-        flex-wrap: nowrap; /* allows wrapping on small screens */
 
-    }
-
-    .image-row img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-    }
-
-    .two-column-image-title {
-        column-count: 1;
-    }
 
 
 </style>
