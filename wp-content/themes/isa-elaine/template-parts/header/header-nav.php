@@ -392,6 +392,8 @@ if ($header_pictures) {
         width: 100%;
         height: 100%;
         overflow: hidden;
+        font-family: "iA Writer Duo", sans-serif;
+        font-size: 20px;
     }
 
     .sidebar-panel {
@@ -419,16 +421,24 @@ if ($header_pictures) {
     }
 
     .sidebar-back {
-        font-size: 14px;
+        font-size: 24px;
         margin-bottom: 20px;
         cursor: pointer;
         color: #0867E8;
         display: inline-block;
     }
+    .sidebar-panel ul li > a:hover {
+        color: #0867E8;
+    }
 
-
-
-
+    .sidebar-panel ul li.menu-item-has-children > a {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .sidebar-panel ul li.menu-item-has-children > a:hover {
+        color: #0867E8;
+    }
     /* Add arrow for items with children */
     .sidebar-panel ul li.menu-item-has-children > a::after {
         content: "▶"; /* Unicode arrow */
@@ -451,16 +461,49 @@ if ($header_pictures) {
  margin: 20px 0;
     }
 
+
+
+
+
+
     /* Mobile sidebar */
     @media (max-width: 966px) {
         .sidebar {
-            width: 220px; /* keep mobile width */
+            width: 80vw; /* keep mobile width */
+            padding: 100px 25px;
         }
 
         .sidebar.open ~ .sidebar-buttons {
-            transform: translateX(-220px); /* match mobile width */
+            transform: translateX(0px); /* match mobile width */
         }
-    }
+
+        .sidebar.open ~ .sidebar-buttons .menu-toggle span {
+            background: black;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   }
+
+
+
+
+
+
 </style>
 
 <script>
