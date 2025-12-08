@@ -385,8 +385,6 @@ if ($header_pictures) {
 
 
 <style>
-
-
     .sidebar-inner {
         position: relative;
         width: 100%;
@@ -396,6 +394,7 @@ if ($header_pictures) {
         font-size: 20px;
     }
 
+    /* PANEL BASE */
     .sidebar-panel {
         position: absolute;
         top: 0;
@@ -404,22 +403,33 @@ if ($header_pictures) {
         height: 100%;
         overflow-y: auto;
         background: #fff;
-        transition: opacity 0.3s ease;
+
+        /* Animation */
+        opacity: 0;
+        transform: translateX(100%); /* hidden to the right */
+        transition: transform 0.5s ease, opacity 0.5s ease;
+        pointer-events: none;
+
         z-index: 1;
-        pointer-events: auto;
-        display: none; /* hide by default */
     }
 
+    /* ACTIVE PANEL (sliding into view) */
     .sidebar-panel.active {
-        display: block; /* show active panel */
-        z-index: 10;
         opacity: 1;
+        transform: translateX(0); /* visible */
+        pointer-events: auto;
+        z-index: 10;
     }
 
+    /* PREVIOUS PANEL when sliding forward (slide-left & fade-out) */
     .sidebar-panel.prev {
-        display: none; /* hide previous panel */
+        opacity: 0;
+        transform: translateX(-30%); /* slide slightly left */
+        pointer-events: none;
+        z-index: 5;
     }
 
+    /* Back button */
     .sidebar-back {
         font-size: 24px;
         margin-bottom: 20px;
@@ -427,6 +437,8 @@ if ($header_pictures) {
         color: #0867E8;
         display: inline-block;
     }
+
+    /* Hover effects */
     .sidebar-panel ul li > a:hover {
         color: #0867E8;
     }
@@ -436,73 +448,42 @@ if ($header_pictures) {
         align-items: center;
         justify-content: space-between;
     }
-    .sidebar-panel ul li.menu-item-has-children > a:hover {
-        color: #0867E8;
-    }
-    /* Add arrow for items with children */
+
+    /* Arrow */
     .sidebar-panel ul li.menu-item-has-children > a::after {
-        content: "▶"; /* Unicode arrow */
+        content: "▶";
         display: inline-block;
         margin-left: 8px;
         font-size: 12px;
         transition: transform 0.3s ease;
     }
 
-    /* Rotate arrow when submenu is active */
     .sidebar-panel ul li.menu-item-has-children.active > a::after {
         transform: rotate(90deg);
     }
 
-
-    /* Make all list items in the sidebar show pointer */
+    /* List items */
     .sidebar-inner li {
         cursor: pointer;
         border-bottom: 1px solid rgba(0, 0, 0, 0.13);
- margin: 20px 0;
+        margin: 20px 0;
     }
 
-
-
-
-
-
-    /* Mobile sidebar */
+    /* Mobile adjustments */
     @media (max-width: 966px) {
         .sidebar {
-            width: 80vw; /* keep mobile width */
+            width: 80vw;
             padding: 100px 25px;
         }
 
         .sidebar.open ~ .sidebar-buttons {
-            transform: translateX(0px); /* match mobile width */
+            transform: translateX(0px);
         }
 
         .sidebar.open ~ .sidebar-buttons .menu-toggle span {
             background: black;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   }
-
-
-
-
-
+    }
 
 </style>
 
@@ -579,23 +560,32 @@ if ($header_pictures) {
         function slideForward(submenu, currentPanel, stack) {
             const nextPanel = createPanel(submenu, false, stack);
             currentPanel.parentNode.appendChild(nextPanel);
-            stack.push(nextPanel);
 
+
+
+            nextPanel.offsetWidth;
+
+            nextPanel.classList.add("active");
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
-            nextPanel.classList.add("active");
+
+            stack.push(nextPanel);
         }
 
         function slideBack(currentPanel, stack) {
             const previousPanel = stack[stack.length - 2];
+
             currentPanel.classList.remove("active");
             currentPanel.classList.add("prev");
+
             previousPanel.classList.remove("prev");
             previousPanel.classList.add("active");
+
             stack.pop();
 
-            setTimeout(() => currentPanel.remove(), 300);
+            setTimeout(() => currentPanel.remove(), 350);
         }
+
     });
 </script>
 
